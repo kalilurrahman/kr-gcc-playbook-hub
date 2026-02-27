@@ -5,6 +5,32 @@ interface GCCCardProps {
   card: GCCCardType;
 }
 
+/** Renders text with inline https:// URLs as clickable links */
+const DetailText = ({ text }: { text: string }) => {
+  const parts = text.split(/(https?:\/\/[^\s,)]+)/g);
+  if (parts.length === 1) return <>{text}</>;
+
+  return (
+    <>
+      {parts.map((part, i) =>
+        /^https?:\/\//.test(part) ? (
+          <a
+            key={i}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline break-all"
+          >
+            {part}
+          </a>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+};
+
 const GCCCard = ({ card }: GCCCardProps) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -34,9 +60,11 @@ const GCCCard = ({ card }: GCCCardProps) => {
                 {hasColon ? (
                   <>
                     <strong className="text-foreground">{detail.slice(0, colonIdx)}:</strong>
-                    {detail.slice(colonIdx + 1)}
+                    <DetailText text={detail.slice(colonIdx + 1)} />
                   </>
-                ) : detail}
+                ) : (
+                  <DetailText text={detail} />
+                )}
               </li>
             );
           })}

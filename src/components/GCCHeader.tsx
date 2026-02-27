@@ -6,6 +6,11 @@ interface GCCHeaderProps {
   onSearchChange: (query: string) => void;
 }
 
+const themeOptions = [
+  { label: "Dark", value: "dark" },
+  { label: "Light", value: "light" },
+] as const;
+
 const GCCHeader = ({ searchQuery, onSearchChange }: GCCHeaderProps) => {
   const { isDark, toggle } = useTheme();
 
@@ -37,13 +42,22 @@ const GCCHeader = ({ searchQuery, onSearchChange }: GCCHeaderProps) => {
             />
             <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           </div>
-          <button
-            className="theme-toggle-btn"
-            onClick={toggle}
-            aria-label="Toggle theme"
-          >
-            {isDark ? "☀️ Light" : "🌙 Dark"}
-          </button>
+          <div className="flex rounded-lg overflow-hidden border border-border">
+            {themeOptions.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={toggle}
+                className={`px-3 py-1.5 text-xs font-medium transition-all duration-200 ${
+                  (isDark && opt.value === "dark") || (!isDark && opt.value === "light")
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-card text-muted-foreground hover:text-foreground"
+                }`}
+                aria-label={`Switch to ${opt.label} mode`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </header>

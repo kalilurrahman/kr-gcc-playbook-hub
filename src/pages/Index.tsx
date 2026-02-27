@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import CuratorBanner from "@/components/CuratorBanner";
 import GCCHeader from "@/components/GCCHeader";
 import GCCNav from "@/components/GCCNav";
 import OverviewSection from "@/components/OverviewSection";
@@ -17,7 +18,6 @@ const Index = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // When searching, show all sections with matching cards
   const isSearching = searchQuery.trim().length > 0;
 
   const visibleSections = useMemo(() => {
@@ -41,6 +41,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <CuratorBanner />
       <GCCHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       <GCCNav activeSection={isSearching ? "" : activeSection} onSectionChange={handleSectionChange} />
 
