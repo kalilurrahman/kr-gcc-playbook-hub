@@ -240,4 +240,11 @@
   .animate-slide-in-right {
     animation: slideInRight 0.3s ease forwards;
   }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
