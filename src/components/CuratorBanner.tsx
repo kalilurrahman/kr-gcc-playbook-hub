@@ -13,12 +13,12 @@ const CuratorBanner = () => (
       </a>
       <span className="hidden sm:inline">—</span>
       <a
-        href="https://kalilurrahman.github.io"
+        href="https://kalilurrahman.lovable.app"
         target="_blank"
         rel="noopener noreferrer"
         className="hidden sm:inline hover:text-primary transition-colors"
       >
-        kalilurrahman.github.io
+        Portfolio
       </a>
       <span className="hidden sm:inline">·</span>
       <a
@@ -28,15 +28,6 @@ const CuratorBanner = () => (
         className="hover:text-primary transition-colors"
       >
         LinkedIn
-      </a>
-      <span>·</span>
-      <a
-        href="https://kalilurrahman.framer.website/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-primary transition-colors"
-      >
-        Portfolio
       </a>
     </div>
   </div>

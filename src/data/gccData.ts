@@ -22,6 +22,68 @@ export const stats = [
 
 export const sections: GCCSection[] = [
   {
+    id: "purpose",
+    label: "GCC Purpose",
+    title: "GCC Purpose & Strategic Objectives",
+    cards: [
+      {
+        icon: "💰", title: "Cost Arbitrage", description: "Leveraging labor cost differentials across geographies",
+        tags: ["Cost Savings", "Arbitrage", "Foundation"],
+        details: [
+          "Primary Driver: 30-50% cost reduction through talent arbitrage",
+          "Beyond Salary: Infrastructure, real estate, and operational cost optimization",
+          "Value Arbitrage: Trigent strategy — from cost center to profit driver https://trigent.com/blog/from-cost-center-to-profit-driver-leverage-value-arbitrage-to-redefine-your-gccs-business-value/",
+          "Evolving Model: Cost savings redirected to R&D, market experiments https://www.linkedin.com/pulse/beyond-cost-arbitrage-how-indias-gccs-deliver-strategic-thorat-jsh9f",
+          "Key Insight: Cost arbitrage is table stakes — strategic GCCs move beyond this in 2-3 years",
+        ],
+      },
+      {
+        icon: "🧠", title: "Capability & Talent Access", description: "Access to deep talent pools and specialized skills",
+        tags: ["Talent", "Skills", "Expertise"],
+        details: [
+          "India: 5.4M+ IT professionals, 1.5M annual STEM graduates",
+          "Poland: 430K+ IT professionals with EU-standard education",
+          "Skills Focus: AI/ML (63% priority), data engineering (54%), cloud, cybersecurity",
+          "Hire-Train-Deploy Models: Reduce time-to-productivity and attrition by 78%",
+          "Global Talent Pool: Access to diverse perspectives, 24/7 development cycles",
+        ],
+      },
+      {
+        icon: "🔬", title: "Innovation & Incubation", description: "Creating IP, patents, and new products from GCC hubs",
+        tags: ["Innovation", "R&D", "IP"],
+        details: [
+          "EY: How GCCs leverage partner ecosystems for innovation https://www.ey.com/en_in/insights/consulting/global-capability-centers/how-gccs-can-leverage-partner-ecosystems-to-enhance-innovation",
+          "Women-Led Innovation: Patents, platforms, products from GCC incubators https://inductusgcc.com/women-led-innovation-case-studies-of-patents-platforms-products-originating-in-gccs/",
+          "Innovation Time: 10-20% dedicated to experimental projects",
+          "Only 8% of GCCs reach innovation maturity (BCG 2025)",
+          "Key Enablers: Hackathons, startup partnerships, academia collaborations",
+        ],
+      },
+      {
+        icon: "🌍", title: "Market Expansion", description: "Using GCCs as springboards into new markets and regions",
+        tags: ["Growth", "Markets", "Expansion"],
+        details: [
+          "Regional Hubs: GCCs in India serve as gateway to South/Southeast Asia",
+          "Mexico & Colombia: Nearshore GCCs enable LATAM market penetration",
+          "Poland & Romania: EU hub providing regulatory access to 27 member states",
+          "Customer Proximity: Local teams for customer-facing functions",
+          "Revenue Generation: Mature GCCs contribute directly to revenue through local operations",
+        ],
+      },
+      {
+        icon: "🎛️", title: "Strategic Control", description: "Maintaining quality, IP ownership, and governance in-house",
+        tags: ["Governance", "Control", "IP Protection"],
+        details: [
+          "In-House vs Outsourcing: Full IP ownership, direct management, aligned culture",
+          "Data Security: SOC2, ISO certifications, zero-trust architecture",
+          "Decision Rights: Evolving from HQ-controlled to empowered local leadership",
+          "Quality Assurance: Direct oversight, standardized processes, continuous improvement",
+          "Risk Mitigation: Reduced vendor dependency, business continuity control",
+        ],
+      },
+    ],
+  },
+  {
     id: "lifecycle",
     label: "Lifecycle Phases",
     title: "GCC Lifecycle Phases",
@@ -386,6 +448,80 @@ export const sections: GCCSection[] = [
         "Tip: Feed all resource URLs into your app Resources tab for clickable access",
         "Download: Zip all PDFs + this resource list for complete offline bible",
       ] },
+    ],
+  },
+  {
+    id: "finance",
+    label: "Finance & Accounting",
+    title: "Finance & Accounting",
+    cards: [
+      {
+        icon: "📊", title: "CapEx vs OpEx Management", description: "Capital vs operational expenditure frameworks for GCCs",
+        tags: ["CapEx", "OpEx", "Budgeting"],
+        details: [
+          "CapEx: Office fit-out, servers, network gear → Capitalize and depreciate",
+          "OpEx: Salaries, cloud subscriptions, rent, support → Expense immediately",
+          "CFI Guide: Comprehensive CapEx vs OpEx decision framework https://corporatefinanceinstitute.com/resources/accounting/capex-vs-opex/",
+          "Cloud Shift: Modern GCCs moving from CapEx (on-prem) to OpEx (cloud-first)",
+          "Tax Impact: CapEx depreciation schedules vs immediate OpEx deductions affect cash flow",
+        ],
+      },
+      {
+        icon: "🏛️", title: "SEZ vs STPI vs Non-STPI", description: "Comparing tax benefit structures for GCC setup in India",
+        tags: ["SEZ", "STPI", "Tax Benefits"],
+        details: [
+          "SEZ: 15-year tax holiday, duty-free imports, dedicated infrastructure https://sourcebae.com/blog/gccs-in-india-tax-reliefs-incentives-explained/",
+          "STPI: 10-year tax benefits, location flexibility, simpler compliance",
+          "Non-STPI: No special tax benefits but maximum location freedom",
+          "Comparison Guide: TaxGuru deep dive on choosing the right model https://taxguru.in/corporate-law/choosing-model-gccs-india-sez-stpi-non-stpi.html",
+          "GST Exemptions: Exports from SEZ units exempt from GST",
+          "Decision Factors: Scale, timeline, compliance appetite, location preference",
+        ],
+      },
+      {
+        icon: "📑", title: "KPMG GCC Tax Insights", description: "Key tax considerations for GCCs operating in India",
+        tags: ["Tax", "KPMG", "India"],
+        details: [
+          "KPMG Report: Comprehensive GCC tax guide (PDF) https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/09/gccs-in-india-key-tax-insights.pdf",
+          "Single vs Multiple Registrations: Implications for tax and compliance",
+          "Transfer Pricing: Document intercompany SLAs, cost allocation methodologies",
+          "Cost Optimization: Tax-efficient structuring of GCC operations",
+          "Withholding Tax: Cross-border payment considerations for GCC entities",
+        ],
+      },
+      {
+        icon: "📐", title: "GAAP vs Ind AS vs IFRS", description: "Accounting standards comparison for multinational GCCs",
+        tags: ["GAAP", "Ind AS", "IFRS"],
+        details: [
+          "PwC Comparison (PDF): IFRS, US GAAP, Ind AS, Indian GAAP side-by-side https://www.pwc.in/assets/pdfs/publications/2017/ifrs-us-gaap-ind-as-and-indian-gaap-similarities-and-differences.pdf",
+          "Key Differences: Revaluation model, inventory (no LIFO under Ind AS), fair value emphasis",
+          "Transitioning: Practical reconciliation from Ind AS to US GAAP https://blog.ipleaders.in/transitioning-from-indian-accounting-standards-to-us-gaap-a-practical-approach/",
+          "Deloitte Guide: Indian GAAP, IFRS, and Ind AS implementation https://www.deloitte.com/in/en/services/audit-assurance/services/assurance/indian-gaap-ifrs-and-ind-as.html",
+          "LawSikho: Ind AS reconciliation tools and sample tables https://lawsikho.com/blog/transitioning-from-ifrs-ind-as-to-us-gaap/",
+        ],
+      },
+      {
+        icon: "📈", title: "GCC Efficiency & Success Metrics", description: "Measuring financial performance and value realization",
+        tags: ["Metrics", "Performance", "KPIs"],
+        details: [
+          "Inductus Framework: 8 pillars of GCC efficiency measurement (PDF) https://inductusgcc.com/wp-content/uploads/2025/05/A-Guide-to-Measuring-Global-Capability-Center-GCC-Efficiency-and-Success-Pillars.pdf",
+          "Financial KPIs: Cost per FTE, cost avoidance, revenue per employee",
+          "Value Metrics: IP creation, product launches, innovation output",
+          "Balanced Scorecard: Financial, operational, customer, and growth dimensions",
+          "Benchmarking: Compare against industry standards and peer GCCs",
+        ],
+      },
+      {
+        icon: "📊", title: "Financial Dashboards & Tools", description: "Templates and platforms for GCC financial reporting",
+        tags: ["Dashboards", "Tools", "Reporting"],
+        details: [
+          "Qlik: 12 financial dashboard examples — revenue, cash flow, P&L https://www.qlik.com/us/dashboard-examples/financial-dashboards",
+          "Coupler.io: 26 financial dashboard templates for QuickBooks, Xero, Excel https://blog.coupler.io/financial-dashboards/",
+          "Power BI: Microsoft's enterprise analytics for GCC financial reporting",
+          "Tableau: Advanced visualization for cross-geography financial consolidation",
+          "Key Dashboards: Revenue tracking, cost center P&L, transfer pricing reconciliation",
+        ],
+      },
     ],
   },
 ];
