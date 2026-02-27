@@ -1,0 +1,16 @@
+{
+  "name": "GCC Playbook Bible",
+  "short_name": "GCC Playbook",
+  "description": "Comprehensive guide to Global Capability Centers - lifecycle phases, maturity models, geographies, and best practices",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00d4ff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
