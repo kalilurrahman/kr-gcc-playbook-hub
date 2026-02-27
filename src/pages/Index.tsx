@@ -4,6 +4,7 @@ import CuratorBanner from "@/components/CuratorBanner";
 import GCCHeader from "@/components/GCCHeader";
 import OverviewSection from "@/components/OverviewSection";
 import ContentSection from "@/components/ContentSection";
+import ResourcesExplorer from "@/components/ResourcesExplorer";
 import GCCFooter from "@/components/GCCFooter";
 import InstallPrompt from "@/components/InstallPrompt";
 import { sections } from "@/data/gccData";
@@ -39,11 +40,12 @@ const Index = () => {
         )
       );
     }
-    if (activeSection === "overview") return [];
+    if (activeSection === "overview" || activeSection === "resources") return [];
     return sections.filter((s) => s.id === activeSection);
   }, [activeSection, searchQuery, isSearching]);
 
   const showOverview = !isSearching && activeSection === "overview";
+  const showResources = !isSearching && activeSection === "resources";
   const contentKey = isSearching ? `search-${searchQuery}` : activeSection;
 
   return (
@@ -66,6 +68,8 @@ const Index = () => {
             exit="exit"
           >
             {showOverview && <OverviewSection />}
+
+            {showResources && <ResourcesExplorer />}
 
             {visibleSections.length > 0 && (
               <div className="space-y-12">
