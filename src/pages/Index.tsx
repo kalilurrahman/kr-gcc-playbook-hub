@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import CuratorBanner from "@/components/CuratorBanner";
 import GCCHeader from "@/components/GCCHeader";
-import GCCNav from "@/components/GCCNav";
 import OverviewSection from "@/components/OverviewSection";
 import ContentSection from "@/components/ContentSection";
 import GCCFooter from "@/components/GCCFooter";
@@ -42,10 +41,14 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <CuratorBanner />
-      <GCCHeader searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      <GCCNav activeSection={isSearching ? "" : activeSection} onSectionChange={handleSectionChange} />
+      <GCCHeader
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+        activeSection={isSearching ? "" : activeSection}
+        onSectionChange={handleSectionChange}
+      />
 
-      <main className="container mx-auto py-8 flex-1">
+      <main className="container mx-auto py-6 px-4 flex-1">
         {showOverview && <OverviewSection />}
 
         {visibleSections.length > 0 && (
