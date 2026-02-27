@@ -23,7 +23,7 @@ const GCCHeader = ({ searchQuery, onSearchChange }: GCCHeaderProps) => {
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold gradient-text leading-tight">
-              GCC Playbook Bible
+              GCC Playbook
             </h1>
             <p className="text-xs sm:text-sm text-muted-foreground">
               Your Complete Global Capability Center Resource

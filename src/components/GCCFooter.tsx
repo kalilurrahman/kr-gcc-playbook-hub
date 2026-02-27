@@ -3,7 +3,7 @@ const GCCFooter = () => (
     {/* Main footer */}
     <div className="container mx-auto py-8 text-center">
       <p className="text-sm text-muted-foreground">
-        © 2026 GCC Playbook Bible • Version 2.0 • Built for GCC Professionals Worldwide
+        © 2026 GCC Playbook • Version 2.0 • Built for GCC Professionals Worldwide
       </p>
       <p className="text-xs text-muted-foreground mt-1">
         📍 Curated for the complete Inception-to-Sunset GCC Journey
@@ -24,12 +24,12 @@ const GCCFooter = () => (
         </a>
         <span>—</span>
         <a
-          href="https://kalilurrahman.github.io"
+          href="https://kalilurrahman.lovable.app"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition-colors"
         >
-          kalilurrahman.github.io
+          Portfolio
         </a>
         <span className="hidden sm:inline">·</span>
         <a
@@ -39,15 +39,6 @@ const GCCFooter = () => (
           className="hidden sm:inline hover:text-primary transition-colors"
         >
           LinkedIn
-        </a>
-        <span className="hidden sm:inline">·</span>
-        <a
-          href="https://kalilurrahman.framer.website/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden sm:inline hover:text-primary transition-colors"
-        >
-          Portfolio
         </a>
       </div>
     </div>

@@ -5,7 +5,7 @@ const OverviewSection = () => {
     <section className="animate-fade-in-up">
       <div className="text-center py-12 sm:py-16">
         <h2 className="text-3xl sm:text-4xl font-bold gradient-text-accent mb-5">
-          Welcome to the GCC Playbook Bible
+          Welcome to the GCC Playbook
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           Your comprehensive guide to building, scaling, and optimizing Global
