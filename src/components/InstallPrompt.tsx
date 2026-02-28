@@ -5,6 +5,13 @@ const InstallPrompt = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
 
   useEffect(() => {
+    // Suppress if already installed as PWA (standalone mode)
+    const isInstalled =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      (navigator as any).standalone === true;
+
+    if (isInstalled) return;
+
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);

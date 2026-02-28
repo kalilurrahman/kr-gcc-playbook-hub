@@ -32,7 +32,21 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch(() => {});
+          navigator.serviceWorker.register('/sw.js').then((reg) => {
+            // Check for updates every 60 seconds
+            setInterval(() => reg.update(), 60000);
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'activated' && navigator.serviceWorker.controller) {
+                    // New version available — auto-refresh
+                    window.location.reload();
+                  }
+                });
+              }
+            });
+          }).catch(() => {});
         });
       }
     </script>

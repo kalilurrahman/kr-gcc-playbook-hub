@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "@/hooks/useTheme";
-import { Search, Menu, X, Home, Target, Rocket, BarChart3, Building2, Globe, AlertTriangle, CheckCircle, BookOpen, DollarSign, ChevronLeft, ChevronRight } from "lucide-react";
+import { Search, Menu, X, Home, Target, Rocket, BarChart3, Building2, Globe, AlertTriangle, CheckCircle, BookOpen, DollarSign } from "lucide-react";
 import { navItems } from "@/data/gccData";
 
 interface GCCHeaderProps {
@@ -12,6 +12,7 @@ interface GCCHeaderProps {
 
 const navIcons: Record<string, React.ReactNode> = {
   overview: <Home className="w-4 h-4" />,
+  resources: <BookOpen className="w-4 h-4" />,
   purpose: <Target className="w-4 h-4" />,
   lifecycle: <Rocket className="w-4 h-4" />,
   maturity: <BarChart3 className="w-4 h-4" />,
@@ -19,36 +20,19 @@ const navIcons: Record<string, React.ReactNode> = {
   geography: <Globe className="w-4 h-4" />,
   challenges: <AlertTriangle className="w-4 h-4" />,
   bestpractices: <CheckCircle className="w-4 h-4" />,
-  resources: <BookOpen className="w-4 h-4" />,
   finance: <DollarSign className="w-4 h-4" />,
 };
 
 const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange }: GCCHeaderProps) => {
   const { isDark, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
 
-  const checkScroll = useCallback(() => {
-    const el = navRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 2);
-    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
-  }, []);
-
+  // Close menu on escape key
   useEffect(() => {
-    const el = navRef.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener("scroll", checkScroll, { passive: true });
-    window.addEventListener("resize", checkScroll);
-    return () => { el.removeEventListener("scroll", checkScroll); window.removeEventListener("resize", checkScroll); };
-  }, [checkScroll]);
-
-  const scroll = (dir: "left" | "right") => {
-    navRef.current?.scrollBy({ left: dir === "left" ? -200 : 200, behavior: "smooth" });
-  };
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
 
   const handleNavClick = (id: string) => {
     onSectionChange(id);
@@ -68,35 +52,23 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
             </div>
           </div>
 
-          {/* Center: Desktop nav with scroll arrows */}
-          <div className="hidden lg:flex items-center min-w-0 flex-1 mx-2 relative">
-            {canScrollLeft && (
-              <button onClick={() => scroll("left")} className="shrink-0 p-1 rounded-full hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors z-10" aria-label="Scroll left">
-                <ChevronLeft className="w-4 h-4" />
+          {/* Center: Desktop nav — wraps to 2 lines if crowded */}
+          <nav className="hidden lg:flex items-center justify-center flex-wrap gap-1 min-w-0 flex-1 mx-2">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 whitespace-nowrap ${
+                  activeSection === item.id
+                    ? "gradient-bg text-white"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+              >
+                {navIcons[item.id]}
+                {item.label}
               </button>
-            )}
-            <nav ref={navRef} className="flex items-center gap-1 overflow-x-auto scrollbar-hide min-w-0 flex-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 whitespace-nowrap ${
-                    activeSection === item.id
-                      ? "gradient-bg text-white"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                  }`}
-                >
-                  {navIcons[item.id]}
-                  {item.label}
-                </button>
-              ))}
-            </nav>
-            {canScrollRight && (
-              <button onClick={() => scroll("right")} className="shrink-0 p-1 rounded-full hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors z-10" aria-label="Scroll right">
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            )}
-          </div>
+            ))}
+          </nav>
 
           {/* Right: Search + Theme + Hamburger */}
           <div className="flex items-center gap-2 shrink-0">
@@ -131,7 +103,7 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
         </div>
       </header>
 
-      {/* Mobile drawer */}
+      {/* Mobile/tablet drawer */}
       {menuOpen && (
         <div className="lg:hidden fixed inset-0 z-40" onClick={() => setMenuOpen(false)}>
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
