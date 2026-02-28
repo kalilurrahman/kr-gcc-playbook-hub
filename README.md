@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# GCC Playbook
 
-## Project info
+**Live URL**: [https://kr-gcc-playbook.lovable.app/](https://kr-gcc-playbook.lovable.app/)
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Welcome to the **GCC Playbook**, a comprehensive guide to building, scaling, and optimizing Global Capability Centers from inception to excellence.
 
-## How can I edit this code?
+This interactive web application provides an intuitive way to explore phases, maturity levels, geographies, best practices, and proven strategies for GCC professionals globally.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+The GCC Playbook covers essential topics categorized into various sections:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **GCC Purpose & Strategic Objectives**: Explore the foundational drivers for GCCs, moving from cost arbitrage to capability building and innovation engines.
+- **Lifecycle Phases**: A step-by-step guide spanning inception, setup, stabilization, growth, optimization, and exit strategies.
+- **Maturity Levels**: Understand the 5 stages of capability center growth, from cost center to value creator and innovation engine.
+- **GCC Sizes**: A breakdown of GCCs by size, helping organizations optimize and right-size based on functions.
+- **Geography Guide**: In-depth analysis of major GCC hubs worldwide, including India, Mexico, Colombia, Poland, and more.
+- **Challenges & Solutions**: Common pitfalls such as talent attrition, compliance risks, scaling too fast, and how to solve them.
+- **Best Practices**: Proven frameworks for governance, product ownership, and continuous learning.
+- **Resources & Tools**: A curated list of consulting reports, government portals, legal advisors, and technology platforms.
+- **Finance & Accounting**: CapEx vs. OpEx frameworks, tax insights (SEZ/STPI), and GAAP/IFRS implementation differences.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Screenshots
 
-**Use your preferred IDE**
+Here's a glimpse into the GCC Playbook:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Main Dashboard (Dark Mode)
+![Main Dashboard Dark](public/images/main_dark.png)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Main Dashboard (Light Mode)
+![Main Dashboard Light](public/images/main_light.png)
 
-Follow these steps:
+### GCC Purpose & Strategy
+![GCC Purpose](public/images/purpose_dark.png)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Lifecycle Phases
+![Lifecycle Phases](public/images/lifecycle_dark.png)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### GCC Sizes
+![GCC Sizes](public/images/sizes_light.png)
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Resources & Tools
+![Resources](public/images/resources_dark.png)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## Technologies Used
 
-**Edit a file directly in GitHub**
+This project was built with modern web development tools:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **React 18**
+- **Vite** (Build Tool)
+- **TypeScript**
+- **Tailwind CSS** (Styling)
+- **shadcn-ui** (Accessible UI Components)
+- **Framer Motion** (Animations)
+- **React Router** (Navigation)
+- **Lucide React** (Icons)
 
-**Use GitHub Codespaces**
+## Folder Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The repository has been structured for scalability and easy maintenance:
 
-## What technologies are used for this project?
+- **`src/`**: Main source code directory ([Read more in src/README.md](src/README.md)).
+- **`src/components/`**: Reusable React UI components ([Read more in src/components/README.md](src/components/README.md)).
+- **`src/data/`**: Static data definitions powering the content of the Playbook ([Read more in src/data/README.md](src/data/README.md)).
+- **`src/pages/`**: Top-level page components for routing ([Read more in src/pages/README.md](src/pages/README.md)).
+- **`public/`**: Static assets, including images and icons.
 
-This project is built with:
+## How to Run Locally
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+If you want to work locally, clone this repo and push changes.
 
-## How can I deploy this project?
+1. **Clone the repository:**
+   ```sh
+   git clone <YOUR_GIT_URL>
+   cd <YOUR_PROJECT_NAME>
+   ```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+2. **Install dependencies:**
+   Make sure you have Node.js and npm installed.
+   ```sh
+   npm install
+   ```
 
-## Can I connect a custom domain to my Lovable project?
+3. **Start the development server:**
+   ```sh
+   npm run dev
+   ```
 
-Yes, you can!
+4. Open `http://localhost:5173/` (or the port specified by Vite) in your browser.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contributing
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Edit a file directly in GitHub:** Click the "Edit" button (pencil icon) on the desired file view and commit your changes.
+- **Use Lovable:** Visit [Lovable Project](https://lovable.dev) and prompt changes. Changes made via Lovable will be committed automatically.
+
+## License
+
+Created for GCC Professionals Worldwide. Curated by Kalilur Rahman.
