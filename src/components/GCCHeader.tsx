@@ -45,7 +45,7 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
         <div className="container mx-auto flex items-center justify-between gap-3 py-2.5 px-4">
           {/* Left: Logo + Title */}
           <div className="flex items-center gap-3 shrink-0">
-            <img src="/icon-512.png" alt="GCC Playbook" className="w-9 h-9 rounded-lg" />
+            <img src="/icon-512.png" alt="GCC Playbook" className="w-9 h-9 rounded-lg bg-card border border-border p-0.5" />
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold gradient-text leading-tight">GCC Playbook</h1>
               <p className="text-[10px] text-muted-foreground leading-tight">Global Capability Center Resource</p>
