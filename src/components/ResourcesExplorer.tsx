@@ -55,14 +55,24 @@ const ResourcesExplorer = () => {
           <h2 className="section-title mb-1">📚 Resource Library</h2>
           <p className="text-sm text-muted-foreground">{allResources.length} curated resources across {resourceCategories.length} categories</p>
         </div>
-        <a
-          href="/GCC_Resources_Consolidated.csv"
-          download="GCC_Resources_Consolidated.csv"
-          className="expand-button inline-flex items-center gap-2 no-underline w-fit"
-        >
-          <Download className="w-4 h-4" />
-          Download CSV
-        </a>
+        <div className="flex flex-wrap items-center gap-2">
+          <a
+            href="/GCC_Playbook_v_0.5.pdf"
+            download="GCC_Playbook_v0.5.pdf"
+            className="expand-button inline-flex items-center gap-2 no-underline w-fit"
+          >
+            <Download className="w-4 h-4" />
+            Playbook PDF
+          </a>
+          <a
+            href="/GCC_Resources_Consolidated.csv"
+            download="GCC_Resources_Consolidated.csv"
+            className="expand-button inline-flex items-center gap-2 no-underline w-fit"
+          >
+            <Download className="w-4 h-4" />
+            Resource CSV
+          </a>
+        </div>
       </div>
 
       {/* Category dropdown + search row */}

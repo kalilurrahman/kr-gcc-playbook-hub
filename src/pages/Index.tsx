@@ -7,6 +7,7 @@ import ContentSection from "@/components/ContentSection";
 import ResourcesExplorer from "@/components/ResourcesExplorer";
 import GCCFooter from "@/components/GCCFooter";
 import InstallPrompt from "@/components/InstallPrompt";
+import PlaybookBanner from "@/components/PlaybookBanner";
 import { sections } from "@/data/gccData";
 
 const pageVariants = {
@@ -50,6 +51,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PlaybookBanner variant="inline" />
       <CuratorBanner />
       <GCCHeader
         searchQuery={searchQuery}
@@ -96,6 +98,11 @@ const Index = () => {
           </motion.div>
         </AnimatePresence>
       </main>
+
+      {/* Playbook download banner above footer */}
+      <div className="container mx-auto px-4 pb-8">
+        <PlaybookBanner variant="hero" />
+      </div>
 
       <GCCFooter />
       <InstallPrompt />
