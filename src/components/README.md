@@ -1,5 +1,7 @@
 # `src/components/` - React UI Components
 
+![Main Dashboard Light](../../public/images/main_light.png)
+
 This folder contains all the reusable React UI components used to build the GCC Playbook application.
 
 ## Overview

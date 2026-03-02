@@ -1,5 +1,7 @@
 # `src/` - Source Code Directory
 
+![Main Dashboard Dark](../public/images/main_dark.png)
+
 This directory contains the main source code for the GCC Playbook application. It is structured into logical folders to maintain a clear separation of concerns.
 
 ## Directory Structure

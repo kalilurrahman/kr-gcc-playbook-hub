@@ -1,5 +1,7 @@
 # `src/pages/` - Top-Level Page Components
 
+![Resources Explorer Page](../../public/images/resources_dark.png)
+
 This directory holds the main React page components that handle the overall layout and routing logic for the GCC Playbook.
 
 ## Overview
