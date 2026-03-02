@@ -1,5 +1,7 @@
 # `src/data/` - Static Application Data
 
+![GCC Purpose Data Mapping](../../public/images/purpose_dark.png)
+
 This folder stores the core content of the GCC Playbook application.
 
 ## Overview
