@@ -72,14 +72,6 @@ const ResourcesExplorer = () => {
             <Download className="w-4 h-4" />
             Resource List (TXT)
           </a>
-          <a
-            href="/GCC_Resources_URLs.txt"
-            download="GCC_Resources_URLs.txt"
-            className="expand-button inline-flex items-center gap-2 no-underline w-fit"
-          >
-            <Download className="w-4 h-4" />
-            Resource List (TXT)
-          </a>
         </div>
       </div>
 
