@@ -163,7 +163,7 @@ export const sections: GCCSection[] = [
     title: "GCC Size Categories",
     cards: [
       {
-        icon: "🏢", title: "Micro GCC (10-50 employees)", description: "Pilot phase and proof of concept",
+        icon: "🏢", title: "Micro/Nano GCC (10-50 employees)", description: "Pilot phase and proof of concept",
         tags: ["Startup Phase", "Pilot Projects"],
         details: ["Typical Functions: IT development, analytics, finance operations", "Setup Time: 3-6 months", "Investment: $500K - $2M initial setup", "Advantages: Agile, low risk, fast setup, proof of concept", "Challenges: Limited scale, higher per-FTE costs, talent attraction", "Best For: Testing GCC model, niche capabilities, SMEs"],
       },
