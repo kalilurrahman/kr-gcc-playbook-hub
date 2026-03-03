@@ -57,20 +57,12 @@ const ResourcesExplorer = () => {
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <a
-            href="/GCC_Playbook_v_0.5.pdf"
-            download="GCC_Playbook_v0.5.pdf"
+            href="/GCC_Playbook_v_0.9.pdf"
+            download="GCC_Playbook_v0.9.pdf"
             className="expand-button inline-flex items-center gap-2 no-underline w-fit"
           >
             <Download className="w-4 h-4" />
             Playbook PDF
-          </a>
-          <a
-            href="/GCC_Resources_Consolidated.csv"
-            download="GCC_Resources_Consolidated.csv"
-            className="expand-button inline-flex items-center gap-2 no-underline w-fit"
-          >
-            <Download className="w-4 h-4" />
-            Resource CSV
           </a>
           <a
             href="/GCC_Resources_URLs.txt"
@@ -78,7 +70,15 @@ const ResourcesExplorer = () => {
             className="expand-button inline-flex items-center gap-2 no-underline w-fit"
           >
             <Download className="w-4 h-4" />
-            URL List (TXT)
+            Resource List (TXT)
+          </a>
+          <a
+            href="/GCC_Resources_URLs.txt"
+            download="GCC_Resources_URLs.txt"
+            className="expand-button inline-flex items-center gap-2 no-underline w-fit"
+          >
+            <Download className="w-4 h-4" />
+            Resource List (TXT)
           </a>
         </div>
       </div>
