@@ -1,53 +1,29 @@
-# `src/data/` - Static Application Data
+# Data Layer
 
-![GCC Purpose Data Mapping](../../public/images/purpose_dark.png)
+The `src/data/` directory acts as the central static data layer for the GCC Playbook. The entire application is built on top of predefined TypeScript objects to ensure type safety, eliminate API dependency for core content, and allow rapid offline editing.
 
-This folder stores the core content of the GCC Playbook application.
+## `gccData.ts`
 
-## Overview
+This is the primary data module powering the core playbooks and dashboards of the application. It contains comprehensive structured models for:
 
-The primary file here is `gccData.ts`. It acts as the "database" or content management file for the entire application, holding structured information regarding the Global Capability Center Playbook.
+- **GCC Purpose & Strategic Objectives:** Details around cost arbitrage, talent access, and innovation hubs.
+- **Lifecycle Phases:** An array of objects defining the stages from inception and planning to growth and exit.
+- **Maturity Levels:** Breakdown of the 5 evolutionary steps (Cost Center -> Global Value Creator).
+- **GCC Sizes:** Scale definitions (Micro/Nano to Mega GCCs) and their typical operational focuses.
+- **Geographies:** Information on major global GCC hubs (e.g., India, Mexico, Poland, Philippines).
+- **Challenges & Solutions:** Common operational risks mapped to practical mitigation strategies.
+- **Best Practices:** Frameworks for governance, alignment, and execution.
+- **Finance & Accounting:** Comparisons between CapEx/OpEx models and localization strategies.
 
-## Structure of `gccData.ts`
+## `resourcesData.ts`
 
-The data is defined using TypeScript interfaces to maintain type safety across the React application.
+This file is responsible for powering the entire interactive `ResourcesExplorer` component ("The Library"). It exports:
 
-### Key Interfaces
+- `allResources`: A vast array of objects defining hundreds of curated links, PDFs, tools, and guides.
+  - Each object adheres to an implicit schema containing `name`, `url`, `type` (e.g., Blog, Web Guide, Web Article, PDF), and `category`.
+- `resourceCategories`: A dynamically extracted, sorted array of all unique categories present within `allResources`.
+- `resourcesByCategory`: A heavily optimized mapping grouping the resources array by their category keys for near-instant rendering and searchability.
 
-- **`GCCCard`**: Represents an individual topic or concept within a section.
-  - `icon`: An emoji representing the topic visually.
-  - `title`: The main heading.
-  - `description`: A short summary.
-  - `tags`: An array of keywords for categorization and search.
-  - `details`: An array of bullet points containing the deep dive information and links.
-- **`GCCSection`**: Represents a major category grouping multiple cards.
-  - `id`: A unique identifier (e.g., "purpose", "lifecycle").
-  - `label`: A short display name used in navigation.
-  - `title`: The full title for the section header.
-  - `cards`: An array of `GCCCard` objects.
+### Updating Data
 
-### Content Categories
-
-The `sections` array currently exports the following structured data:
-
-1. **GCC Purpose**: The strategic objectives behind setting up a GCC.
-2. **Lifecycle Phases**: The end-to-end journey from inception to maturity.
-3. **Maturity Levels**: The stages a GCC traverses over time.
-4. **GCC Sizes**: Categories and scaling metrics.
-5. **Geography**: An analysis of popular global destinations for GCC setups.
-6. **Challenges**: Common hurdles and how to address them.
-7. **Best Practices**: Frameworks for success.
-8. **Resources**: A curated list of links to consulting reports, government portals, legal advisors, etc.
-9. **Finance & Accounting**: Financial strategies (CapEx/OpEx, Tax Insights, Accounting Standards).
-
-### Navigation & Metrics
-
-- **`navItems`**: Extracted directly from the sections for rendering the global header navigation.
-- **`stats`**: Key metrics (e.g., Active GCCs globally, Professionals Employed) displayed prominently on the Overview dashboard.
-
-## Adding Content
-
-To add new content or a new section:
-1. Define a new object matching the `GCCSection` interface.
-2. Add it to the exported `sections` array in `gccData.ts`.
-3. The application dynamically generates navigation, search indexing, and rendering based on this array.
+Any modification to these arrays will automatically hot-reload and reflect in the application's components. They are structured intentionally so that non-technical contributors can easily edit text strings, add new items, or restructure existing content directly within the TypeScript files.

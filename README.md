@@ -1,6 +1,6 @@
 # GCC Playbook
 
-**Live URL**: [https://kr-gcc-playbook.lovable.app/](https://kr-gcc-playbook.lovable.app/)
+**Live URL**: [https://gcc-playbook-hub.lovable.app](https://gcc-playbook-hub.lovable.app)
 
 Welcome to the **GCC Playbook**, a comprehensive guide to building, scaling, and optimizing Global Capability Centers from inception to excellence.
 
@@ -12,13 +12,13 @@ The GCC Playbook offers a centralized dashboard that tracks key metrics like act
 
 ### Dark & Light Modes
 
-The application supports both themes for an accessible and customizable reading experience.
-
-![Main Dashboard Dark](public/images/main_dark.png)
-*Main Dashboard in Dark Mode*
+The application supports both themes for an accessible and customizable reading experience. Navigate seamlessly between modes!
 
 ![Main Dashboard Light](public/images/main_light.png)
 *Main Dashboard in Light Mode*
+
+![Main Dashboard Dark](public/images/main_dark.png)
+*Main Dashboard in Dark Mode*
 
 ---
 
@@ -41,13 +41,46 @@ A thorough breakdown of GCCs by size category, helping organizations optimize an
 
 ![GCC Sizes](public/images/sizes_light.png)
 
-### 📚 Resources & Tools
+### 📊 Maturity Levels
+Understand the 5 stages of capability center growth, from a simple cost center to a global value creator. Toggle views in dark or light mode based on your preference.
+
+![Maturity Levels Light](public/images/maturity_light.png)
+
+---
+
+## 📚 Resource Library (/library)
+
 A meticulously curated library of consulting reports, government portals, legal advisors, technology platforms, and open-source intelligence tools tailored for GCC operations.
 
-![Resources](public/images/resources_dark.png)
+Our new Resource Library features dynamic filtering, categorization, and responsive design tailored for extensive research.
+
+![Resources Default](public/images/resources_dark.png)
+*Resource Library Overview*
+
+### Interactive Filtering & Dropdowns
+Easily browse through dozens of categories using our interactive dropdown menu, allowing you to quickly drill down into the topics that matter most.
+
+![Library Dropdown Dark](public/images/library_dropdown_dark.png)
+*Interactive Category Dropdown*
+
+### Live Search
+Know exactly what you're looking for? Use the live search to filter resources by title, category, or type in real-time.
+
+![Library Search Dark](public/images/library_search_dark.png)
+*Live Search & Filtering*
+
+### Fully Supported Theme Switching
+Whether exploring the library or reviewing strategies, you can transition between light and dark modes instantly.
+
+![Library Light](public/images/library_light.png)
+*Library Dashboard (Light Mode)*
+
+![Library Search Light](public/images/library_search_light.png)
+*Library Filtering (Light Mode)*
+
+---
 
 ### Additional Sections Explored:
-- **Maturity Levels**: Understand the 5 stages of capability center growth, from a simple cost center to a global value creator.
 - **Geography Guide**: In-depth comparative analysis of major GCC hubs worldwide, including India, Mexico, Colombia, Poland, and more.
 - **Challenges & Solutions**: Common operational pitfalls (talent attrition, compliance risks, rapid scaling) and actionable mitigation strategies.
 - **Best Practices**: Proven frameworks for governance, product ownership, and continuous enterprise learning.
