@@ -1,30 +1,44 @@
-# `src/components/` - React UI Components
+# Components
 
-![Main Dashboard Light](../../public/images/main_light.png)
+The `src/components/` directory contains all reusable UI components and specialized layout structures used across the GCC Playbook. The architecture embraces composition, modularity, and atomic design principles utilizing `shadcn-ui`, `framer-motion`, and `lucide-react`.
 
-This folder contains all the reusable React UI components used to build the GCC Playbook application.
+## Core Structural Components
 
-## Overview
+- **`GCCHeader.tsx`**: The main application navigation bar. It includes responsive mobile menus, live search functionality, and a theme toggler. It controls the `activeSection` state across the Single Page Application (SPA).
+- **`GCCFooter.tsx`**: A responsive footer providing additional contextual links, copyright details, and social channels.
+- **`OverviewSection.tsx`**: The primary dashboard landing component tracking high-level metrics (e.g., globally active GCCs, total professionals employed).
+- **`ContentSection.tsx`**: A wrapper component to present individual topics like Geography, Best Practices, and Challenges in an aesthetically consistent card layout.
 
-Components in this directory follow the best practices of breaking down a large application into smaller, self-contained building blocks. It is broadly categorized into:
+## Data Display Components
 
-1. **Feature Components**: Components specifically designed for the GCC Playbook's functionality (e.g., `ContentSection`, `CuratorBanner`, `GCCHeader`, `OverviewSection`, `ResourcesExplorer`).
-2. **UI Components (`ui/`)**: Low-level, generic components provided by `shadcn-ui`. These are styled with Tailwind CSS and Radix UI primitives to ensure accessibility and consistent design.
+- **`GCCCard.tsx`**: A flexible card component used extensively throughout the application to render specific phases, lifecycle steps, and maturity levels dynamically.
 
-## Notable Components
+---
 
-- **`GCCHeader.tsx`**: The main application header containing navigation links, dark/light mode toggle, and global search functionality.
-- **`ContentSection.tsx`**: Displays individual sections (like Purpose, Lifecycle, Geography) in an interactive card grid format.
-- **`ResourcesExplorer.tsx`**: A component designed specifically to render and filter the extensive list of GCC resources, tools, reports, and templates.
-- **`GCCFooter.tsx`**: The application footer with branding and copyright.
+## 📚 ResourcesExplorer.tsx (The Library)
 
-## Design System
+The `ResourcesExplorer` is a highly interactive component responsible for rendering the GCC Playbook's curated resource library. Rather than being a separate page, it serves as a massive functional module with built-in search, filtering, grouping, and direct document downloads.
 
-The styling is handled primarily through **Tailwind CSS**. Components use a custom utility `cn()` (found in `src/lib/utils.ts`) to manage dynamic class names efficiently.
+### Key Capabilities
 
-### Adding New Components
+1. **Category Grouping & Expansion:** Resources are logically mapped to categories. Users can collapse or expand specific groups to refine their reading view.
+2. **Interactive Dropdown Filter:** Users can filter the entire library down to a specific category.
 
-When adding new components:
-- Use functional components and modern React hooks.
-- Create an interface for component props.
-- If it's a primitive UI block (like a new button variant or tooltip), place it inside the `ui/` subdirectory. Otherwise, keep it at the root of `src/components/`.
+![Library Dropdown Dark](../../public/images/library_dropdown_dark.png)
+*Filtering the Library by Category*
+
+3. **Live Search Integration:** Allows real-time string matching against resource names, categories, and types.
+
+![Library Search Light](../../public/images/library_search_light.png)
+*Searching for "Strategy" within the Light Theme*
+
+![Library Search Dark](../../public/images/library_search_dark.png)
+*Searching for "Guide" within the Dark Theme*
+
+4. **Contextual Document Handling:** Recognizes direct PDF links and appends download behaviors while gracefully opening external resources in isolated tabs.
+
+---
+
+## Additional Information
+
+All components heavily rely on the static data stores housed within the `src/data/` directory to remain completely stateless whenever possible, offloading state management strictly to the main index/parent levels or specifically within complex interactives like the `ResourcesExplorer`.

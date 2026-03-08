@@ -1,25 +1,17 @@
-# `src/pages/` - Top-Level Page Components
+# Pages
 
-![Resources Explorer Page](../../public/images/resources_dark.png)
+The `src/pages/` directory acts as the entry point for primary views rendered by the router in `App.tsx`. Given that the GCC Playbook is fundamentally a Single-Page Application (SPA), the logic here predominantly revolves around state management and global layout wrappers.
 
-This directory holds the main React page components that handle the overall layout and routing logic for the GCC Playbook.
+## `Index.tsx`
 
-## Overview
+This is the main driver of the application. It encapsulates the core dashboard, sidebars, headers, and individual content sections.
 
-The `src/pages/` folder provides the entry points for the different routes defined in `src/App.tsx`.
+### State & Navigation
+Rather than navigating to distinct URLs like `/purpose` or `/library`, navigation is managed through state mapping:
+- The `activeSection` state determines which major block of the `gccData.ts` (e.g. `purpose`, `lifecycle`, `maturity`, etc.) to render dynamically within the central layout.
+- The `ResourcesExplorer` (`/library`) acts as one of these conditionally rendered sections.
+- When `activeSection` is updated (e.g. by a user clicking a navigation link inside `GCCHeader.tsx`), the page smoothly scrolls to the top to simulate page navigation and provide seamless content transitions.
 
-## Key Files
+## `NotFound.tsx`
 
-- **`Index.tsx`**: The primary dashboard and content view for the GCC Playbook. It is responsible for orchestrating the overall user experience.
-  - Integrates the global layout components (`GCCHeader`, `GCCFooter`, `CuratorBanner`).
-  - Manages the state for the `searchQuery` and the `activeSection`.
-  - Dynamically renders content based on the user's navigation choice or search input.
-  - Uses `framer-motion` to smoothly transition between different sections (Overview, Resources, or specific content sections like Lifecycle Phases).
-
-- **`NotFound.tsx`**: The fallback component used when a user navigates to a route that does not exist in the application. It acts as a custom 404 page.
-
-## Routing Logic
-
-The routing is handled via `react-router-dom` inside `src/App.tsx`. The default route (`/`) maps directly to `Index.tsx`. All unknown routes (`*`) map to `NotFound.tsx`.
-
-If new top-level pages need to be added (e.g., an `/about` page), you should create a new component in this folder and update `App.tsx` accordingly.
+The fallback mechanism for any undefined paths. If a user navigates to an unrecognized URL fragment (via the address bar or outdated bookmark), this component intercepts the request, presents a "Page Not Found" screen, and securely guides the user back to the `Index.tsx` view using a styled "Return Home" call-to-action.
