@@ -78,6 +78,8 @@ Whether exploring the library or reviewing strategies, you can transition betwee
 ![Library Search Light](public/images/library_search_light.png)
 *Library Filtering (Light Mode)*
 
+All screenshots and UI examples have been freshly generated to reflect the latest state of the GCC Playbook Hub, specifically highlighting our robust and interactive Resource Library.
+
 ---
 
 ### Additional Sections Explored:

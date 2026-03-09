@@ -2,6 +2,9 @@
 
 The `src/pages/` directory acts as the entry point for primary views rendered by the router in `App.tsx`. Given that the GCC Playbook is fundamentally a Single-Page Application (SPA), the logic here predominantly revolves around state management and global layout wrappers.
 
+![Main Dashboard Dark](../../public/images/main_dark.png)
+*Index Page View in Dark Mode*
+
 ## `Index.tsx`
 
 This is the main driver of the application. It encapsulates the core dashboard, sidebars, headers, and individual content sections.
@@ -11,6 +14,9 @@ Rather than navigating to distinct URLs like `/purpose` or `/library`, navigatio
 - The `activeSection` state determines which major block of the `gccData.ts` (e.g. `purpose`, `lifecycle`, `maturity`, etc.) to render dynamically within the central layout.
 - The `ResourcesExplorer` (`/library`) acts as one of these conditionally rendered sections.
 - When `activeSection` is updated (e.g. by a user clicking a navigation link inside `GCCHeader.tsx`), the page smoothly scrolls to the top to simulate page navigation and provide seamless content transitions.
+
+![Library Search Dark](../../public/images/library_search_dark.png)
+*Resources Explorer rendering dynamically in Index.tsx*
 
 ## `NotFound.tsx`
 
