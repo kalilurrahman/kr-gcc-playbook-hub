@@ -12,6 +12,9 @@ This directory contains the main source code for the GCC Playbook application. I
 - **`lib/`**: General library utilities and shared functions (e.g., the `utils.ts` for handling Tailwind class merging via `clsx` and `tailwind-merge`).
 - **`pages/`**: The top-level React components representing the views of the application, used in routing. ([More details](pages/README.md))
 
+![Library Light](../public/images/library_light.png)
+*Resource Library View*
+
 ## Key Files
 
 - **`App.tsx`**: The main entry point of the React application where routing and global context providers (QueryClientProvider, TooltipProvider, Toasters) are defined.
