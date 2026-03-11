@@ -1,21 +1,44 @@
-# GCC Playbook Images Catalog
+# GCC Playbook Images
 
-This directory contains screenshots demonstrating the user interface and functionality of the GCC Playbook Hub. These screenshots have been recently refreshed to represent the latest updates, specifically for interactive components and the Resource Library.
+This directory contains the screenshots for the GCC Playbook Hub application. These images showcase the different sections of the application in various themes (light/dark) and states, particularly highlighting the interactive features.
 
-## Main Dashboard
-- `main_light.png`: Overview dashboard in Light Mode.
-- `main_dark.png`: Overview dashboard in Dark Mode.
+## Dashboard
+
+![Main Dashboard Light](main_light.png)
+*Overview of the main dashboard in Light Mode.*
+
+![Main Dashboard Dark](main_dark.png)
+*Overview of the main dashboard in Dark Mode.*
 
 ## Core Topics
-- `purpose_dark.png`: The 'GCC Purpose' strategy content section in Dark Mode.
-- `lifecycle_dark.png`: The 'Lifecycle Phases' timeline interactive section in Dark Mode.
-- `sizes_light.png`: The 'GCC Sizes' organizational scaling framework in Light Mode.
-- `maturity_light.png`: The 'Maturity Levels' breakdown in Light Mode.
 
-## Resource Library & Interactions
-- `library_light.png`: The primary Resource Library view in Light Mode.
-- `library_dark.png`: The primary Resource Library view in Dark Mode.
-- `resources_dark.png`: Alternate shot of the Resource Library loaded into view.
-- `library_search_light.png`: Active search interaction in the Resource Library (Light Mode).
-- `library_search_dark.png`: Active search interaction in the Resource Library (Dark Mode).
-- `library_dropdown_dark.png`: Category dropdown menu interaction showing the filtering mechanism in the Resource Library.
+![GCC Purpose Dark](purpose_dark.png)
+*GCC Purpose & Strategic Objectives (Dark Mode).*
+
+![Lifecycle Phases Dark](lifecycle_dark.png)
+*GCC Lifecycle Phases (Dark Mode).*
+
+![GCC Sizes Light](sizes_light.png)
+*GCC Size Categories (Light Mode).*
+
+![Maturity Levels Light](maturity_light.png)
+*GCC Maturity Model (Light Mode).*
+
+## Resource Library
+
+![Resource Library Dark](resources_dark.png)
+*The default view of the curated Resource Library (Dark Mode).*
+
+![Library Dropdown Dark](library_dropdown_dark.png)
+*Demonstrates the interactive dropdown for filtering by category (Dark Mode).*
+
+![Library Search Dark](library_search_dark.png)
+*Demonstrates the live search functionality within the library (Dark Mode).*
+
+![Library Light](library_light.png)
+*The Resource Library viewed in Light Mode.*
+
+![Library Search Light](library_search_light.png)
+*The live search functionality viewed in Light Mode.*
+
+These screenshots are referenced in the main [README](../../README.md) to provide users and contributors with a visual understanding of the application's capabilities.

@@ -1,6 +1,7 @@
 # `src/` - Source Code Directory
 
 ![Main Dashboard Dark](../public/images/main_dark.png)
+*Overview of the main dashboard in Dark Mode.*
 
 This directory contains the main source code for the GCC Playbook application. It is structured into logical folders to maintain a clear separation of concerns.
 
@@ -13,7 +14,7 @@ This directory contains the main source code for the GCC Playbook application. I
 - **`pages/`**: The top-level React components representing the views of the application, used in routing. ([More details](pages/README.md))
 
 ![Library Light](../public/images/library_light.png)
-*Resource Library View*
+*Resource Library View (Light Mode)*
 
 ## Key Files
 

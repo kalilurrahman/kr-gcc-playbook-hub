@@ -109,7 +109,7 @@ The source code has been modularly structured for clarity and long-term maintena
 - **`src/components/`**: Reusable UI components & layouts ([Read more](src/components/README.md)).
 - **`src/data/`**: The static TypeScript definitions driving the playbook's content ([Read more](src/data/README.md)).
 - **`src/pages/`**: Top-level route components acting as main views ([Read more](src/pages/README.md)).
-- **`public/`**: Static assets, including the images showcased above.
+- **`public/`**: Static assets, including the images showcased above ([Read more](public/images/README.md)).
 
 ---
 
