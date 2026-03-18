@@ -88,6 +88,7 @@ export default function PlaybookViewer() {
   const [currentChapterIdx, setCurrentChapterIdx] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [glossaryFilter, setGlossaryFilter] = useState('');
+  const [collapsedParts, setCollapsedParts] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
