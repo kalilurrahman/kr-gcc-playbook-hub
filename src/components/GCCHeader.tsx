@@ -134,6 +134,12 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={() => { navigate('/playbook'); setMenuOpen(false); }}
+                className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-medium transition-all text-blue-300 hover:text-white hover:bg-blue-600/30 border border-blue-600/40 mt-2"
+              >
+                📕 Playbook
+              </button>
             </div>
           </nav>
         </div>
