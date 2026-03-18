@@ -100,6 +100,11 @@ const Index = () => {
         </AnimatePresence>
       </main>
 
+      {/* Playbook navigation card */}
+      <div className="container mx-auto px-4 pb-4">
+        <PlaybookNavCard />
+      </div>
+
       {/* Playbook download banner above footer */}
       <div className="container mx-auto px-4 pb-8">
         <PlaybookBanner variant="hero" />
