@@ -3,23 +3,32 @@ import { useNavigate } from 'react-router-dom';
 
 // ============================================================
 // GCC Leadership Playbook Viewer
-// Ported from GCCLeadership/pwa — vanilla JS SPA converted to
-// a self-contained React page. Data loaded from /data/gcc-content.json
+// Renders structured content from /data/gcc-content.json
 // ============================================================
+
+type Block = {
+  type: string;
+  text: string;
+};
+
+type Subsection = {
+  title: string;
+  blocks?: Block[];
+};
 
 type Section = {
   title: string;
-  content?: string[];
-  subsections?: { title: string; content?: string[] }[];
   isKeyTakeaway?: boolean;
+  blocks?: Block[];
+  subsections?: Subsection[];
 };
 
 type Chapter = {
   id: string;
   title: string;
-  number?: string;
-  content?: string[];
+  blocks?: Block[];
   sections?: Section[];
+  // computed at load time
   partKey?: string;
   partLabel?: string;
   partTitle?: string;
@@ -33,9 +42,13 @@ type Part = {
 };
 
 type AppData = {
+  title: string;
+  subtitle: string;
+  author: string;
   stats: { totalChapters: number; glossaryTerms: number; references: number };
-  parts: { part1: Part; part2: Part; part3: Part };
+  parts: Record<string, Part>;
   glossary: { term: string; definition: string }[];
+  references: string[];
 };
 
 type Page = 'home' | 'toc' | 'chapter' | 'glossary' | 'search';
@@ -56,6 +69,17 @@ function highlightText(text: string, query: string): string {
   return escaped.replace(re, '<mark class="bg-yellow-200 text-gray-900 rounded px-0.5">$1</mark>');
 }
 
+function blocksToText(blocks?: Block[]): string {
+  return (blocks || []).map(b => b.text).join(' ');
+}
+
+const PART_ORDER = [
+  { key: 'part1', label: 'Part I', cls: 'bg-blue-600' },
+  { key: 'part2', label: 'Part II', cls: 'bg-purple-600' },
+  { key: 'part3', label: 'Part III', cls: 'bg-emerald-600' },
+  { key: 'appendices', label: 'Appendices', cls: 'bg-amber-600' },
+] as const;
+
 export default function PlaybookViewer() {
   const navigate = useNavigate();
   const [appData, setAppData] = useState<AppData | null>(null);
@@ -64,25 +88,29 @@ export default function PlaybookViewer() {
   const [currentChapterIdx, setCurrentChapterIdx] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [glossaryFilter, setGlossaryFilter] = useState('');
+  const [collapsedParts, setCollapsedParts] = useState<Record<string, boolean>>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const glossaryInputRef = useRef<HTMLInputElement>(null);
 
-  // Load data
   useEffect(() => {
     fetch('/data/gcc-content.json')
       .then(r => r.json())
       .then((data: AppData) => {
         setAppData(data);
         const chapters: Chapter[] = [];
-        const partKeys = ['part1', 'part2', 'part3'] as const;
-        const partLabels = ['Part I', 'Part II', 'Part III'];
-        partKeys.forEach((key, pi) => {
+        PART_ORDER.forEach(({ key, label }) => {
           const part = data.parts[key];
           if (!part) return;
           part.chapters.forEach(ch => {
-            chapters.push({ ...ch, partKey: key, partLabel: partLabels[pi], partTitle: part.title, globalIndex: chapters.length });
+            chapters.push({
+              ...ch,
+              partKey: key,
+              partLabel: label,
+              partTitle: part.title,
+              globalIndex: chapters.length,
+            });
           });
         });
         setAllChapters(chapters);
@@ -102,8 +130,17 @@ export default function PlaybookViewer() {
     if (chapterIdx !== undefined) setCurrentChapterIdx(chapterIdx);
   };
 
+  // ---- Render Blocks ----
+  const renderBlocks = (blocks?: Block[]) =>
+    (blocks || []).map((b, i) => {
+      if (b.type === 'h3') return <h3 key={i} className="text-base font-semibold text-white mt-4 mb-2">{b.text}</h3>;
+      if (b.type === 'h4') return <h4 key={i} className="text-sm font-semibold text-gray-200 mt-3 mb-1">{b.text}</h4>;
+      if (b.type === 'li') return <li key={i} className="text-gray-300 leading-relaxed ml-4 list-disc">{b.text}</li>;
+      return <p key={i} className="text-gray-300 leading-relaxed mb-3">{b.text}</p>;
+    });
+
   if (loading) return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-gray-950">
       <div className="text-center">
         <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
         <p className="text-gray-500">Loading GCC Playbook…</p>
@@ -112,43 +149,36 @@ export default function PlaybookViewer() {
   );
 
   if (error || !appData) return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-gray-950">
       <div className="text-center">
-        <p className="text-red-500 mb-2">Failed to load content.json</p>
-        <p className="text-gray-400 text-sm">Ensure /public/data/gcc-content.json exists in the repository.</p>
+        <p className="text-red-500 mb-2">Failed to load content</p>
         <button onClick={() => navigate('/')} className="mt-4 text-blue-500 underline text-sm">← Back to Hub</button>
       </div>
     </div>
   );
 
   const { stats } = appData;
-  const partConfigs = [
-    { key: 'part1' as const, cls: 'bg-blue-600', label: 'I' },
-    { key: 'part2' as const, cls: 'bg-purple-600', label: 'II' },
-    { key: 'part3' as const, cls: 'bg-emerald-600', label: 'III' },
-  ];
 
   // ---- Shared Header ----
   const Header = () => (
-    <header className="sticky top-0 z-50 bg-gray-900 border-b border-gray-700 px-4 py-3">
+    <header className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur border-b border-gray-700 px-4 py-3">
       <div className="max-w-5xl mx-auto flex items-center justify-between gap-4">
-        <button onClick={() => navTo('home')} className="font-bold text-white text-sm md:text-base tracking-tight">
-          📕 GCC Playbook
+        <button onClick={() => navTo('home')} className="font-bold text-white text-sm md:text-base tracking-tight flex items-center gap-2">
+          📕 <span className="hidden sm:inline">GCC Playbook</span>
         </button>
-        <nav className="hidden md:flex gap-1">
-          {(['home','toc','glossary','search'] as Page[]).map(p => (
+        <nav className="flex gap-1">
+          {(['home', 'toc', 'glossary', 'search'] as Page[]).map(p => (
             <button key={p} onClick={() => navTo(p)}
-              className={`px-3 py-1.5 rounded text-sm font-medium capitalize transition ${
+              className={`px-3 py-1.5 rounded text-xs sm:text-sm font-medium capitalize transition ${
                 currentPage === p ? 'bg-blue-600 text-white' : 'text-gray-300 hover:text-white hover:bg-gray-700'
               }`}>
               {p === 'toc' ? 'Contents' : p === 'home' ? 'Home' : p.charAt(0).toUpperCase() + p.slice(1)}
             </button>
           ))}
-          <button onClick={() => navigate('/')} className="px-3 py-1.5 rounded text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-700 ml-2 border border-gray-600">
+          <button onClick={() => navigate('/')} className="px-3 py-1.5 rounded text-xs sm:text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-700 ml-1 border border-gray-600">
             ← Hub
           </button>
         </nav>
-        <button onClick={() => navigate('/')} className="md:hidden text-gray-400 text-xs border border-gray-600 rounded px-2 py-1">← Hub</button>
       </div>
     </header>
   );
@@ -158,13 +188,18 @@ export default function PlaybookViewer() {
     <div className="min-h-screen bg-gray-950 text-gray-100">
       <Header />
       <main className="max-w-5xl mx-auto px-4 py-10">
-        {/* Hero */}
         <section className="text-center mb-12">
           <span className="inline-block bg-blue-900/50 text-blue-300 text-xs font-medium px-3 py-1 rounded-full mb-4">📕 Open Access · 2026–2030 Edition</span>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">The Complete India <span className="text-blue-400">GCC Reference</span></h1>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8">A comprehensive playbook covering India's Global Capability Centres — from landscape and maturity models to AI, deep tech, M&A, and 2030 scenarios.</p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">{appData.title}</h1>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-2">{appData.subtitle}</p>
+          <p className="text-gray-500 text-sm mb-8">{appData.author}</p>
           <div className="flex justify-center gap-6 md:gap-10 mb-8">
-            {[{v: stats.totalChapters, l:'Chapters'},{v:3,l:'Parts'},{v:stats.glossaryTerms,l:'Glossary Terms'},{v:stats.references,l:'References'}].map(s => (
+            {[
+              { v: stats.totalChapters, l: 'Chapters' },
+              { v: Object.keys(appData.parts).length, l: 'Parts' },
+              { v: stats.glossaryTerms, l: 'Glossary' },
+              { v: stats.references, l: 'References' },
+            ].map(s => (
               <div key={s.l} className="text-center">
                 <div className="text-2xl font-bold text-blue-400">{s.v}</div>
                 <div className="text-xs text-gray-500 mt-1">{s.l}</div>
@@ -174,36 +209,42 @@ export default function PlaybookViewer() {
           <div className="flex justify-center gap-3">
             <button onClick={() => navTo('toc')} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-medium transition">Explore Contents</button>
             <button onClick={() => navTo('search')} className="border border-gray-600 text-gray-300 hover:text-white hover:border-gray-400 px-6 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-              Search
+              🔍 Search
             </button>
           </div>
         </section>
-        {/* Parts */}
-        {partConfigs.map(({ key, cls, label }) => {
+
+        {PART_ORDER.map(({ key, cls, label }) => {
           const part = appData.parts[key];
           if (!part?.chapters.length) return null;
+          const isCollapsed = collapsedParts[key] ?? false;
           return (
             <div key={key} className="mb-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`${cls} w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-sm`}>{label}</div>
-                <div>
-                  <h3 className="font-semibold text-white">{part.title}</h3>
-                  <p className="text-xs text-gray-400">{part.subtitle}</p>
+              <button onClick={() => setCollapsedParts(prev => ({ ...prev, [key]: !isCollapsed }))}
+                className="w-full flex items-center gap-3 mb-4 group">
+                <div className={`${cls} w-9 h-9 rounded-lg inline-flex items-center justify-center text-white font-bold text-xs leading-none`}>
+                  {label.replace('Part ', '')}
                 </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {part.chapters.map(ch => {
-                  const globalIdx = allChapters.findIndex(c => c.id === ch.id);
-                  return (
-                    <button key={ch.id} onClick={() => navTo('chapter', globalIdx)}
-                      className="text-left bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 rounded-lg px-4 py-3 transition">
-                      <p className="text-sm text-white font-medium leading-snug">{ch.title}</p>
-                      <p className="text-xs text-gray-500 mt-1">{ch.sections?.length ?? 0} sections</p>
-                    </button>
-                  );
-                })}
-              </div>
+                <div className="text-left flex-1">
+                  <h3 className="font-semibold text-white">{part.title}</h3>
+                  <p className="text-xs text-gray-400">{part.subtitle} · {part.chapters.length} chapters</p>
+                </div>
+                <span className={`text-gray-500 text-sm transition-transform ${isCollapsed ? '' : 'rotate-90'}`}>▶</span>
+              </button>
+              {!isCollapsed && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {part.chapters.map(ch => {
+                    const globalIdx = allChapters.findIndex(c => c.id === ch.id);
+                    return (
+                      <button key={ch.id} onClick={() => navTo('chapter', globalIdx)}
+                        className="text-left bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 rounded-lg px-4 py-3 transition">
+                        <p className="text-sm text-white font-medium leading-snug">{ch.title}</p>
+                        <p className="text-xs text-gray-500 mt-1">{ch.sections?.length ?? 0} sections</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           );
         })}
@@ -217,15 +258,15 @@ export default function PlaybookViewer() {
       <Header />
       <main className="max-w-3xl mx-auto px-4 py-10">
         <h1 className="text-2xl font-bold mb-8">Table of Contents</h1>
-        {partConfigs.map(({ key, cls, label }) => {
+        {PART_ORDER.map(({ key, cls, label }) => {
           const part = appData.parts[key];
           if (!part?.chapters.length) return null;
           return (
             <div key={key} className="mb-8">
-              <div className={`${cls} bg-opacity-20 border border-gray-700 rounded-lg px-4 py-3 mb-3 flex items-center gap-3`}>
-                <span className={`${cls} text-white text-xs font-bold w-6 h-6 rounded flex items-center justify-center`}>{label}</span>
+              <div className="bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 mb-3 flex items-center gap-3">
+                <span className={`${cls} text-white text-xs font-bold px-2 py-1 rounded`}>{label}</span>
                 <span className="font-semibold text-white">{part.title}</span>
-                <span className="ml-auto text-xs text-gray-400">{part.chapters.length} chapters</span>
+                <span className="ml-auto text-xs text-gray-400">{part.chapters.length} ch.</span>
               </div>
               <div className="space-y-1 ml-2">
                 {part.chapters.map(ch => {
@@ -255,46 +296,45 @@ export default function PlaybookViewer() {
       <div className="min-h-screen bg-gray-950 text-gray-100">
         <Header />
         <main className="max-w-3xl mx-auto px-4 py-10">
-          {/* Breadcrumb */}
           <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-6">
             <button onClick={() => navTo('home')} className="hover:text-gray-300">Home</button>
             <span>›</span>
             <button onClick={() => navTo('toc')} className="hover:text-gray-300">{ch.partLabel}</button>
             <span>›</span>
-            <span className="text-gray-400">{ch.title.substring(0, 50)}…</span>
+            <span className="text-gray-400 truncate max-w-[200px]">{ch.title}</span>
           </div>
-          {/* Chapter Hero */}
+
           <h1 className="text-2xl md:text-3xl font-bold mb-2 leading-snug">{ch.title}</h1>
           <p className="text-gray-500 text-sm mb-8">{ch.partTitle} · {ch.sections?.length ?? 0} sections</p>
-          {/* Direct content */}
-          {(ch.content || []).map((p, i) => <p key={i} className="text-gray-300 leading-relaxed mb-4">{p}</p>)}
-          {/* Sections */}
+
+          {renderBlocks(ch.blocks)}
+
           {(ch.sections || []).map((section, si) => (
-            <div key={si} className={`mb-8 ${ section.isKeyTakeaway ? 'bg-blue-900/20 border border-blue-700/40 rounded-xl p-6' : '' }`}>
+            <div key={si} className={`mb-8 ${section.isKeyTakeaway ? 'bg-blue-900/20 border border-blue-700/40 rounded-xl p-6' : ''}`}>
               <h2 className="text-lg font-semibold text-white mb-4">{section.isKeyTakeaway ? '🎯 ' : ''}{section.title}</h2>
-              {(section.content || []).map((p, i) => <p key={i} className="text-gray-300 leading-relaxed mb-3">{p}</p>)}
+              {renderBlocks(section.blocks)}
               {(section.subsections || []).map((sub, ssi) => (
-                <div key={ssi} className="mt-4">
+                <div key={ssi} className="mt-5 pl-4 border-l-2 border-gray-700">
                   <h3 className="text-base font-semibold text-gray-200 mb-2">{sub.title}</h3>
-                  {(sub.content || []).map((p, i) => <p key={i} className="text-gray-300 leading-relaxed mb-3">{p}</p>)}
+                  {renderBlocks(sub.blocks)}
                 </div>
               ))}
             </div>
           ))}
-          {/* Chapter navigation */}
+
           <div className="grid grid-cols-2 gap-4 mt-12 pt-8 border-t border-gray-800">
             {prevCh ? (
               <button onClick={() => navTo('chapter', currentChapterIdx - 1)}
                 className="text-left bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-4 transition">
                 <p className="text-xs text-gray-500 mb-1">← Previous</p>
-                <p className="text-sm text-white font-medium leading-snug">{prevCh.title.substring(0, 60)}</p>
+                <p className="text-sm text-white font-medium leading-snug truncate">{prevCh.title}</p>
               </button>
             ) : <div />}
             {nextCh ? (
               <button onClick={() => navTo('chapter', currentChapterIdx + 1)}
                 className="text-right bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-4 transition">
                 <p className="text-xs text-gray-500 mb-1">Next →</p>
-                <p className="text-sm text-white font-medium leading-snug">{nextCh.title.substring(0, 60)}</p>
+                <p className="text-sm text-white font-medium leading-snug truncate">{nextCh.title}</p>
               </button>
             ) : <div />}
           </div>
@@ -313,7 +353,7 @@ export default function PlaybookViewer() {
       <div className="min-h-screen bg-gray-950 text-gray-100">
         <Header />
         <main className="max-w-3xl mx-auto px-4 py-10">
-          <h1 className="text-2xl font-bold mb-6">Glossary</h1>
+          <h1 className="text-2xl font-bold mb-6">Glossary ({terms.length} terms)</h1>
           <input ref={glossaryInputRef} type="text" value={glossaryFilter} onChange={e => setGlossaryFilter(e.target.value)}
             placeholder="Filter terms…" autoComplete="off"
             className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 mb-8" />
@@ -337,13 +377,18 @@ export default function PlaybookViewer() {
     const results: { chapterIdx: number | null; chapter: string; title: string; excerpt: string; score: number; isGlossary?: boolean }[] = [];
     if (q.length >= 2) {
       allChapters.forEach((ch, idx) => {
-        if (ch.title.toLowerCase().includes(q)) results.push({ chapterIdx: idx, chapter: ch.partLabel || '', title: ch.title, excerpt: ch.content?.[0] || ch.sections?.[0]?.content?.[0] || '', score: 10 });
+        if (ch.title.toLowerCase().includes(q)) {
+          const firstText = blocksToText(ch.blocks).substring(0, 120) || blocksToText(ch.sections?.[0]?.blocks).substring(0, 120);
+          results.push({ chapterIdx: idx, chapter: ch.partLabel || '', title: ch.title, excerpt: firstText, score: 10 });
+        }
         (ch.sections || []).forEach(section => {
-          if (section.title.toLowerCase().includes(q)) results.push({ chapterIdx: idx, chapter: `${ch.partLabel} · ${ch.title.substring(0,30)}`, title: section.title, excerpt: section.content?.[0] || '', score: 8 });
-          (section.content || []).forEach(p => {
-            if (p.toLowerCase().includes(q)) {
-              const ei = p.toLowerCase().indexOf(q);
-              results.push({ chapterIdx: idx, chapter: section.title.substring(0,30), title: ch.title, excerpt: '…' + p.substring(Math.max(0, ei-60), ei + q.length + 60) + '…', score: 3 });
+          if (section.title.toLowerCase().includes(q)) {
+            results.push({ chapterIdx: idx, chapter: `${ch.partLabel} · ${ch.title.substring(0, 30)}`, title: section.title, excerpt: blocksToText(section.blocks).substring(0, 120), score: 8 });
+          }
+          (section.blocks || []).forEach(b => {
+            if (b.text.toLowerCase().includes(q)) {
+              const ei = b.text.toLowerCase().indexOf(q);
+              results.push({ chapterIdx: idx, chapter: section.title.substring(0, 30), title: ch.title, excerpt: '…' + b.text.substring(Math.max(0, ei - 60), ei + q.length + 60) + '…', score: 3 });
             }
           });
         });
@@ -355,14 +400,14 @@ export default function PlaybookViewer() {
       results.sort((a, b) => b.score - a.score);
     }
     const seen = new Set<string>();
-    const unique = results.filter(r => { const k = r.title + r.excerpt.substring(0,30); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 30);
+    const unique = results.filter(r => { const k = r.title + r.excerpt.substring(0, 30); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 30);
     return (
       <div className="min-h-screen bg-gray-950 text-gray-100">
         <Header />
         <main className="max-w-3xl mx-auto px-4 py-10">
           <h1 className="text-2xl font-bold mb-6">Search</h1>
           <div className="relative mb-6">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
             <input ref={searchInputRef} type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search chapters, sections, content…" autoComplete="off"
               className="w-full bg-gray-800 border border-gray-700 rounded-lg pl-9 pr-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500" />
