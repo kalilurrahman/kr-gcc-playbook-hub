@@ -8,6 +8,7 @@ import ResourcesExplorer from "@/components/ResourcesExplorer";
 import GCCFooter from "@/components/GCCFooter";
 import InstallPrompt from "@/components/InstallPrompt";
 import PlaybookBanner from "@/components/PlaybookBanner";
+import PlaybookNavCard from "@/components/PlaybookNavCard";
 import { sections } from "@/data/gccData";
 
 const pageVariants = {
@@ -98,6 +99,11 @@ const Index = () => {
           </motion.div>
         </AnimatePresence>
       </main>
+
+      {/* Playbook navigation card */}
+      <div className="container mx-auto px-4 pb-4">
+        <PlaybookNavCard />
+      </div>
 
       {/* Playbook download banner above footer */}
       <div className="container mx-auto px-4 pb-8">
