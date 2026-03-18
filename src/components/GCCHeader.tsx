@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
 import { Search, Menu, X, Home, Target, Rocket, BarChart3, Building2, Globe, AlertTriangle, CheckCircle, BookOpen, DollarSign } from "lucide-react";
 import { navItems } from "@/data/gccData";
