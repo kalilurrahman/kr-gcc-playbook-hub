@@ -67,10 +67,15 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
                 }`}
               >
                 {navIcons[item.id]}
-                {item.label}
+              {item.label}
               </button>
             ))}
-          </nav>
+            <button
+              onClick={() => navigate('/playbook')}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 whitespace-nowrap text-blue-300 hover:text-white hover:bg-blue-600/30 border border-blue-600/40"
+            >
+              📕 Playbook
+            </button>
 
           {/* Right: Search + Theme + Hamburger */}
           <div className="flex items-center gap-2 shrink-0">
