@@ -217,27 +217,34 @@ export default function PlaybookViewer() {
         {PART_ORDER.map(({ key, cls, label }) => {
           const part = appData.parts[key];
           if (!part?.chapters.length) return null;
+          const isCollapsed = collapsedParts[key] ?? false;
           return (
             <div key={key} className="mb-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`${cls} w-9 h-9 rounded-lg flex items-center justify-center text-white font-bold text-xs`}>{label.replace('Part ', '')}</div>
-                <div>
+              <button onClick={() => setCollapsedParts(prev => ({ ...prev, [key]: !isCollapsed }))}
+                className="w-full flex items-center gap-3 mb-4 group">
+                <div className={`${cls} w-9 h-9 rounded-lg inline-flex items-center justify-center text-white font-bold text-xs leading-none`}>
+                  {label.replace('Part ', '')}
+                </div>
+                <div className="text-left flex-1">
                   <h3 className="font-semibold text-white">{part.title}</h3>
                   <p className="text-xs text-gray-400">{part.subtitle} · {part.chapters.length} chapters</p>
                 </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {part.chapters.map(ch => {
-                  const globalIdx = allChapters.findIndex(c => c.id === ch.id);
-                  return (
-                    <button key={ch.id} onClick={() => navTo('chapter', globalIdx)}
-                      className="text-left bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 rounded-lg px-4 py-3 transition">
-                      <p className="text-sm text-white font-medium leading-snug">{ch.title}</p>
-                      <p className="text-xs text-gray-500 mt-1">{ch.sections?.length ?? 0} sections</p>
-                    </button>
-                  );
-                })}
-              </div>
+                <span className={`text-gray-500 text-sm transition-transform ${isCollapsed ? '' : 'rotate-90'}`}>▶</span>
+              </button>
+              {!isCollapsed && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {part.chapters.map(ch => {
+                    const globalIdx = allChapters.findIndex(c => c.id === ch.id);
+                    return (
+                      <button key={ch.id} onClick={() => navTo('chapter', globalIdx)}
+                        className="text-left bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 rounded-lg px-4 py-3 transition">
+                        <p className="text-sm text-white font-medium leading-snug">{ch.title}</p>
+                        <p className="text-xs text-gray-500 mt-1">{ch.sections?.length ?? 0} sections</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           );
         })}
