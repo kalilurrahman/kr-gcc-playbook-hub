@@ -27,6 +27,7 @@ const navIcons: Record<string, React.ReactNode> = {
 const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange }: GCCHeaderProps) => {
   const { isDark, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Close menu on escape key
   useEffect(() => {
