@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
 import { Search, Menu, X, Home, Target, Rocket, BarChart3, Building2, Globe, AlertTriangle, CheckCircle, BookOpen, DollarSign } from "lucide-react";
 import { navItems } from "@/data/gccData";
@@ -26,6 +27,7 @@ const navIcons: Record<string, React.ReactNode> = {
 const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange }: GCCHeaderProps) => {
   const { isDark, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Close menu on escape key
   useEffect(() => {
@@ -65,9 +67,15 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
                 }`}
               >
                 {navIcons[item.id]}
-                {item.label}
+              {item.label}
               </button>
             ))}
+            <button
+              onClick={() => navigate('/playbook')}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 whitespace-nowrap text-blue-300 hover:text-white hover:bg-blue-600/30 border border-blue-600/40"
+            >
+              📕 Playbook
+            </button>
           </nav>
 
           {/* Right: Search + Theme + Hamburger */}
@@ -127,6 +135,12 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={() => { navigate('/playbook'); setMenuOpen(false); }}
+                className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sm font-medium transition-all text-blue-300 hover:text-white hover:bg-blue-600/30 border border-blue-600/40 mt-2"
+              >
+                📕 Playbook
+              </button>
             </div>
           </nav>
         </div>
