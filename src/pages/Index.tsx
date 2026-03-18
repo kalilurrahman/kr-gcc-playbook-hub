@@ -8,6 +8,7 @@ import ResourcesExplorer from "@/components/ResourcesExplorer";
 import GCCFooter from "@/components/GCCFooter";
 import InstallPrompt from "@/components/InstallPrompt";
 import PlaybookBanner from "@/components/PlaybookBanner";
+import PlaybookNavCard from "@/components/PlaybookNavCard";
 import { sections } from "@/data/gccData";
 
 const pageVariants = {
