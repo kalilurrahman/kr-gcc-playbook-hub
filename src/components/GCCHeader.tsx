@@ -76,6 +76,7 @@ const GCCHeader = ({ searchQuery, onSearchChange, activeSection, onSectionChange
             >
               📕 Playbook
             </button>
+          </nav>
 
           {/* Right: Search + Theme + Hamburger */}
           <div className="flex items-center gap-2 shrink-0">
