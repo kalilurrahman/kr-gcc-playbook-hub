@@ -57,8 +57,8 @@ const ResourcesExplorer = () => {
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <a
-            href="/GCC_Playbook_v_0.9.pdf"
-            download="GCC_Playbook_v0.9.pdf"
+            href="/GCC_Playbook_Part_I_v1,5"
+            download="GCC_Playbook_Part_I_v1,5.pdf"
             className="expand-button inline-flex items-center gap-2 no-underline w-fit"
           >
             <Download className="w-4 h-4" />
