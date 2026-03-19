@@ -22,7 +22,7 @@ const ResourcesExplorer = () => {
       list = list.filter(r => r.name.toLowerCase().includes(q) || r.category.toLowerCase().includes(q) || r.type.toLowerCase().includes(q));
     }
     return list;
-  }, [activeTab, search]);CC Playbook v0.9 available
+  }, [activeTab, search]);
 
   // Group by category for display
   const groupedResources = useMemo(() => {
