@@ -22,6 +22,21 @@ The application supports both themes for an accessible and customizable reading 
 
 ---
 
+## The Playbook Viewer (/playbook)
+
+The **Playbook Viewer** provides a comprehensive reading experience for the GCC Playbook's chapters. It includes an interactive Table of Contents, a Glossary, robust search functionality, and reading progress tracking.
+
+### Light & Dark Themes Supported
+Read comfortably in any environment with full support for light and dark themes.
+
+![Playbook Viewer Dark](public/images/playbook_main_dark.png)
+*Playbook Viewer in Dark Mode*
+
+![Playbook Viewer Light](public/images/playbook_main_light.png)
+*Playbook Viewer in Light Mode*
+
+---
+
 ## Core Topics & Deep Dives
 
 The GCC Playbook is categorized into several highly curated topics. You can explore each directly from the dashboard or the header navigation.

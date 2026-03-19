@@ -18,6 +18,23 @@ Rather than navigating to distinct URLs like `/purpose` or `/library`, navigatio
 ![Library Search Dark](../../public/images/library_search_dark.png)
 *Resources Explorer rendering dynamically in Index.tsx*
 
+## `PlaybookViewer.tsx`
+
+This view is responsible for providing a comprehensive reading experience for the GCC Playbook.
+It dynamically fetches the structured playbook content and renders it allowing users to easily access any chapter, section or resources.
+
+Features implemented include:
+- An interactive Table of Contents for easy navigation
+- A complete Glossary to check the most important terms
+- Robust Search functionality to easily find specific topics
+- The ability to track reading progress by remembering the last read chapter and allowing the user to pick up where they left off.
+
+![Playbook Viewer Light](../../public/images/playbook_main_light.png)
+*Playbook Viewer in Light Mode*
+
+![Playbook Viewer Dark](../../public/images/playbook_main_dark.png)
+*Playbook Viewer in Dark Mode*
+
 ## `NotFound.tsx`
 
 The fallback mechanism for any undefined paths. If a user navigates to an unrecognized URL fragment (via the address bar or outdated bookmark), this component intercepts the request, presents a "Page Not Found" screen, and securely guides the user back to the `Index.tsx` view using a styled "Return Home" call-to-action.
