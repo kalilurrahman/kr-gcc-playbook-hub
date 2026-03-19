@@ -18931,5 +18931,73 @@
     "appendices": 11,
     "glossaryTerms": 36,
     "references": 116
+  },
+  "resourceDocs": [
+    {
+      "id": "part1-pdf",
+      "title": "GCC Playbook Part I: Foundation & Operations",
+      "filename": "GCC_Playbook_Part_I_v_1_5.pdf",
+      "description": "Complete Part I covering India's GCC Landscape, Maturity Models, Operating Models, Real Challenges, Outcome-Based KPIs, and Community Ecosystem.",
+      "chapters": [
+        "Chapter 1: India's GCC Landscape",
+        "Chapter 2: The GCC Maturity Model",
+        "Chapter 3: GCC Operating Models",
+        "Chapter 4: Real Challenges GCC Leaders Face",
+        "Chapter 5: Outcome-Based KPIs",
+        "Chapter 6: The GCC Community"
+      ],
+      "pages": "200+",
+      "fileSize": "14 MB",
+      "fileUrl": "/resources/GCC_Playbook_Part_I_v_1_5.pdf",
+      "version": "1.5",
+      "lastUpdated": "March 2026",
+      "downloadUrl": "https://kr-gcc-playbook.lovable.app/resources/GCC_Playbook_Part_I_v_1_5.pdf"
+    },
+    {
+      "id": "part2-pdf",
+      "title": "GCC Playbook Part II: Advanced Capabilities",
+      "filename": "GCC_Playbook_Part_II_v1_0.pdf",
+      "description": "Complete Part II covering AI & Machine Learning, Deep Tech & R&D, Digital Engineering, Legal & Regulatory, Finance & Transfer Pricing, M&A Strategies, and ESG & Sustainability.",
+      "chapters": [
+        "Chapter 7: AI and Machine Learning in GCCs",
+        "Chapter 8: Deep Tech and R&D Mandates",
+        "Chapter 9: Digital Engineering Excellence",
+        "Chapter 10: Legal and Regulatory Frameworks",
+        "Chapter 11: Finance and Transfer Pricing",
+        "Chapter 12: M&A and Strategic Transactions",
+        "Chapter 13: ESG and Sustainability"
+      ],
+      "pages": "150+",
+      "fileSize": "14 MB",
+      "fileUrl": "/resources/GCC_Playbook_Part_II_v1_0.pdf",
+      "version": "1.0",
+      "lastUpdated": "March 2026",
+      "downloadUrl": "https://kr-gcc-playbook.lovable.app/resources/GCC_Playbook_Part_II_v1_0.pdf"
+    },
+    {
+      "id": "part3-pdf",
+      "title": "GCC Playbook Part III: The Frontier",
+      "filename": "GCC_Playbook_Part_III_v1_0.pdf",
+      "description": "Complete Part III covering GCC 2030 Vision, Exponential GCCs, Agentic AI & Autonomous Systems, Global GCC Competition, and Strategic Positioning for the Next Decade.",
+      "chapters": [
+        "Chapter 14: GCC 2030 — The Vision",
+        "Chapter 15: Exponential GCCs",
+        "Chapter 16: Agentic AI and Autonomous Systems",
+        "Chapter 17: Global GCC Competition",
+        "Chapter 18: The Next Decade — Strategic Positioning"
+      ],
+      "pages": "100+",
+      "fileSize": "14 MB",
+      "fileUrl": "/resources/GCC_Playbook_Part_III_v1_0.pdf",
+      "version": "1.0",
+      "lastUpdated": "March 2026",
+      "downloadUrl": "https://kr-gcc-playbook.lovable.app/resources/GCC_Playbook_Part_III_v1_0.pdf"
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "format": "Digital Playbook with PDF Resources",
+    "license": "Open Access",
+    "lastUpdated": "March 2026"
   }
 }
