@@ -5,7 +5,7 @@ const PlaybookBanner = ({ variant = "inline" }: { variant?: "inline" | "hero" })
     return (
       <div className="rounded-xl border border-primary/20 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 p-6 sm:p-8 text-center space-y-3">
         <FileText className="w-8 h-8 text-primary mx-auto" />
-        <h3 className="text-lg font-bold text-foreground">📘 GCC Playbook v0.9</h3>
+        <h3 className="text-lg font-bold text-foreground">📘 GCC Playbook v1.5</h3>
         <p className="text-sm text-muted-foreground max-w-xl mx-auto">
           Download the complete GCC Playbook — frameworks, checklists, and strategies for every phase of your GCC journey.
         </p>
