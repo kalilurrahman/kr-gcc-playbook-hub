@@ -25,49 +25,84 @@ export type Section = {
 export type Chapter = {
   id: string;
   title: string;
+  chapterNumber?: number;
+  displayTitle?: string;
   blocks?: Block[];
   sections?: Section[];
-  partKey?: string;
-  partLabel?: string;
+  partNumber?: number;
   partTitle?: string;
   globalIndex?: number;
 };
 
-export type Part = {
+export type PdfResource = {
+  filename: string;
+  fileUrl: string;
+  fileSize: string;
+  pages: string;
+  version?: string;
+};
+
+export type PartData = {
   title: string;
   subtitle: string;
+  partNumber: number;
+  author: string;
+  version: string;
+  lastUpdated: string;
+  pdfResource: PdfResource;
   chapters: Chapter[];
 };
 
-export type ResourceDoc = {
-  id: string;
+export type MasterIndexPart = {
+  partNumber: number;
   title: string;
-  filename: string;
-  description: string;
-  pages: string;
-  fileSize: string;
-  fileUrl: string;
-  version: string;
-  lastUpdated: string;
-  partColor: string;
+  subtitle: string;
+  dataFile: string;
+  chapterRange: { start: number; end: number };
+  totalChapters: number;
+  pdfResource: PdfResource;
 };
 
-export type AppData = {
+export type MasterIndex = {
   title: string;
   subtitle: string;
   author: string;
-  stats: { totalChapters: number; glossaryTerms: number; references: number };
-  parts: Record<string, Part>;
-  glossary: { term: string; definition: string }[];
-  references: string[];
-  resourceDocs?: ResourceDoc[];
+  version: string;
+  lastUpdated: string;
+  parts: MasterIndexPart[];
+  stats: {
+    totalParts: number;
+    totalChapters: number;
+    totalPages: string;
+  };
+  branding: {
+    portfolioUrl: string;
+    playbookUrl: string;
+    githubUrl: string;
+    authorName: string;
+    authorTitle: string;
+  };
 };
 
 export type Page = 'home' | 'toc' | 'chapter' | 'glossary' | 'search' | 'resources';
 
-export const PART_ORDER = [
-  { key: 'part1', label: 'Part I', cls: 'bg-blue-600' },
-  { key: 'part2', label: 'Part II', cls: 'bg-purple-600' },
-  { key: 'part3', label: 'Part III', cls: 'bg-emerald-600' },
-  { key: 'appendices', label: 'Appendices', cls: 'bg-amber-600' },
-] as const;
+export const PART_COLORS: Record<number, { bg: string; text: string; border: string; badge: string }> = {
+  1: {
+    bg: 'bg-blue-600',
+    text: 'text-blue-400',
+    border: 'border-blue-500/30',
+    badge: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
+  },
+  2: {
+    bg: 'bg-purple-600',
+    text: 'text-purple-400',
+    border: 'border-purple-500/30',
+    badge: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+  },
+  3: {
+    bg: 'bg-emerald-600',
+    text: 'text-emerald-400',
+    border: 'border-emerald-500/30',
+    badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+  },
+};
