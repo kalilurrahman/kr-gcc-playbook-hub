@@ -1,0 +1,75 @@
+{
+  "title": "The Complete India GCC Reference 2026–2030",
+  "subtitle": "Landscape | Maturity | Operating Models | AI | Deep Tech | M&A | Finance | ESG | 2030",
+  "author": "Curated by Kalilur Rahman",
+  "version": "2.0",
+  "lastUpdated": "March 2026",
+  "parts": [
+    {
+      "partNumber": 1,
+      "title": "Part I: Foundation & Operations",
+      "subtitle": "India's GCC Landscape, Maturity Models, Operating Models, Challenges, KPIs & Community",
+      "dataFile": "/data/gcc-part1.json",
+      "chapterRange": {
+        "start": 1,
+        "end": 62
+      },
+      "totalChapters": 62,
+      "pdfResource": {
+        "filename": "GCC_Playbook_Part_I_v_1_5.pdf",
+        "fileUrl": "/resources/GCC_Playbook_Part_I_v_1_5.pdf",
+        "fileSize": "14 MB",
+        "pages": "200+",
+        "version": "1.5"
+      }
+    },
+    {
+      "partNumber": 2,
+      "title": "Part II: Advanced Capabilities",
+      "subtitle": "AI & ML, Deep Tech, Digital Engineering, Legal, Finance, M&A & ESG",
+      "dataFile": "/data/gcc-part2.json",
+      "chapterRange": {
+        "start": 63,
+        "end": 128
+      },
+      "totalChapters": 66,
+      "pdfResource": {
+        "filename": "GCC_Playbook_Part_II_v1_0.pdf",
+        "fileUrl": "/resources/GCC_Playbook_Part_II_v1_0.pdf",
+        "fileSize": "14 MB",
+        "pages": "150+",
+        "version": "1.0"
+      }
+    },
+    {
+      "partNumber": 3,
+      "title": "Part III: The Frontier",
+      "subtitle": "GCC 2030, Exponential GCCs, Agentic AI & Global Competition",
+      "dataFile": "/data/gcc-part3.json",
+      "chapterRange": {
+        "start": 129,
+        "end": 143
+      },
+      "totalChapters": 15,
+      "pdfResource": {
+        "filename": "GCC_Playbook_Part_III_v1_0.pdf",
+        "fileUrl": "/resources/GCC_Playbook_Part_III_v1_0.pdf",
+        "fileSize": "14 MB",
+        "pages": "100+",
+        "version": "1.0"
+      }
+    }
+  ],
+  "stats": {
+    "totalParts": 3,
+    "totalChapters": 143,
+    "totalPages": "450+"
+  },
+  "branding": {
+    "portfolioUrl": "https://kalilurrahman.lovable.app",
+    "playbookUrl": "https://kr-gcc-playbook.lovable.app",
+    "githubUrl": "https://github.com/kalilurrahman/kr-gcc-playbook-hub",
+    "authorName": "Kalilur Rahman",
+    "authorTitle": "Global IT Executive · AI Evangelist · Technologist · GCC Leader · CIO Awardee · Thinkers360 #3 · Kaggle Grandmaster"
+  }
+}
