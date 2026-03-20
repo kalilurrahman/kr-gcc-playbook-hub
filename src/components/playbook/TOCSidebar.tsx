@@ -12,12 +12,11 @@ export function TOCSidebar({ chapters, currentChapterIdx, onChapterSelect, activ
   const ch = chapters[currentChapterIdx];
   if (!ch) return null;
 
-  // Group neighbor chapters by part
-  const partChapters = chapters.filter(c => c.partKey === ch.partKey);
+  const partChapters = chapters.filter(c => c.partNumber === ch.partNumber);
 
   return (
-    <aside className="hidden xl:block w-64 shrink-0 sticky top-[60px] h-[calc(100vh-60px)] overflow-y-auto border-r border-border p-4 scrollbar-hide">
-      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">{ch.partLabel}</p>
+    <aside className="hidden xl:block w-64 shrink-0 sticky top-[56px] h-[calc(100vh-56px)] overflow-y-auto border-r border-border p-4 scrollbar-hide">
+      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">Part {ch.partNumber}</p>
       <nav className="space-y-0.5">
         {partChapters.map(c => {
           const idx = c.globalIndex ?? 0;
@@ -38,7 +37,6 @@ export function TOCSidebar({ chapters, currentChapterIdx, onChapterSelect, activ
         })}
       </nav>
 
-      {/* Sections within current chapter */}
       {ch.sections && ch.sections.length > 0 && (
         <div className="mt-6 pt-4 border-t border-border">
           <p className="text-xs font-semibold text-muted-foreground mb-2">In this chapter</p>
