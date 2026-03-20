@@ -35,6 +35,24 @@ Read comfortably in any environment with full support for light and dark themes.
 ![Playbook Viewer Light](public/images/playbook_main_light.png)
 *Playbook Viewer in Light Mode*
 
+### Interactive Table of Contents & Chapter View
+Easily navigate through the playbook using the interactive Table of Contents. Jump straight into a chapter and track your reading progress.
+
+![Playbook TOC Dark](public/images/playbook_toc_dark.png)
+*Table of Contents (Dark Mode)*
+
+![Playbook Chapter Dark](public/images/playbook_chapter_dark.png)
+*Chapter Reading View (Dark Mode)*
+
+### Glossary & Search
+Quickly find definitions for key terms using the Glossary, or use the robust search functionality to find specific topics across all chapters.
+
+![Playbook Glossary Light](public/images/playbook_glossary_light.png)
+*Glossary Filter (Light Mode)*
+
+![Playbook Search Dark](public/images/playbook_search_dark.png)
+*Search Functionality (Dark Mode)*
+
 ---
 
 ## Core Topics & Deep Dives
