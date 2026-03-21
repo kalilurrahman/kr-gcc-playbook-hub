@@ -105,6 +105,29 @@ All screenshots and UI examples have been freshly generated to reflect the lates
 
 ---
 
+## The Playbook Viewer Deep Dive
+
+The core `/playbook` feature provides an optimized reading and learning experience, packed with user-friendly interactions and structured learning paths.
+
+### Interactive Navigation & Context
+Navigate complex content with ease using collapsible sidebars, a persistent master index, and smart breadcrumbs. The viewer adjusts to any screen size.
+
+### Learning Features
+- **Reading Progress Tracking:** Keep track of how much of each chapter you have completed.
+- **Smart Bookmarks:** Save your favorite sections for quick reference later.
+- **Glossary Tooltips:** Hover over or tap highlighted terms to reveal definitions inline.
+- **Adjustable Typography:** Customize your reading experience with scalable font sizes (A- / A+).
+
+![Playbook Navigation Dark](public/images/playbook_main_dark.png)
+*Detailed reading view with navigation (Dark Mode)*
+
+![Playbook Navigation Light](public/images/playbook_main_light.png)
+*Detailed reading view with navigation (Light Mode)*
+
+For a deeper dive into the specific components that power the Playbook Viewer, refer to the [Playbook Components README](src/components/playbook/README.md).
+
+---
+
 ## Technologies Under the Hood
 
 This project is built using modern web development standards to ensure a fast, robust, and scalable user experience:
