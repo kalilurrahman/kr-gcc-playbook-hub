@@ -58,12 +58,30 @@
         "pages": "100+",
         "version": "1.0"
       }
+    },
+    {
+      "partNumber": 4,
+      "title": "Part IV: GCC Metrics & Benchmarking",
+      "subtitle": "Maturity Metrics, KPMG 8-Dimension Scoring, Operational Benchmarks & Case Studies",
+      "dataFile": "/data/gcc-part4.json",
+      "chapterRange": {
+        "start": 144,
+        "end": 151
+      },
+      "totalChapters": 8,
+      "pdfResource": {
+        "filename": "GCC_Metrics_Handbook.html",
+        "fileUrl": "/resources/GCC_Metrics_Handbook.html",
+        "fileSize": "2 MB",
+        "pages": "50+",
+        "version": "1.0"
+      }
     }
   ],
   "stats": {
-    "totalParts": 3,
-    "totalChapters": 143,
-    "totalPages": "450+"
+    "totalParts": 4,
+    "totalChapters": 151,
+    "totalPages": "500+"
   },
   "branding": {
     "portfolioUrl": "https://kalilurrahman.lovable.app",
