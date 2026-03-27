@@ -105,4 +105,10 @@ export const PART_COLORS: Record<number, { bg: string; text: string; border: str
     border: 'border-emerald-500/30',
     badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
   },
+  4: {
+    bg: 'bg-amber-600',
+    text: 'text-amber-400',
+    border: 'border-amber-500/30',
+    badge: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+  },
 };
