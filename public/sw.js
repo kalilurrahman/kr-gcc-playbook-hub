@@ -1,8 +1,9 @@
-const CACHE_NAME = 'gcc-playbook-v3';
+const CACHE_NAME = 'gcc-playbook-v4';
 const ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
+  '/data/gcc-master-index.json',
 ];
 
 self.addEventListener('install', (event) => {
