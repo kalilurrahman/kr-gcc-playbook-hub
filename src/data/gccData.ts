@@ -18,6 +18,10 @@ export const stats = [
   { value: "2.5M+", label: "Professionals Employed" },
   { value: "1,700+", label: "GCCs in India" },
   { value: "$64.6B", label: "Export Value (India)" },
+  { value: "151", label: "Playbook Chapters" },
+  { value: "35+", label: "Maturity Metrics" },
+  { value: "4", label: "Zinnov Waves" },
+  { value: "500+", label: "Pages of Content" },
 ];
 
 export const sections: GCCSection[] = [
