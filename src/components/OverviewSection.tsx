@@ -27,7 +27,7 @@ const sectionIcons: Record<string, React.ReactNode> = {
 const sectionDescriptions: Record<string, string> = {
   purpose: "Understand cost arbitrage, talent access, innovation, and strategic control objectives.",
   lifecycle: "Navigate the 6 phases from inception & planning through transformation or exit.",
-  maturity: "Assess your GCC's stage — from cost center to innovation engine.",
+  maturity: "Review the FY2026 Zinnov maturity distribution from Outpost to Transformation Hub.",
   sizes: "Right-size your GCC from micro (10 employees) to mega (5,000+).",
   geography: "Compare India, Mexico, Poland, Philippines, and other GCC destinations.",
   challenges: "Tackle attrition, skills gaps, governance, compliance, and scaling risks.",
@@ -37,10 +37,10 @@ const sectionDescriptions: Record<string, string> = {
 };
 
 const metricsHighlights = [
-  { icon: <TrendingUp className="w-5 h-5" />, value: "3.5×+", label: "ROI on AI Initiatives", desc: "Wave 4 GCCs deliver 3.5× or higher returns on AI/digital investments" },
-  { icon: <Cpu className="w-5 h-5" />, value: "40%", label: "Faster Time-to-Market", desc: "AI-native GCCs accelerate development cycles by 20–40%" },
-  { icon: <Users className="w-5 h-5" />, value: "8–19%", label: "Reach Wave 4", desc: "Only top 8–19% of GCCs achieve Transformation Hub status" },
-  { icon: <Shield className="w-5 h-5" />, value: "24/24", label: "Max Maturity Score", desc: "KPMG 8-dimension scoring across strategy, governance, digital & value" },
+  { icon: <TrendingUp className="w-5 h-5" />, value: "64%", label: "Dual Mandates", desc: "Site leaders increasingly own global business units alongside India leadership" },
+  { icon: <Cpu className="w-5 h-5" />, value: "#1", label: "AI Hiring Intensity", desc: "India leads global enterprise AI hiring intensity and ranks #2 for AI talent" },
+  { icon: <Users className="w-5 h-5" />, value: "96%", label: "Portfolio Mandates", desc: "Post-FY2021 GCCs launched with product or portfolio ownership from day one" },
+  { icon: <Shield className="w-5 h-5" />, value: "5%", label: "Transformation Hubs", desc: "FY2026 Zinnov maturity mix shows a small AI-led CXO-sovereign frontier" },
 ];
 
 const OverviewSection = () => {
@@ -53,12 +53,11 @@ const OverviewSection = () => {
         transition={{ duration: 0.4 }}
       >
         <h2 className="text-3xl sm:text-4xl font-bold gradient-text-accent mb-5">
-          Welcome to the GCC Playbook
+          2,117 GCCs | USD 98.4 Bn Revenue | 2.36 Mn Professionals
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          Your comprehensive guide to building, scaling, and optimizing Global
-          Capability Centers from inception to excellence. Navigate through
-          phases, maturity levels, geographies, and proven strategies.
+          India's GCC ecosystem has moved from Delivery Engine to Enterprise Nerve Centre.
+          This playbook reflects the FY2026 Zinnov-Nasscom GCC Value Orbit landscape.
         </p>
       </motion.div>
 

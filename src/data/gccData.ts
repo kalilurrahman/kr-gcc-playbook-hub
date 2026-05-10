@@ -14,14 +14,14 @@ export interface GCCSection {
 }
 
 export const stats = [
-  { value: "6,000+", label: "Active GCCs Globally" },
-  { value: "2.5M+", label: "Professionals Employed" },
-  { value: "1,700+", label: "GCCs in India" },
-  { value: "$64.6B", label: "Export Value (India)" },
-  { value: "151", label: "Playbook Chapters" },
-  { value: "35+", label: "Maturity Metrics" },
-  { value: "4", label: "Zinnov Waves" },
-  { value: "500+", label: "Pages of Content" },
+  { value: "2,117", label: "GCCs in India" },
+  { value: "3,728", label: "GCC Units" },
+  { value: "USD 98.4B", label: "Market Revenue" },
+  { value: "2.36M", label: "Professionals" },
+  { value: "506+", label: "Forbes Global 2000 GCCs" },
+  { value: "250K+", label: "AI/ML Professionals" },
+  { value: "583", label: "Mid-market GCCs" },
+  { value: "504", label: "PE-backed GCC Centers" },
 ];
 
 export const sections: GCCSection[] = [
@@ -45,9 +45,9 @@ export const sections: GCCSection[] = [
         icon: "🧠", title: "Capability & Talent Access", description: "Access to deep talent pools and specialized skills",
         tags: ["Talent", "Skills", "Expertise"],
         details: [
-          "India: 5.4M+ IT professionals, 1.5M annual STEM graduates",
+          "India GCCs: 2.36M professionals, including 250,000+ AI/ML professionals",
           "Poland: 430K+ IT professionals with EU-standard education",
-          "Skills Focus: AI/ML (63% priority), data engineering (54%), cloud, cybersecurity",
+          "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 for AI hiring intensity",
           "Hire-Train-Deploy Models: Reduce time-to-productivity and attrition by 78%",
           "Global Talent Pool: Access to diverse perspectives, 24/7 development cycles",
         ],
@@ -59,7 +59,7 @@ export const sections: GCCSection[] = [
           "EY: How GCCs leverage partner ecosystems for innovation https://www.ey.com/en_in/insights/consulting/global-capability-centers/how-gccs-can-leverage-partner-ecosystems-to-enhance-innovation",
           "Women-Led Innovation: Patents, platforms, products from GCC incubators https://inductusgcc.com/women-led-innovation-case-studies-of-patents-platforms-products-originating-in-gccs/",
           "Innovation Time: 10-20% dedicated to experimental projects",
-          "Only 8% of GCCs reach innovation maturity (BCG 2025)",
+          "AI Operating Model Gap: No GCC has fully rebuilt its operating model around AI yet",
           "Key Enablers: Hackathons, startup partnerships, academia collaborations",
         ],
       },
@@ -127,37 +127,32 @@ export const sections: GCCSection[] = [
   {
     id: "maturity",
     label: "Maturity Levels",
-    title: "GCC Maturity Model",
+    title: "Zinnov GCC Maturity Framework (FY2026)",
     cards: [
       {
-        icon: "🔹", title: "Stage 1: Cost Center", description: "Focus on reducing expenses through labor arbitrage",
-        tags: ["Cost Savings", "Basic Functions"],
-        details: ["Primary Goal: 30-50% cost reduction", "Functions: Back-office, IT support, basic operations", "KPIs: Cost per FTE, cost savings percentage", "Decision Rights: HQ-driven, minimal autonomy", "Typical Duration: 1-2 years", "Risk: Viewed as commodity, vulnerable to outsourcing"],
+        icon: "13%", title: "Outpost", description: "Cost-arbitrage operating arm",
+        tags: ["Cost Arbitrage", "FY2026", "13%"],
+        details: ["Distribution: 13% of India GCCs", "Primary Goal: Efficient execution and cost leverage", "Governance: HQ-directed with limited local autonomy", "Mandate: Task execution, support processes, and basic service delivery", "Risk: Vulnerable if it does not move toward capability ownership"],
       },
       {
-        icon: "🔷", title: "Stage 2: Service Provider", description: "Focus on delivering quality services efficiently",
-        tags: ["Efficiency", "SLA-driven"],
-        details: ["Primary Goal: High-quality delivery, meeting SLAs", "Functions: Process excellence, standardized workflows", "KPIs: Turnaround time, quality metrics, productivity", "Capabilities: RPA adoption, process optimization (10-15% efficiency gains)", "Challenge: Most GCCs plateau here—optimizing efficiency but not strategic value"],
+        icon: "43%", title: "Satellite", description: "Capability at scale",
+        tags: ["Capability", "Scale", "43%"],
+        details: ["Distribution: 43% of India GCCs", "Primary Goal: Reliable scaled capability and process ownership", "Functions: Standardized workflows, analytics, product support, and technical CoEs", "KPIs: Quality, productivity, skill depth, and stakeholder trust", "Challenge: Largest maturity band; must avoid plateauing at scale without enterprise mandate"],
       },
       {
-        icon: "🔶", title: "Stage 3: Capability Builder", description: "Developing deep domain and functional expertise",
-        tags: ["Expertise", "Domain Knowledge"],
-        details: ["Primary Goal: Building specialized skills and domain mastery", "Functions: Analytics, product support, technical centers of excellence", "KPIs: Skill depth, problem-solving autonomy, stakeholder trust", "Leadership: Strong middle management, reduced HQ dependency", "Culture Shift: From execution to solution-oriented thinking"],
+        icon: "39%", title: "Portfolio Hub", description: "End-to-end ownership",
+        tags: ["Portfolio", "Ownership", "39%"],
+        details: ["Distribution: 39% of India GCCs", "Primary Goal: Product, platform, and portfolio accountability", "Functions: End-to-end ownership, domain depth, reusable platforms, and global mandate delivery", "KPIs: Business outcomes, product launches, innovation delivered, and revenue influence", "Leadership: India teams hold clear decision rights and reduced HQ dependency"],
       },
       {
-        icon: "💎", title: "Stage 4: Value Creator", description: "Taking ownership of business outcomes",
-        tags: ["Ownership", "Business Outcomes"],
-        details: ["Primary Goal: Delivering measurable business impact", "Functions: Product ownership, end-to-end accountability", "KPIs: Revenue impact, product launches, innovation delivered", "Decision Making: Cross-functional teams, local decision rights", "Examples: Owning digital products, platform development"],
+        icon: "5%", title: "Transformation Hub", description: "AI-led, CXO-sovereign enterprise nerve centre",
+        tags: ["AI-led", "CXO Sovereignty", "5%"],
+        details: ["Distribution: 5% of India GCCs", "Primary Goal: Enterprise transformation and strategic co-ownership", "Functions: AI-led operating models, IP creation, new business models, and global portfolio leadership", "KPIs: Enterprise value, market differentiation, patents, and board-level impact", "Reality Check: No GCC has fully rebuilt its operating model around AI yet"],
       },
       {
-        icon: "🌟", title: "Stage 5: Innovation Engine", description: "Creating competitive advantage and new value",
-        tags: ["Innovation", "IP Creation"],
-        details: ["Primary Goal: Creating IP, driving competitive advantage", "Functions: R&D, AI/ML innovation, new business models", "KPIs: Patents filed, products launched, market differentiation", "Integration: Seamless with HQ, viewed as strategic asset", "Maturity: Only 8% of GCCs reach this stage (BCG 2025)", "Risk: 30% of GCCs expected to consolidate/close by 2028"],
-      },
-      {
-        icon: "📊", title: "Maturity Assessment Framework", description: "Key dimensions for measuring GCC maturity",
-        tags: ["Assessment", "Framework"],
-        details: ["Operating Model: Structure, governance, decision rights", "Talent Maturity: Skill depth, leadership pool, retention", "Digital Capabilities: AI/ML, cloud, automation adoption", "Business Alignment: Strategic integration with parent company", "Innovation Output: IP creation, reusable platforms", "Cultural Integration: Seamless collaboration across geographies"],
+        icon: "96%", title: "Collapsed Maturity Curve", description: "The crawl-walk-run model is obsolete",
+        tags: ["Maturity", "Post-FY2021", "96%"],
+        details: ["96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one", "Maturity that historically took 10 years is now happening in under 5", "Implication: Founding governance, leadership, AI readiness, and portfolio scope must be designed at launch", "Operating Model: Structure, governance, decision rights, talent maturity, digital capabilities, business alignment, innovation output, and cultural integration"],
       },
     ],
   },
@@ -194,7 +189,7 @@ export const sections: GCCSection[] = [
       {
         icon: "📐", title: "Right-Sizing Your GCC", description: "Framework for optimal sizing decisions",
         tags: ["Strategy", "Planning"],
-        details: ["Start Small, Scale Gradually: Begin with pilot (50-100), validate, then expand", "Function Criticality: High-value functions justify larger investments", "Parent Company Size: GCC typically 5-15% of global workforce", "Location Capacity: Tier 1 cities support mega GCCs, Tier 2 ideal for medium", "Attrition Risk: Larger centers need stronger retention programs", "Avoid Over-Scaling: 30% consolidation expected by 2028"],
+        details: ["Start Small, Scale Gradually: Begin with pilot (50-100), validate, then expand", "Function Criticality: High-value functions justify larger investments", "Parent Company Size: GCC typically 5-15% of global workforce", "Location Capacity: Tier 1 cities support mega GCCs, Tier 2 ideal for medium", "Attrition Risk: Larger centers need stronger retention programs", "Mandate Design: 96% of post-FY2021 GCCs launched with product or portfolio scope from day one"],
       },
     ],
   },
@@ -204,9 +199,9 @@ export const sections: GCCSection[] = [
     title: "GCC Geography Guide",
     cards: [
       {
-        icon: "🇮🇳", title: "India - Dominant GCC Hub", description: "1,700+ centers with mature ecosystem",
+        icon: "🇮🇳", title: "India - Dominant GCC Hub", description: "2,117 GCCs across 3,728 units",
         tags: ["Mature Ecosystem", "Scale"],
-        details: ["Tech Talent Pool: 5.4M+ IT professionals, 1.5M annual STEM graduates", "Cost Advantage: 40-50% lower than US/UK", "Top Cities: Bengaluru (500+), Hyderabad (355), Pune, Chennai, NCR", "Emerging Hubs: Ahmedabad, Coimbatore, Kochi, Vizag", "Challenges: High attrition (15-25%), time zone gap (10.5 hrs), market saturation", "Growth Projection: 2,400+ centers by 2030"],
+        details: ["FY2026 Scale: 2,117 GCCs across 3,728 GCC units", "Market Revenue: USD 98.4B with 2.36M professionals", "AI Talent: 250,000+ AI/ML professionals; India is #1 globally in AI hiring intensity", "Enterprise Reach: 506+ Forbes Global 2000 companies have India GCCs", "Growth Since FY2021: GCC count up 32%, revenue CAGR approximately 9.9%", "Ecosystem Depth: 583 mid-market GCCs, 504 PE-backed GCC centers, and 220+ GCC setups enabled by Zinnov"],
       },
       {
         icon: "🇲🇽", title: "Mexico - Nearshore Advantage", description: "US-aligned time zones with growing ecosystem",
@@ -256,14 +251,14 @@ export const sections: GCCSection[] = [
         details: ["Impact: ₹50-70 crore annual cost for 1,000-person center", "Root Causes: Competing offers, inadequate career paths, poor culture", "Solution - Proactive Strategy: Career progression pathways from day one", "Solution - Competitive Comp: Market benchmarking, equity programs, benefits", "Solution - Upskilling: Continuous learning, certifications, global mobility", "Best Practice: Recruit-Train-Deploy (RTD) models reduce attrition by 78%", "Retention Factor: Customized training increases retention 2.3x"],
       },
       {
-        icon: "🎓", title: "Skills Gap & Technology Change", description: "63% prioritize AI/ML capabilities",
+        icon: "🎓", title: "AI Talent Lead & Operating Model Gap", description: "India is #1 globally in AI hiring intensity",
         tags: ["Skills", "Technology"],
-        details: ["Gap Areas: AI/ML (63% priority), data engineering (54%), cloud, cybersecurity", "Solution - Learning Culture: Make L&D core to GCC DNA", "Solution - Partnerships: Ed-tech platforms, university collaborations", "Solution - Internal Academies: JPMorgan AI Academy model, specialized training", "Solution - Peer Learning: Cross-functional exposure, mentorship programs", "Technology Adoption: Digital CoEs to pilot new tech before scaling"],
+        details: ["FY2026 Data: 250,000+ AI/ML professionals work in India GCCs", "Global Position: India is the #2 market for enterprise AI talent and #1 in AI hiring intensity", "Operating Model Gap: No GCC has fully rebuilt its operating model around AI yet", "Solution - Learning Culture: Make L&D core to GCC DNA", "Solution - Partnerships: Ed-tech platforms, universities, and enterprise AI labs", "Technology Adoption: Move from pilots to production AI embedded in core workflows"],
       },
       {
-        icon: "🏛️", title: "Governance & Decision Rights", description: "Transitioning from execution to strategy",
+        icon: "🏛️", title: "Governance & Dual Mandates", description: "64% of GCC site leaders now hold dual mandates",
         tags: ["Governance", "Autonomy"],
-        details: ["Problem: GCC stuck as execution arm, not strategic partner", "Solution - Clear Decision Rights: Define what GCC can decide independently", "Solution - Accountability: Shift from output to outcome ownership", "Solution - Leadership Empowerment: Local leaders with strategic mandate", "Solution - Business-Aligned KPIs: Measure business outcomes, not just activity", "Maturity Requirement: Transition requires intentional HQ investment"],
+        details: ["FY2026 Shift: 64% of GCC site leaders now hold dual mandates: global business unit ownership plus site leadership", "Implication: Enterprise authority is migrating to India", "Solution - Clear Decision Rights: Define what GCC can decide independently", "Solution - Accountability: Shift from output to outcome ownership", "Solution - Leadership Empowerment: Local leaders with strategic mandate", "Business-Aligned KPIs: Measure outcomes, not just activity"],
       },
       {
         icon: "🌐", title: "Cultural & Communication Barriers", description: "Time zone and work culture challenges",
@@ -281,9 +276,9 @@ export const sections: GCCSection[] = [
         details: ["Common Delays: Real estate, IT infrastructure, vendor onboarding", "Pitfall: Choosing location only on cost, ignoring quality factors", "Solution - Early Planning: Infrastructure 6 months ahead of hiring", "Solution - Proven Vendors: Work with experienced GCC setup partners", "Solution - Backup Systems: Redundancy for critical infrastructure", "Solution - Scalability: Design for 2-3x growth from day one"],
       },
       {
-        icon: "🚨", title: "Innovation Plateau & Closure Risk", description: "Only 8% show innovation maturity",
+        icon: "🚨", title: "Transformation Plateau", description: "Only 5% are AI-led Transformation Hubs",
         tags: ["Strategic Risk", "Innovation"],
-        details: ["Warning Signs: Only 8% show innovation maturity (BCG 2025)", "Risk Factors: Headcount-focused KPIs, no IP creation, weak autonomy", "Solution - Anchor Capability: Focus on 1-2 irreplaceable capabilities", "Solution - Kill Unproductive CoEs: COE without adoption = expensive title", "Solution - Platform Thinking: Build reusable APIs, libraries, tools", "Solution - Innovation KPIs: Measure IP reused, cost saved, revenue unlocked", "Critical: If innovation can't defend budget financially, it won't survive"],
+        details: ["FY2026 Maturity Mix: Transformation Hub is 5% of GCCs", "Warning Sign: AI pilots exist, but operating models have not been fully rebuilt around AI", "Risk Factors: Headcount-focused KPIs, no IP creation, weak autonomy", "Solution - Anchor Capability: Focus on 1-2 irreplaceable capabilities", "Solution - Platform Thinking: Build reusable APIs, libraries, tools", "Innovation KPIs: Measure IP reused, cost saved, revenue unlocked"],
       },
       {
         icon: "🔄", title: "Scaling Too Fast", description: "Growth without stability creates fragility",
@@ -297,6 +292,8 @@ export const sections: GCCSection[] = [
     label: "Best Practices",
     title: "GCC Best Practices",
     cards: [
+      { icon: "2026", title: "FY2026 Structural Shifts", description: "The operating assumptions for India GCCs have reset", tags: ["Trends", "FY2026"], details: ["Dual Mandates: 64% of GCC site leaders now hold global business unit ownership plus site leadership", "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 worldwide in AI hiring intensity", "Collapsed Maturity Curve: 96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one", "Strategic Frame: India's GCC ecosystem has moved from Delivery Engine to Enterprise Nerve Centre"] },
+      { icon: "NEW", title: "FY2026 Notable New Entrants", description: "Recent global companies joining India's GCC ecosystem", tags: ["Entrants", "FY2026"], details: ["Anthropic", "Vanguard", "T-Mobile", "Marriott International", "Lufthansa"] },
       { icon: "🎯", title: "Strategic Alignment", description: "Align GCC with parent company vision", tags: ["Strategy"], details: ["Define Clear Objectives: Beyond cost savings—strategic capabilities", "Business Outcome KPIs: Product launches, revenue impact, innovation delivered", "Regular Alignment: Quarterly strategy reviews with HQ leadership", "Stakeholder Engagement: Build trust through consistent value demonstration", "Long-term Vision: 3-5 year roadmap aligned with company goals"] },
       { icon: "🏃", title: "Start Small, Scale Gradually", description: "Validate before expanding", tags: ["Growth"], details: ["Pilot Team: Start with 50-100 focused team", "Validate Processes: Test workflows, governance, communication", "Build Local Leadership: Hire senior leaders early for credibility", "Success Metrics: Clear criteria for scaling decision", "Timeline: 12-18 months stabilization before major expansion"] },
       { icon: "👔", title: "Skills-First Hiring", description: "Competency over credentials", tags: ["Talent"], details: ["Competency-Based: Assess actual skills, not just resume brands", "Cultural Fit: Alignment with values, collaboration mindset", "Growth Potential: Hire for learning agility, not just current knowledge", "Diverse Pipelines: Partner with universities, bootcamps, non-traditional sources", "Candidate Experience: Treat as retention tool—first impression matters"] },
@@ -317,11 +314,11 @@ export const sections: GCCSection[] = [
     title: "GCC Resources & Tools",
     cards: [
       { icon: "📖", title: "Official Reports & Research", description: "Strategy documents from leading consulting firms", tags: ["Reports", "Research", "PDF"], details: [
+        "Zinnov-Nasscom GCC Landscape in India 2026: GCC Value Orbit: Delivery Engine to Enterprise Nerve Centre, published May 6, 2026",
         "BCG Rewriting the GCC Playbook 2025: https://web-assets.bcg.com/66/c2/16f4539648f0a6a455ce5058f7f2/rewriting-the-global-capability-center-playbook.pdf",
         "Everest Group GCC Transformation Landscape 2025: https://www.everestgrp.com/how-global-capability-centers-are-driving-transformation-the-evolving-landscape-blog/",
-        "Zinnov Location Analysis & GCC Reports 2025: https://zinnov.com/global-capability-center-setup-location-analysis-2025-report/",
+        "Zinnov GCC Reports and Centers of Excellence: https://zinnov.com/centers-of-excellence/",
         "KPMG GCC Tax Insights & Services 2025: https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/09/gccs-in-india-key-tax-insights.pdf",
-        "Deloitte Global GCC Hub: https://www.deloitte.com/in/en/Industries/global-gcc.html",
       ] },
       { icon: "🏢", title: "Consulting & Advisory Firms", description: "Expert partners for GCC setup, strategy and scaling", tags: ["Advisory", "Big 4", "Consulting"], details: [
         "Zinnov GCC Advisory & CoE Setup: https://zinnov.com/centers-of-excellence/",

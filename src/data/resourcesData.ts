@@ -69,6 +69,7 @@ export const allResources: Resource[] = [
   // GCC Government Policy
   { category: "GCC Government Policy", type: "Web Page", url: "https://stpi.in/en/", name: "STPI India: GCC Policy & Registration Portal" },
   // GCC Landscape & Market Overview
+  { category: "GCC Landscape & Market Overview", type: "Report", url: "https://zinnov.com/centers-of-excellence/", name: "Zinnov-Nasscom: GCC Value Orbit: Delivery Engine to Enterprise Nerve Centre (May 6, 2026)" },
   { category: "GCC Landscape & Market Overview", type: "Report", url: "https://community.nasscom.in/communities/gcc/global-capability-centers-gcc-quarterly-landscape-report", name: "ANSR: GCC Quarterly Landscape Report 2024" },
   { category: "GCC Landscape & Market Overview", type: "Blog", url: "https://www.brickworkindia.com/blog/what-is-a-gcc-an-overview-of-gccs-in-india", name: "Brickwork India: What Is a GCC?" },
   { category: "GCC Landscape & Market Overview", type: "Report PDF", url: "https://www.dnb.co.in/files/reports/DNB-Rethinking-the-Future-of-Global-Capability-Centers-2025.pdf", name: "D&B India: Rethinking Future of GCCs 2025" },
@@ -185,7 +186,7 @@ export const allResources: Resource[] = [
   { category: "GCC Strategy & Business Case", type: "Blog", url: "https://community.nasscom.in/communities/nasscom-insights/nasscom-indias-gcc-leap-powering-global-mid-market-momentum", name: "NASSCOM: India's GCC Leap" },
   { category: "GCC Strategy & Business Case", type: "Report", url: "https://nasscom.in/knowledge-center/publications/technology-sector-india-strategic-review-2025", name: "NASSCOM: Tech Review 2025" },
   { category: "GCC Strategy & Business Case", type: "Report", url: "https://nasscom.in/knowledge-center/publications/unlocking-growth-and-value-creation-technology-services-2024-25", name: "NASSCOM: Growth & Value Creation 2024-25" },
-  { category: "GCC Strategy & Business Case", type: "Report", url: "https://zinnov.com/centers-of-excellence/zinnov-nasscom-mid-market-global-capability-centers-gccs-2025-report/", name: "Zinnov-NASSCOM: Mid-Market GCC 2025" },
+  { category: "GCC Strategy & Business Case", type: "Report", url: "https://zinnov.com/centers-of-excellence/", name: "Zinnov-Nasscom: GCC Value Orbit 2026" },
   { category: "GCC Strategy & Business Case", type: "Blog", url: "https://zinnov.com/centers-of-excellence/", name: "Zinnov: Centers of Excellence Hub" },
   { category: "GCC Strategy & Business Case", type: "Blog", url: "https://zinnov.com/private-equity/why-globalization-is-pes-strongest-value-lever-blog/", name: "Zinnov: PE's Globalization Lever" },
   { category: "GCC Strategy & Business Case", type: "Blog", url: "https://zinnov.com/private-equity/why-are-private-equity-portcos-going-global-blog/", name: "Zinnov: PE Portcos Going Global" },
