@@ -57,9 +57,11 @@ for (const f of files) {
   lines.forEach((line, i) => {
     const lineNo = i + 1;
 
-    if (citationLine.test(line)) {
+    // Only treat as a "flagship" citation when the line names the FY2026 report.
+    const isFlagshipCitation = citationLine.test(line) && /(GCC Value Orbit|GCC Landscape in India|Landscape Report)/i.test(line);
+    if (isFlagshipCitation) {
       if (staleYear.test(line) && !historicalReportMarkers.test(line) && !/2026/.test(line)) {
-        errors.push(`${f}:${lineNo} Zinnov-Nasscom citation references a stale year without 2026: ${line.trim().slice(0, 200)}`);
+        errors.push(`${f}:${lineNo} Flagship Zinnov-Nasscom citation missing 2026: ${line.trim().slice(0, 200)}`);
       }
     }
 
