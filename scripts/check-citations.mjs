@@ -30,8 +30,11 @@ const walk = (dir) => {
 };
 ROOTS.forEach(walk);
 
-const errors = [];
-const warnings = [];
+/** @typedef {{file:string,line:number,severity:'error'|'warning',rule:string,message:string,snippet:string}} Finding */
+/** @type {Finding[]} */
+const findings = [];
+const push = (severity, rule, file, line, message, snippet) =>
+  findings.push({ severity, rule, file, line, message, snippet: snippet.trim().slice(0, 280) });
 
 // Patterns that mention Zinnov+Nasscom together (citation-bearing line).
 const citationLine = /(zinnov[-\s]?nasscom|nasscom[-\s]?zinnov)/i;
