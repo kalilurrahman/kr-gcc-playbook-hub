@@ -11,7 +11,7 @@
  *
  * Exits non-zero on failure so CI can gate on it.
  */
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, extname } from "node:path";
 
 const ROOTS = ["src", "public/data"];
