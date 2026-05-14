@@ -45,6 +45,9 @@ export default function PlaybookViewer() {
   const { toggleBookmark, isBookmarked } = useBookmarks();
   const { savePosition, getLastPosition } = useReadingPosition();
   const { fontSize, setFontSize } = useFontSize();
+  const location = useLocation();
+
+  // Compute dynamic meta tags
 
   // Load master index
   useEffect(() => {
