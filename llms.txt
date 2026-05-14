@@ -1,0 +1,12 @@
+# GCC Playbook 2026–2030
+
+> The complete open-access reference for Global Capability Centers (GCCs) in India — covering landscape data, lifecycle phases, maturity models, setup playbooks, talent frameworks, AI transformation, finance, governance, and 2030 scenarios. Curated by Kalilur Rahman. Updated with FY2026 Zinnov–Nasscom figures.
+
+## Pages
+
+- [/](/): Dashboard — key GCC statistics (2,117 GCCs, 2.36M professionals, USD 98.4B revenue), hub sections, and playbook navigation.
+- [/playbook](/playbook): Playbook Viewer — browse the full GCC Playbook in four parts with interactive TOC, search, bookmarks, reading progress, and glossary.
+- [/playbook/part-1](/playbook/part-1): Part I — India GCC Landscape, maturity models, and structural shifts.
+- [/playbook/part-2](/playbook/part-2): Part II — GCC Setup Guide, legal entity formation, location selection, and vendor management.
+- [/playbook/part-3](/playbook/part-3): Part III — Operating a GCC, talent strategy, AI transformation, finance, governance, ESG, and M&A.
+- [/playbook/part-4](/playbook/part-4): Part IV — GCC Metrics Handbook, benchmarks, KPIs, and downloadable resources.
