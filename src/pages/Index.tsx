@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { AnimatePresence, motion } from "framer-motion";
 import CuratorBanner from "@/components/CuratorBanner";
 import GCCHeader from "@/components/GCCHeader";
