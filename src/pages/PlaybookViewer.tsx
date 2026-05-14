@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { PlaybookHeader } from '@/components/playbook/PlaybookHeader';
 import { PlaybookFooter } from '@/components/playbook/PlaybookFooter';
 import { ContentBlocks } from '@/components/playbook/ContentBlock';
@@ -43,6 +45,33 @@ export default function PlaybookViewer() {
   const { toggleBookmark, isBookmarked } = useBookmarks();
   const { savePosition, getLastPosition } = useReadingPosition();
   const { fontSize, setFontSize } = useFontSize();
+  const location = useLocation();
+
+  // Compute dynamic meta tags
+
+  const meta = useMemo(() => {
+    const baseUrl = 'https://kr-gcc-playbook.lovable.app';
+    const url = `${baseUrl}${location.pathname}`;
+    switch (currentPage) {
+      case 'home':
+        return { title: 'GCC Playbook 2026–2030 | Home', description: 'Explore the complete open-access GCC Playbook — four parts covering landscape, setup, operations, and metrics.', url };
+      case 'toc':
+        return { title: 'GCC Playbook | Table of Contents', description: 'Browse all chapters across the four parts of the GCC Playbook.', url };
+      case 'resources':
+        return { title: 'GCC Playbook | Resources & Downloads', description: 'Download PDFs, reports, and reference materials from the GCC Playbook.', url };
+      case 'search':
+        return { title: 'GCC Playbook | Search', description: 'Search chapters, sections, and content across the GCC Playbook.', url };
+      case 'chapter': {
+        const ch = currentChapterIdx !== null ? allChapters[currentChapterIdx] : null;
+        if (ch) {
+          return { title: `${ch.title} | GCC Playbook`, description: `${ch.title} — ${ch.partTitle} in the GCC Playbook.`, url };
+        }
+        return { title: 'GCC Playbook | Chapter', description: 'Reading a chapter in the GCC Playbook.', url };
+      }
+      default:
+        return { title: 'GCC Playbook 2026–2030', description: 'Complete Global Capability Center guide.', url };
+    }
+  }, [currentPage, currentChapterIdx, allChapters, location.pathname]);
 
   // Load master index
   useEffect(() => {
@@ -194,6 +223,13 @@ export default function PlaybookViewer() {
   // ---- Home Page ----
   if (currentPage === 'home') return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <Helmet>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={meta.url} />
+      </Helmet>
       <ReadingProgress />
       <PlaybookHeader {...headerProps} />
       <main className="max-w-5xl mx-auto px-4 py-10 flex-1">
@@ -296,6 +332,13 @@ export default function PlaybookViewer() {
   // ---- Resources Page ----
   if (currentPage === 'resources') return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <Helmet>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={meta.url} />
+      </Helmet>
       <ReadingProgress />
       <PlaybookHeader {...headerProps} />
       <main className="max-w-5xl mx-auto px-4 py-10 flex-1">
@@ -308,6 +351,13 @@ export default function PlaybookViewer() {
   // ---- TOC Page ----
   if (currentPage === 'toc') return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
+      <Helmet>
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:url" content={meta.url} />
+      </Helmet>
       <ReadingProgress />
       <PlaybookHeader {...headerProps} />
       <main className="max-w-3xl mx-auto px-4 py-10 flex-1">
@@ -360,6 +410,13 @@ export default function PlaybookViewer() {
     const bookmarked = isBookmarked(ch.id);
     return (
       <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <Helmet>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:url" content={meta.url} />
+        </Helmet>
         <ReadingProgress />
         <PlaybookHeader {...headerProps} />
         <div className="flex flex-1">
@@ -471,6 +528,13 @@ export default function PlaybookViewer() {
 
     return (
       <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <Helmet>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:url" content={meta.url} />
+        </Helmet>
         <ReadingProgress />
         <PlaybookHeader {...headerProps} />
         <main className="max-w-3xl mx-auto px-4 py-10 flex-1">

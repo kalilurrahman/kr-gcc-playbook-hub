@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Helmet } from "react-helmet-async";
 import { AnimatePresence, motion } from "framer-motion";
 import CuratorBanner from "@/components/CuratorBanner";
 import GCCHeader from "@/components/GCCHeader";
@@ -52,6 +53,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>GCC Playbook 2026–2030 | Dashboard</title>
+        <meta name="description" content="Complete Global Capability Center guide with FY2026 figures — 2,117 GCCs, 2.36M professionals, lifecycle phases, maturity models, and best practices." />
+        <meta property="og:title" content="GCC Playbook 2026–2030 | Dashboard" />
+        <meta property="og:description" content="Complete Global Capability Center guide with FY2026 figures — 2,117 GCCs, 2.36M professionals, and best practices." />
+        <meta property="og:url" content="https://kr-gcc-playbook.lovable.app/" />
+      </Helmet>
       <PlaybookBanner variant="inline" />
       <CuratorBanner />
       <GCCHeader
