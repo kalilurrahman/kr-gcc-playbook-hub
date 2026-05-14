@@ -410,6 +410,13 @@ export default function PlaybookViewer() {
     const bookmarked = isBookmarked(ch.id);
     return (
       <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <Helmet>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:url" content={meta.url} />
+        </Helmet>
         <ReadingProgress />
         <PlaybookHeader {...headerProps} />
         <div className="flex flex-1">
