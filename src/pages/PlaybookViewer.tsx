@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { PlaybookHeader } from '@/components/playbook/PlaybookHeader';
 import { PlaybookFooter } from '@/components/playbook/PlaybookFooter';
 import { ContentBlocks } from '@/components/playbook/ContentBlock';
