@@ -49,6 +49,30 @@ export default function PlaybookViewer() {
 
   // Compute dynamic meta tags
 
+  const meta = useMemo(() => {
+    const baseUrl = 'https://kr-gcc-playbook.lovable.app';
+    const url = `${baseUrl}${location.pathname}`;
+    switch (currentPage) {
+      case 'home':
+        return { title: 'GCC Playbook 2026–2030 | Home', description: 'Explore the complete open-access GCC Playbook — four parts covering landscape, setup, operations, and metrics.', url };
+      case 'toc':
+        return { title: 'GCC Playbook | Table of Contents', description: 'Browse all chapters across the four parts of the GCC Playbook.', url };
+      case 'resources':
+        return { title: 'GCC Playbook | Resources & Downloads', description: 'Download PDFs, reports, and reference materials from the GCC Playbook.', url };
+      case 'search':
+        return { title: 'GCC Playbook | Search', description: 'Search chapters, sections, and content across the GCC Playbook.', url };
+      case 'chapter': {
+        const ch = currentChapterIdx !== null ? allChapters[currentChapterIdx] : null;
+        if (ch) {
+          return { title: `${ch.title} | GCC Playbook`, description: `${ch.title} — ${ch.partTitle} in the GCC Playbook.`, url };
+        }
+        return { title: 'GCC Playbook | Chapter', description: 'Reading a chapter in the GCC Playbook.', url };
+      }
+      default:
+        return { title: 'GCC Playbook 2026–2030', description: 'Complete Global Capability Center guide.', url };
+    }
+  }, [currentPage, currentChapterIdx, allChapters, location.pathname]);
+
   // Load master index
   useEffect(() => {
     fetch('/data/gcc-master-index.json')
