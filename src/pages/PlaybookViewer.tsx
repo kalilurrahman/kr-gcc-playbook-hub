@@ -229,6 +229,7 @@ export default function PlaybookViewer() {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:url" content={meta.url} />
+        <link rel="canonical" href={meta.url} />
       </Helmet>
       <ReadingProgress />
       <PlaybookHeader {...headerProps} />
@@ -338,6 +339,7 @@ export default function PlaybookViewer() {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:url" content={meta.url} />
+        <link rel="canonical" href={meta.url} />
       </Helmet>
       <ReadingProgress />
       <PlaybookHeader {...headerProps} />
@@ -357,6 +359,7 @@ export default function PlaybookViewer() {
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:url" content={meta.url} />
+        <link rel="canonical" href={meta.url} />
       </Helmet>
       <ReadingProgress />
       <PlaybookHeader {...headerProps} />
@@ -416,6 +419,7 @@ export default function PlaybookViewer() {
           <meta property="og:title" content={meta.title} />
           <meta property="og:description" content={meta.description} />
           <meta property="og:url" content={meta.url} />
+        <link rel="canonical" href={meta.url} />
         </Helmet>
         <ReadingProgress />
         <PlaybookHeader {...headerProps} />
@@ -534,6 +538,7 @@ export default function PlaybookViewer() {
           <meta property="og:title" content={meta.title} />
           <meta property="og:description" content={meta.description} />
           <meta property="og:url" content={meta.url} />
+        <link rel="canonical" href={meta.url} />
         </Helmet>
         <ReadingProgress />
         <PlaybookHeader {...headerProps} />
