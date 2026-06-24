@@ -5,6 +5,16 @@ interface GCCCardProps {
   card: GCCCardType;
 }
 
+/** Validate that a string is a safe https:// URL (rejects javascript:, data:, etc.) */
+const isSafeHttpsUrl = (str: string): boolean => {
+  try {
+    const url = new URL(str);
+    return url.protocol === "https:";
+  } catch {
+    return false;
+  }
+};
+
 /** Renders text with inline https:// URLs as clickable links */
 const DetailText = ({ text }: { text: string }) => {
   const parts = text.split(/(https?:\/\/[^\s,)]+)/g);
@@ -13,7 +23,7 @@ const DetailText = ({ text }: { text: string }) => {
   return (
     <>
       {parts.map((part, i) =>
-        /^https?:\/\//.test(part) ? (
+        /^https?:\/\//.test(part) && isSafeHttpsUrl(part) ? (
           <a
             key={i}
             href={part}
