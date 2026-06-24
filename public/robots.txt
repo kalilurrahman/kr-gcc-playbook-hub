@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://kr-gcc-playbook.lovable.app/sitemap.xml
+
