@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-07-13T13:00:39Z",
+  "canonicalDomain": "https://gcc-playbook.kalilurrahman.com",
+  "domains": [
+    {
+      "url": "https://kr-gcc-playbook.lovable.app/",
+      "role": "Lovable subdomain (redirects to canonical)",
+      "verified": true,
+      "owner": "rahman.kalilur@gmail.com",
+      "sitemap": {
+        "url": "https://kr-gcc-playbook.lovable.app/sitemap.xml",
+        "lastSubmitted": "2026-07-13T13:00:39Z",
+        "isPending": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "indexing": {
+        "home": {
+          "verdict": "NEUTRAL",
+          "coverageState": "Crawled - currently not indexed",
+          "robotsTxtState": "ALLOWED",
+          "indexingState": "INDEXING_ALLOWED",
+          "lastCrawlTime": "2026-06-12T05:42:30Z"
+        }
+      }
+    },
+    {
+      "url": "https://gcc-playbook.kalilurrahman.com/",
+      "role": "Primary custom domain",
+      "verified": false,
+      "verificationTokenStaged": true,
+      "sitemap": {
+        "url": "https://gcc-playbook.kalilurrahman.com/sitemap.xml",
+        "lastSubmitted": null,
+        "isPending": false,
+        "errors": 0,
+        "warnings": 0
+      },
+      "indexing": null
+    }
+  ]
+}
