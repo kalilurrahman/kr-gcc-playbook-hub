@@ -73,6 +73,18 @@
 </head>
 
   <body>
+    <script>
+      // Canonical-domain redirect: forward the Lovable subdomain to the custom
+      // domain to avoid duplicate indexing. Runs before React mounts so
+      // crawlers following JS follow the redirect immediately.
+      (function () {
+        var canonicalHost = "gcc-playbook.kalilurrahman.com";
+        var h = location.hostname;
+        if (h === "kr-gcc-playbook.lovable.app" || h.endsWith(".kr-gcc-playbook.lovable.app")) {
+          location.replace("https://" + canonicalHost + location.pathname + location.search + location.hash);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
