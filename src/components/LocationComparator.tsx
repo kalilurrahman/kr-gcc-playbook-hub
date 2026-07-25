@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Search, ChevronDown, ArrowUpDown, ArrowUp, ArrowDown, Info, RotateCcw } from "lucide-react";
-import { locations, sortVal, type Overlap, type SortKey } from "@/data/locationsData";
+import { Search, ChevronDown, ArrowUpDown, ArrowUp, ArrowDown, Info, RotateCcw, Download, SlidersHorizontal } from "lucide-react";
+import { locations, sortVal, type GCCLocation, type Overlap, type SortKey } from "@/data/locationsData";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -23,14 +23,59 @@ const OverlapPill = ({ level }: { level: Overlap }) => (
   </span>
 );
 
-const columns: { key: SortKey; label: string; align?: string }[] = [
+type Column = { key: SortKey; label: string; extended?: boolean };
+
+const columns: Column[] = [
   { key: "name", label: "Destination" },
   { key: "talentNum", label: "Tech talent" },
   { key: "costPct", label: "Cost saving" },
   { key: "usOverlap", label: "US overlap" },
   { key: "euOverlap", label: "EU overlap" },
   { key: "gmt", label: "Time zone" },
+  // Secondary decision metrics — hidden until "More metrics" is enabled so the
+  // default view stays scannable.
+  { key: "officeUsdSqFt", label: "Office cost", extended: true },
+  { key: "englishLevel", label: "English", extended: true },
+  { key: "ipRank", label: "IP posture", extended: true },
+  { key: "setupWeeks", label: "Setup time", extended: true },
 ];
+
+const englishClasses: Record<string, string> = {
+  "Very high": "bg-emerald-500/10 text-emerald-500 border-emerald-500/30",
+  High: "bg-emerald-500/10 text-emerald-500 border-emerald-500/30",
+  Working: "bg-amber-500/10 text-amber-500 border-amber-500/30",
+  Moderate: "bg-muted text-muted-foreground border-border",
+};
+
+const ipClasses: Record<number, string> = {
+  3: "bg-emerald-500/10 text-emerald-500 border-emerald-500/30",
+  2: "bg-amber-500/10 text-amber-500 border-amber-500/30",
+  1: "bg-muted text-muted-foreground border-border",
+};
+
+const ipWord: Record<number, string> = { 3: "Strong", 2: "Established", 1: "Developing" };
+
+const csvCell = (v: string | number) => {
+  const s = String(v ?? "");
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+};
+
+function toCsv(rows: GCCLocation[]): string {
+  const header = [
+    "Destination", "Region", "Strategic fit", "Tier", "Tech talent", "Cost saving",
+    "US overlap", "EU overlap", "Time zone", "Office cost (Grade A base)",
+    "English", "IP posture", "Setup time", "Top cities", "Best for", "Caveat",
+  ];
+  const body = rows.map((l) =>
+    [
+      l.name, l.region, l.fit, l.tier, l.talentLabel, l.costLabel,
+      l.usOverlap, l.euOverlap, l.tzLabel, l.metrics.officeLabel,
+      l.metrics.englishLevel, l.metrics.ipPosture, l.metrics.setupLabel,
+      l.cities.join(" / "), l.bestFor, l.note || "",
+    ].map(csvCell).join(","),
+  );
+  return [header.map(csvCell).join(","), ...body].join("\n");
+}
 
 const LocationComparator = () => {
   const [region, setRegion] = useState("All");
@@ -38,6 +83,12 @@ const LocationComparator = () => {
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("talentNum");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [showExtended, setShowExtended] = useState(false);
+
+  const visibleColumns = useMemo(
+    () => columns.filter((c) => !c.extended || showExtended),
+    [showExtended],
+  );
 
   const regions = useMemo(() => ["All", ...Array.from(new Set(locations.map((l) => l.region)))], []);
   const fits = useMemo(() => ["All", ...Array.from(new Set(locations.map((l) => l.fit)))], []);
@@ -80,6 +131,20 @@ const LocationComparator = () => {
     setSortDir("desc");
   };
 
+  // Export exactly what is on screen — current filters and sort order — so the
+  // download matches what the user is looking at.
+  const exportCsv = () => {
+    const blob = new Blob([toCsv(rows)], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `gcc-location-comparison-${rows.length}-destinations.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   const sortIcon = (col: SortKey) => {
     if (sortKey !== col) return <ArrowUpDown className="w-3 h-3 opacity-40" />;
     return sortDir === "asc" ? <ArrowUp className="w-3 h-3 text-primary" /> : <ArrowDown className="w-3 h-3 text-primary" />;
@@ -111,6 +176,25 @@ const LocationComparator = () => {
           />
           <Search className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
         </div>
+        <button
+          onClick={() => setShowExtended((v) => !v)}
+          aria-pressed={showExtended}
+          className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-medium border transition-colors ${
+            showExtended
+              ? "border-primary/40 bg-primary/10 text-primary"
+              : "border-border text-muted-foreground hover:text-foreground hover:bg-muted/50"
+          }`}
+        >
+          <SlidersHorizontal className="w-3.5 h-3.5" />
+          {showExtended ? "Fewer metrics" : "More metrics"}
+        </button>
+        <button
+          onClick={exportCsv}
+          disabled={!rows.length}
+          className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-medium border border-border text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          <Download className="w-3.5 h-3.5" /> Export CSV
+        </button>
         {!isDefault && (
           <button
             onClick={reset}
@@ -123,10 +207,10 @@ const LocationComparator = () => {
 
       {/* Comparison table */}
       <div className="overflow-x-auto rounded-xl border border-border">
-        <table className="w-full min-w-[720px] text-sm border-collapse">
+        <table className={`w-full text-sm border-collapse ${showExtended ? "min-w-[1180px]" : "min-w-[720px]"}`}>
           <thead>
             <tr className="bg-muted/40">
-              {columns.map((c) => (
+              {visibleColumns.map((c) => (
                 <th key={c.key} className="text-left px-4 py-3 font-semibold text-xs uppercase tracking-wide text-muted-foreground">
                   <button
                     onClick={() => toggleSort(c.key)}
@@ -175,11 +259,28 @@ const LocationComparator = () => {
                 <td className="px-4 py-3"><OverlapPill level={l.usOverlap} /></td>
                 <td className="px-4 py-3"><OverlapPill level={l.euOverlap} /></td>
                 <td className="px-4 py-3 text-muted-foreground whitespace-nowrap text-xs">{l.tzLabel}</td>
+                {showExtended && (
+                  <>
+                    <td className="px-4 py-3 text-muted-foreground text-xs min-w-[190px]">{l.metrics.officeLabel}</td>
+                    <td className="px-4 py-3">
+                      <span className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full border ${englishClasses[l.metrics.englishLevel]}`}>
+                        {l.metrics.englishLevel}
+                      </span>
+                    </td>
+                    <td className="px-4 py-3 min-w-[200px]">
+                      <span className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded-full border ${ipClasses[l.metrics.ipRank]}`}>
+                        {ipWord[l.metrics.ipRank]}
+                      </span>
+                      <p className="text-[10px] text-muted-foreground mt-1 leading-snug">{l.metrics.ipPosture}</p>
+                    </td>
+                    <td className="px-4 py-3 text-muted-foreground text-xs whitespace-nowrap tabular-nums">{l.metrics.setupLabel}</td>
+                  </>
+                )}
               </motion.tr>
             ))}
             {rows.length === 0 && (
               <tr>
-                <td colSpan={columns.length} className="px-4 py-10 text-center text-muted-foreground">
+                <td colSpan={visibleColumns.length} className="px-4 py-10 text-center text-muted-foreground">
                   No destinations match these filters. <button onClick={reset} className="text-primary underline">Reset</button>
                 </td>
               </tr>
@@ -197,9 +298,16 @@ const LocationComparator = () => {
           <span className="flex items-center gap-1"><OverlapPill level="Low" /> async</span>
         </span>
       </div>
-      <p className="text-[11px] text-muted-foreground/80 leading-relaxed">
-        Figures are indicative, from the FY2026 refresh research (Nasscom-Zinnov, ANSR, national investment agencies, industry coverage). “Cost saving” is versus US or Western-Europe benchmarks. Match the destination to intent — arbitrage (India, Philippines, Vietnam) vs. EU access (Poland, Romania) vs. US nearshore (Mexico, Colombia) vs. strategic AI presence (Gulf).
-      </p>
+      <div className="text-[11px] text-muted-foreground/80 leading-relaxed space-y-1.5">
+        <p>
+          Figures are indicative, from the FY2026 refresh research (Nasscom-Zinnov, ANSR, national investment agencies, industry coverage). “Cost saving” is versus US or Western-Europe benchmarks. Match the destination to intent — arbitrage (India, Philippines, Vietnam) vs. EU access (Poland, Romania) vs. US nearshore (Mexico, Colombia) vs. strategic AI presence (Gulf).
+        </p>
+        {showExtended && (
+          <p>
+            <b className="text-muted-foreground">On the secondary metrics:</b> office cost is a <em>Grade-A base rent in native units</em> — all-in occupancy typically runs 40–60% higher once CAM, parking and fit-out amortisation are added, and sorting uses a normalised USD/sq&nbsp;ft/month estimate, so treat cross-currency ordering as approximate. English and IP are deliberately <em>banded ratings, not index scores</em>: English uses the EF EPI proficiency bands as its reference frame (Poland and Romania sit in “very high”), and IP posture reflects the statutory regime and enforcement reality rather than a single ranking. Setup time is typical elapsed time to an operating entity including core registrations, not a guarantee. Verify against current advisor quotes before committing capital.
+          </p>
+        )}
+      </div>
     </section>
   );
 };

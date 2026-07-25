@@ -32,6 +32,22 @@ export interface GCCLocation {
   strengths: string[];
   bestFor: string;
   note?: string;
+  /**
+   * Secondary decision metrics. Office cost is a Grade-A BASE rent in native
+   * units (all-in occupancy typically runs 40-60% higher once CAM, parking and
+   * fit-out amortisation are added); usdSqFt is a normalised figure used only
+   * for sorting. English and IP are deliberately banded ratings rather than
+   * index scores — see the provenance note in the comparator UI.
+   */
+  metrics: {
+    officeLabel: string;
+    officeUsdSqFt: number; // normalised USD / sq ft / month, for sorting
+    englishLevel: "Very high" | "High" | "Working" | "Moderate";
+    ipPosture: string;
+    ipRank: number; // 3 strong, 2 established, 1 developing — for sorting
+    setupLabel: string;
+    setupWeeks: number; // midpoint, for sorting
+  };
 }
 
 export const locations: GCCLocation[] = [
@@ -43,6 +59,12 @@ export const locations: GCCLocation[] = [
     cities: ["Bengaluru", "Hyderabad", "Pune", "NCR", "Chennai"],
     strengths: ["Unmatched scale", "AI/ML depth", "English", "Deep GCC ecosystem"],
     bestFor: "End-to-end product ownership, AI/ML, ER&D at scale",
+    metrics: {
+      officeLabel: "₹95+/sq ft/mo (Bengaluru Grade A; Hyderabad lower)", officeUsdSqFt: 1.1,
+      englishLevel: "Working",
+      ipPosture: "Established — TRIPS-compliant, dedicated IP divisions; enforcement can be slow", ipRank: 2,
+      setupLabel: "6–12 weeks (Pvt Ltd + GST/PF/ESI)", setupWeeks: 9,
+    },
   },
   {
     name: "Poland", flag: "🇵🇱", region: "Europe (EU)", fit: "EU access", tier: "Established",
@@ -52,6 +74,12 @@ export const locations: GCCLocation[] = [
     cities: ["Warsaw", "Kraków", "Wrocław", "Poznań"],
     strengths: ["EU regulations", "Strong engineering", "High English proficiency"],
     bestFor: "EU regulatory access and nearshore Europe delivery",
+    metrics: {
+      officeLabel: "€18–24/sq m/mo (Warsaw); ~€14/sq m/mo (Kraków)", officeUsdSqFt: 2.1,
+      englishLevel: "Very high",
+      ipPosture: "Strong — full EU IP framework and enforcement", ipRank: 3,
+      setupLabel: "4–8 weeks (sp. z o.o.)", setupWeeks: 6,
+    },
   },
   {
     name: "Mexico", flag: "🇲🇽", region: "LATAM", fit: "US nearshore", tier: "Established",
@@ -61,6 +89,12 @@ export const locations: GCCLocation[] = [
     cities: ["Mexico City", "Guadalajara", "Monterrey"],
     strengths: ["US time-zone", "Cultural affinity", "Growing ecosystem"],
     bestFor: "Real-time collaboration with US teams",
+    metrics: {
+      officeLabel: "US$18–28/sq m/mo (Mexico City, by submarket)", officeUsdSqFt: 2.1,
+      englishLevel: "Moderate",
+      ipPosture: "Established — USMCA IP chapter obligations", ipRank: 2,
+      setupLabel: "6–10 weeks (S. de R.L.)", setupWeeks: 8,
+    },
   },
   {
     name: "Colombia", flag: "🇨🇴", region: "LATAM", fit: "US nearshore", tier: "Emerging",
@@ -70,6 +104,12 @@ export const locations: GCCLocation[] = [
     cities: ["Bogotá", "Medellín", "Cali"],
     strengths: ["US East-coast overlap", "Bilingual talent", "Government incentives"],
     bestFor: "US East Coast time-zone alignment",
+    metrics: {
+      officeLabel: "US$14–20/sq m/mo (Bogotá Grade A)", officeUsdSqFt: 1.6,
+      englishLevel: "Moderate",
+      ipPosture: "Established — Andean Community IP regime", ipRank: 2,
+      setupLabel: "4–8 weeks (S.A.S.)", setupWeeks: 6,
+    },
   },
   {
     name: "Romania", flag: "🇷🇴", region: "Europe (EU)", fit: "EU access", tier: "Established",
@@ -79,6 +119,12 @@ export const locations: GCCLocation[] = [
     cities: ["Bucharest", "Cluj-Napoca", "Timișoara", "Iași"],
     strengths: ["Strong math/engineering", "EU protections", "Value pricing"],
     bestFor: "EU-protected value engineering",
+    metrics: {
+      officeLabel: "€13–18/sq m/mo (Bucharest Grade A)", officeUsdSqFt: 1.55,
+      englishLevel: "Very high",
+      ipPosture: "Strong — full EU IP framework and enforcement", ipRank: 3,
+      setupLabel: "4–8 weeks (S.R.L.)", setupWeeks: 6,
+    },
   },
   {
     name: "Philippines", flag: "🇵🇭", region: "Asia", fit: "Services & BPO", tier: "Established",
@@ -88,6 +134,12 @@ export const locations: GCCLocation[] = [
     cities: ["Manila", "Cebu", "Davao"],
     strengths: ["Excellent English", "Customer-service excellence", "Cost"],
     bestFor: "Customer support, IT helpdesk, back-office operations",
+    metrics: {
+      officeLabel: "~US$1.76/sq ft/mo (Metro Manila BGC Grade A)", officeUsdSqFt: 1.76,
+      englishLevel: "High",
+      ipPosture: "Established — IPOPHL regime; enforcement improving", ipRank: 2,
+      setupLabel: "6–12 weeks (domestic corp / PEZA)", setupWeeks: 9,
+    },
   },
   {
     name: "Vietnam", flag: "🇻🇳", region: "Asia", fit: "Cost arbitrage", tier: "Emerging",
@@ -97,6 +149,12 @@ export const locations: GCCLocation[] = [
     cities: ["Hanoi", "Ho Chi Minh City", "Da Nang"],
     strengths: ["Fast-growing base", "Low cost", "Young workforce"],
     bestFor: "Cost-efficient engineering in Southeast Asia",
+    metrics: {
+      officeLabel: "US$25–40/sq m/mo (HCMC Grade A)", officeUsdSqFt: 3.0,
+      englishLevel: "Moderate",
+      ipPosture: "Developing — improving under CPTPP/EVFTA commitments", ipRank: 1,
+      setupLabel: "8–14 weeks (FIE licensing)", setupWeeks: 11,
+    },
   },
   {
     name: "Egypt", flag: "🇪🇬", region: "EMEA", fit: "EMEA nearshore", tier: "Emerging",
@@ -106,6 +164,12 @@ export const locations: GCCLocation[] = [
     cities: ["Cairo", "Alexandria"],
     strengths: ["Multilingual talent", "EMEA time-zone", "Government push"],
     bestFor: "Multilingual EMEA nearshore delivery",
+    metrics: {
+      officeLabel: "US$25–40/sq m/mo (New Cairo / Smart Village)", officeUsdSqFt: 3.0,
+      englishLevel: "High",
+      ipPosture: "Developing — reforms underway, enforcement uneven", ipRank: 1,
+      setupLabel: "6–12 weeks (free-zone or inland)", setupWeeks: 9,
+    },
   },
   {
     name: "Malaysia", flag: "🇲🇾", region: "Asia", fit: "Deep-tech", tier: "Emerging",
@@ -115,6 +179,12 @@ export const locations: GCCLocation[] = [
     cities: ["Kuala Lumpur", "Penang"],
     strengths: ["Semiconductor strategy", "ER&D", "Political stability"],
     bestFor: "Semiconductor and deep-tech ER&D",
+    metrics: {
+      officeLabel: "MYR 6–9/sq ft/mo (KL Grade A)", officeUsdSqFt: 1.6,
+      englishLevel: "High",
+      ipPosture: "Established — strong statutory regime, MSC status incentives", ipRank: 2,
+      setupLabel: "4–8 weeks (Sdn Bhd)", setupWeeks: 6,
+    },
   },
   {
     name: "Ukraine", flag: "🇺🇦", region: "Europe", fit: "EU access", tier: "Emerging",
@@ -125,6 +195,12 @@ export const locations: GCCLocation[] = [
     strengths: ["Top-tier STEM", "Cybersecurity", "AI/ML"],
     bestFor: "High-skill engineering — assess geopolitical risk",
     note: "Geopolitical considerations require careful assessment.",
+    metrics: {
+      officeLabel: "US$15–25/sq m/mo (Kyiv, wartime-discounted)", officeUsdSqFt: 1.85,
+      englishLevel: "Moderate",
+      ipPosture: "Developing — EU-alignment reforms; wartime enforcement risk", ipRank: 1,
+      setupLabel: "4–8 weeks (LLC)", setupWeeks: 6,
+    },
   },
   {
     name: "UAE & Gulf", flag: "🇦🇪", region: "Middle East", fit: "Strategic / AI", tier: "Emerging",
@@ -135,17 +211,45 @@ export const locations: GCCLocation[] = [
     strengths: ["Strategic AI plays", "Data-centres", "Tax regime", "Market access"],
     bestFor: "Strategic AI, data-centre and market presence",
     note: "A strategy-driven, high-cost destination — NOT a cost-arbitrage play.",
+    metrics: {
+      officeLabel: "AED 90–200/sq ft/yr (Dubai Grade A)", officeUsdSqFt: 3.4,
+      englishLevel: "High",
+      ipPosture: "Strong — modern statutory regime, specialised free-zone courts", ipRank: 3,
+      setupLabel: "2–6 weeks (free-zone entity)", setupWeeks: 4,
+    },
   },
 ];
 
 export const overlapScore: Record<Overlap, number> = { High: 3, Medium: 2, Low: 1 };
 
-export type SortKey = "name" | "talentNum" | "costPct" | "gmt" | "usOverlap" | "euOverlap";
+export type SortKey =
+  | "name"
+  | "talentNum"
+  | "costPct"
+  | "gmt"
+  | "usOverlap"
+  | "euOverlap"
+  | "officeUsdSqFt"
+  | "englishLevel"
+  | "ipRank"
+  | "setupWeeks";
+
+/** English bands ordered so "Very high" sorts above "Moderate". */
+export const englishScore: Record<GCCLocation["metrics"]["englishLevel"], number> = {
+  "Very high": 4,
+  High: 3,
+  Working: 2,
+  Moderate: 1,
+};
 
 /** Pure sort-key extractor — the comparable value for a location on a given column. */
 export const sortVal = (l: GCCLocation, key: SortKey): number | string => {
   if (key === "usOverlap") return overlapScore[l.usOverlap];
   if (key === "euOverlap") return overlapScore[l.euOverlap];
   if (key === "name") return l.name;
+  if (key === "englishLevel") return englishScore[l.metrics.englishLevel];
+  if (key === "officeUsdSqFt") return l.metrics.officeUsdSqFt;
+  if (key === "ipRank") return l.metrics.ipRank;
+  if (key === "setupWeeks") return l.metrics.setupWeeks;
   return l[key] as number;
 };
