@@ -47,7 +47,32 @@ remaining fix requires a major upgrade. The chains are:
 | `vite`, `esbuild` | high / moderate | `vite@8` (from 5.x — three majors) |
 | `eslint`, `@eslint/config-array`, `@eslint/eslintrc`, `brace-expansion`, `minimatch` | high | `eslint@10` (from 9.x) |
 | `vite-plugin-pwa`, `workbox-build`, `ejs`, `jake`, `filelist`, `rollup-plugin-off-main-thread` | high | `vite-plugin-pwa` major |
-| `react-router`, `react-router-dom` | moderate | `react-router@7` (real CVEs: open redirect via backslash in `<Link>`; constructor injection in `deserializeErrors()`) |
+| ~~`react-router`~~ | — | **Upgraded to 7.18.1** — see the note below |
+
+### react-router: upgraded, and why the audit still complains
+
+`react-router-dom` was moved **6.30.4 -> 7.18.1**. Read the advisory situation
+before "fixing" it further, because no version is clean on both:
+
+- **<=7.17.0** carries two moderate CVEs, including an **open redirect via a
+  backslash in `<Link>`** — reachable in a client-side app.
+- **7.12.0 - 7.18.1** (i.e. every current release) carries a high advisory,
+  *RSC Mode CSRF Bypass Allows Action Execution Before 400 Response*. That
+  requires **React Server Components mode with server actions**.
+- There is no 8.x on npm; 7.18.1 is `latest`.
+
+This app is a pure client-side SPA: `BrowserRouter`, static hosting, no SSR, no
+RSC, no server actions. The high advisory is therefore **not reachable here**,
+while the open redirect was. 7.18.1 is the safer choice for this codebase even
+though `npm audit` now prints "high" instead of "moderate".
+
+`npm audit` will suggest downgrading to `react-router-dom@7.11.0`. **Do not** —
+that re-enters the 6.0.0-7.17.0 range and reintroduces the open redirect. It
+would lower the printed severity while raising real risk. Re-evaluate if this app
+ever adopts SSR/RSC, or when a release above the 8.3.0 fix boundary ships.
+
+Verified on 7.18.1: `npm ci` exit 0, lint 0 errors, 38/38 tests, build succeeds,
+and a browser pass over routing, the glossary, tooltips and the comparator.
 
 Note the exposure is mostly **build-time and dev-time** (bundler, linter, PWA
 generator) rather than shipped runtime code — with the exception of
