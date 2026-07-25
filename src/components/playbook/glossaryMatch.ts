@@ -70,16 +70,39 @@ export function buildTermEntries(terms: GlossaryTerm[]): TermEntry[] {
  * Only the FIRST occurrence of each term is annotated, keeping long chapters
  * readable instead of underlining every repetition.
  */
-export function annotateText(text: string, entries: TermEntry[]): Segment[] {
-  if (!text || !entries.length) return text ? [{ kind: 'text', value: text }] : [];
+type CompiledIndex = { re: RegExp; byAlias: Map<string, TermEntry> };
+
+/**
+ * The compiled pattern depends only on the entry list, but annotateText runs
+ * once per prose block — a long chapter renders well over a hundred. Cache the
+ * compiled form against the entries array so it is built once per glossary
+ * rather than once per block. Keyed by reference, so callers should pass a
+ * stable (memoised) array.
+ */
+const indexCache = new WeakMap<TermEntry[], CompiledIndex>();
+
+function compileIndex(entries: TermEntry[]): CompiledIndex {
+  const cached = indexCache.get(entries);
+  if (cached) return cached;
 
   const pattern = entries.map((e) => escapeRegExp(e.alias)).join('|');
   // Require a non-word char (or string edge) around the match so "BOT" does not
   // match inside "ROBOT". Uses lookaround rather than \b because several
   // aliases end in non-word characters such as ")".
-  const re = new RegExp(`(?<![\\w-])(${pattern})(?![\\w-])`, 'gi');
+  // Safe to reuse across calls: String.matchAll clones the regex via its species
+  // constructor, so this instance's lastIndex is never mutated.
+  const compiled: CompiledIndex = {
+    re: new RegExp(`(?<![\\w-])(${pattern})(?![\\w-])`, 'gi'),
+    byAlias: new Map(entries.map((e) => [e.alias.toLowerCase(), e])),
+  };
+  indexCache.set(entries, compiled);
+  return compiled;
+}
 
-  const byAlias = new Map(entries.map((e) => [e.alias.toLowerCase(), e]));
+export function annotateText(text: string, entries: TermEntry[]): Segment[] {
+  if (!text || !entries.length) return text ? [{ kind: 'text', value: text }] : [];
+
+  const { re, byAlias } = compileIndex(entries);
   const usedTerms = new Set<string>();
   const segments: Segment[] = [];
   let lastIndex = 0;
