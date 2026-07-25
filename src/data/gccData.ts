@@ -152,7 +152,7 @@ export const sections: GCCSection[] = [
       {
         icon: "96%", title: "Collapsed Maturity Curve", description: "The crawl-walk-run model is obsolete",
         tags: ["Maturity", "Post-FY2021", "96%"],
-        details: ["96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one (49% AI-first)", "Maturity that historically took 10 years is now happening in under 5", "Forward Outlook: nearly 3-in-4 India GCCs have the potential to reach Portfolio/Transformation-Hub maturity within five years; roughly half are projected to operate at high maturity by 2030", "Implication: Founding governance, leadership, AI readiness, and portfolio scope must be designed at launch", "Operating Model: Structure, governance, decision rights, talent maturity, digital capabilities, business alignment, innovation output, and cultural integration"],
+        details: ["96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one (49% AI-first)", "Maturity that historically took 10 years is now happening in under 5", "Verified Maturity Mix: nearly half of India GCCs already operate at advanced (Portfolio/Transformation-Hub) maturity; ~75% have the potential within five years and three-quarters are projected to reach it by 2030", "Implication: Founding governance, leadership, AI readiness, and portfolio scope must be designed at launch", "Operating Model: Structure, governance, decision rights, talent maturity, digital capabilities, business alignment, innovation output, and cultural integration"],
       },
     ],
   },
@@ -201,7 +201,7 @@ export const sections: GCCSection[] = [
       {
         icon: "🇮🇳", title: "India - Dominant GCC Hub", description: "2,117 GCCs across 3,728 units",
         tags: ["Mature Ecosystem", "Scale"],
-        details: ["FY2026 Scale: 2,117 GCCs across 3,728 GCC units", "Market Revenue: USD 98.4B with 2.36M professionals", "AI Talent: 250,000+ AI/ML professionals; India is #1 globally in AI hiring intensity", "Enterprise Reach: 506+ Forbes Global 2000 companies have India GCCs", "Growth Since FY2021: GCC count up 32%, revenue CAGR approximately 9.9%", "Ecosystem Depth: 583 mid-market GCCs, 504 PE-backed GCC centers, and 220+ GCC setups enabled by Zinnov"],
+        details: ["FY2026 Scale: 2,117 GCCs across 3,728 GCC units", "Market Revenue: USD 98.4B with 2.36M professionals", "AI Talent: 250,000+ AI/ML professionals; India is #1 globally in AI hiring intensity", "Enterprise Reach: 506+ Forbes Global 2000 companies have India GCCs", "Growth Since FY2021: GCC count up 32%; ecosystem revenue approaching USD 100B (USD 98.4B in FY2026)", "Ecosystem Depth: 583 mid-market GCCs, 504 PE-backed GCC centers, and 220+ GCC setups enabled by Zinnov"],
       },
       {
         icon: "🇲🇽", title: "Mexico - Nearshore Advantage", description: "US-aligned time zones with growing ecosystem",
@@ -303,7 +303,7 @@ export const sections: GCCSection[] = [
     label: "Best Practices",
     title: "GCC Best Practices",
     cards: [
-      { icon: "2026", title: "FY2026 Structural Shifts", description: "The operating assumptions for India GCCs have reset", tags: ["Trends", "FY2026"], details: ["Flagship: Nasscom-Zinnov 'The GCC Value Orbit — From Delivery Engine to Enterprise Nerve Centre' (India GCC Landscape, FY2026 edition)", "Dual Mandates: ~64% of GCC site leaders reportedly hold global business unit ownership plus site leadership", "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 worldwide in AI hiring intensity", "Collapsed Maturity Curve: 96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one (49% AI-first)", "2030 Outlook: FICCI-ANAROCK (Feb 2026) projects 2,400+ GCCs and 2.8M+ professionals by 2030 — the older FY2030 revenue/count targets were already met at FY2026 actuals"] },
+      { icon: "2026", title: "FY2026 Structural Shifts", description: "The operating assumptions for India GCCs have reset", tags: ["Trends", "FY2026"], details: ["Flagship: Nasscom-Zinnov 'The GCC Value Orbit — From Delivery Engine to Enterprise Nerve Centre' (India GCC Landscape, FY2026 edition)", "Dual Mandates: 64% of GCC site leaders now hold global business-unit ownership plus site leadership — including cybersecurity and AI governance (Nasscom-Zinnov FY2026)", "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 worldwide in AI hiring intensity", "Collapsed Maturity Curve: 96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one (49% AI-first)", "2030 Outlook: FICCI-ANAROCK (Feb 2026) projects 2,400+ GCCs and 2.8M+ professionals by 2030 — the older FY2030 revenue/count targets were already met at FY2026 actuals"] },
       { icon: "NEW", title: "FY2026 Notable New Entrants", description: "Recent global companies joining India's GCC ecosystem", tags: ["Entrants", "FY2026"], details: [
         "Anthropic — first India office, Bengaluru (opened Feb 2026); India is its #2 Claude market",
         "Vanguard — first India GCC, Hyderabad (Nov 2025); scaling toward ~2,300 professionals by 2029",
