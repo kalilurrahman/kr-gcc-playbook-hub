@@ -1,6 +1,6 @@
 # GCC Playbook 2026–2030
 
-> The complete open-access reference for Global Capability Centers (GCCs) in India — 152 chapters across four parts covering landscape data, lifecycle phases, maturity models, setup playbooks, talent frameworks, AI transformation, finance, governance, regulation, and 2030 scenarios. Curated by Kalilur Rahman. Built on the FY2026 Nasscom–Zinnov "GCC Value Orbit" landscape report; content verified July 2026.
+> The complete open-access reference for Global Capability Centers (GCCs) in India — 153 chapters across four parts covering landscape data, lifecycle phases, maturity models, setup playbooks, talent frameworks, AI transformation, finance, governance, regulation, sector playbooks (BFSI, healthcare, retail), and 2030 scenarios. Curated by Kalilur Rahman. Built on the FY2026 Nasscom–Zinnov "GCC Value Orbit" landscape report; content verified July 2026.
 
 ## Key FY2026 figures
 
@@ -13,7 +13,7 @@
 ## Pages
 
 - [/](/): Dashboard — key GCC statistics, nine topic sections (purpose, lifecycle, maturity, sizes, geography, challenges, best practices, finance, resources), and playbook navigation.
-- [/playbook](/playbook): Playbook Viewer — browse all 152 chapters in four parts with interactive TOC, search, bookmarks, reading progress, and glossary.
+- [/playbook](/playbook): Playbook Viewer — browse all 153 chapters in four parts with interactive TOC, search, bookmarks, reading progress, and glossary.
 - [/playbook/part-1](/playbook/part-1): Part I (Ch 1–62) — India GCC landscape, four eras of evolution, city ecosystems, maturity frameworks, operating models, KPI architecture, and communities.
 - [/playbook/part-2](/playbook/part-2): Part II (Ch 63–128) — GCC by scale and stage: size taxonomy, setup playbooks, the seven-stage lifecycle, BOT/BOOT/GCCaaS operating models, case studies, and leadership profiles.
 - [/playbook/part-3](/playbook/part-3): Part III (Ch 129–144) — the frontier: AI as operating infrastructure, global location competition, M&A, deep tech, finance, legal and compliance, innovation, ESG, 2030 scenarios, and the 2025–26 regulatory reset with state GCC policies.
