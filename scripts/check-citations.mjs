@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Automated citation consistency check.
- * Verifies all Zinnov-Nasscom citations across src/ and public/data/ use:
+ * Verifies all Zinnov-Nasscom citations use:
  *   - "2026" year
  *   - "GCC Value Orbit" title fragment
  *   - "Delivery Engine to Enterprise Nerve Centre" subtitle (in full citations)
@@ -9,26 +9,62 @@
  *
  * Also flags any non-quoted "1,800 GCCs" claims that read as current FY2026 stats.
  *
- * Exits non-zero on failure so CI can gate on it.
+ * Scope has two tiers:
+ *   - GATED_ROOTS (src/, public/data/) — what ships to users. Findings are
+ *     errors and exit non-zero so CI gates on them.
+ *   - ADVISORY_ROOTS/FILES (pwa/, root docs) — not built or deployed. These were
+ *     previously unscanned, which let stale figures accumulate unnoticed; they
+ *     are reported as warnings so the risk is visible without failing the build.
  */
 import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, extname } from "node:path";
 
-const ROOTS = ["src", "public/data"];
+// Paths that ship to users. Findings here are errors and gate CI.
+const GATED_ROOTS = ["src", "public/data"];
+// Paths that are NOT built or deployed (legacy apps, docs). Previously these
+// were not scanned at all, so stale figures could sit in the repo unnoticed —
+// e.g. pwa/ still carries pre-refresh FY2024 content. They are scanned now, but
+// reported as warnings so visibility never breaks the build.
+const ADVISORY_ROOTS = ["pwa"];
+const ADVISORY_FILES = ["README.md", "INTEGRATION_GUIDE.md", "MAINTENANCE.md"];
 const EXTS = new Set([".ts", ".tsx", ".js", ".jsx", ".json", ".md"]);
-const SKIP_FILES = new Set(["gcc-content_old.json"]);
+const SKIP_FILES = new Set(["gcc-content_old.json", "content_old.json"]);
+const SKIP_DIRS = new Set(["node_modules", "dist", ".git"]);
 
 const files = [];
-const walk = (dir) => {
+const advisory = new Set();
+const walk = (dir, isAdvisory) => {
   for (const entry of readdirSync(dir)) {
+    if (SKIP_FILES.has(entry) || SKIP_DIRS.has(entry)) continue;
     const p = join(dir, entry);
-    if (SKIP_FILES.has(entry)) continue;
     const st = statSync(p);
-    if (st.isDirectory()) walk(p);
-    else if (EXTS.has(extname(entry))) files.push(p);
+    if (st.isDirectory()) walk(p, isAdvisory);
+    else if (EXTS.has(extname(entry))) {
+      files.push(p);
+      if (isAdvisory) advisory.add(p);
+    }
   }
 };
-ROOTS.forEach(walk);
+GATED_ROOTS.forEach((r) => walk(r, false));
+for (const r of ADVISORY_ROOTS) {
+  try {
+    walk(r, true);
+  } catch {
+    // Optional directory — fine if it has been removed.
+  }
+}
+for (const f of ADVISORY_FILES) {
+  try {
+    statSync(f);
+    files.push(f);
+    advisory.add(f);
+  } catch {
+    // Optional file.
+  }
+}
+
+/** Findings in unbuilt/advisory paths are never fatal. */
+const sev = (file, severity) => (advisory.has(file) ? "warning" : severity);
 
 /** @typedef {{file:string,line:number,severity:'error'|'warning',rule:string,message:string,snippet:string}} Finding */
 /** @type {Finding[]} */
@@ -64,21 +100,21 @@ for (const f of files) {
     const isFlagshipCitation = citationLine.test(line) && /(GCC Value Orbit|GCC Landscape in India|Landscape Report)/i.test(line);
     if (isFlagshipCitation) {
       if (staleYear.test(line) && !historicalReportMarkers.test(line) && !/2026/.test(line)) {
-        push("error", "flagship-year", f, lineNo, "Flagship Zinnov-Nasscom citation missing 2026", line);
+        push(sev(f, "error"), "flagship-year", f, lineNo, "Flagship Zinnov-Nasscom citation missing 2026", line);
       }
     }
 
     if (citationLine.test(line) && sourceAttribution.test(line) && fullCitationCue.test(line)) {
       if (!requiredSubtitle.test(line)) {
-        push("error", "missing-subtitle", f, lineNo, "Full citation missing 'Delivery Engine to Enterprise Nerve Centre' subtitle", line);
+        push(sev(f, "error"), "missing-subtitle", f, lineNo, "Full citation missing 'Delivery Engine to Enterprise Nerve Centre' subtitle", line);
       }
       if (!requiredDate.test(line)) {
-        push("error", "missing-date", f, lineNo, "Full citation missing 'May 6, 2026' publication date", line);
+        push(sev(f, "error"), "missing-date", f, lineNo, "Full citation missing 'May 6, 2026' publication date", line);
       }
     }
 
     if (legacyFigure.test(line) && !quotedHistorical.test(line)) {
-      push("error", "legacy-1800", f, lineNo, "Legacy '1,800 GCC' figure used without historical/quoted framing", line);
+      push(sev(f, "error"), "legacy-1800", f, lineNo, "Legacy '1,800 GCC' figure used without historical/quoted framing", line);
     } else if (legacyFigure.test(line)) {
       push("warning", "legacy-1800-historical", f, lineNo, "Legacy '1,800' kept (historical framing detected)", line);
     }
