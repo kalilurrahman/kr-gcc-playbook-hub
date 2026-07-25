@@ -3,7 +3,7 @@
   "subtitle": "GCC Value Orbit | Landscape | Maturity | Operating Models | AI | Deep Tech | M&A | Finance | ESG | 2030",
   "author": "Curated by Kalilur Rahman",
   "version": "2.0",
-  "lastUpdated": "May 2026",
+  "lastUpdated": "July 2026",
   "parts": [
     {
       "partNumber": 1,
@@ -48,9 +48,9 @@
       "dataFile": "/data/gcc-part3.json",
       "chapterRange": {
         "start": 129,
-        "end": 143
+        "end": 144
       },
-      "totalChapters": 15,
+      "totalChapters": 16,
       "pdfResource": {
         "filename": "GCC_Playbook_Part_III_v1_0.pdf",
         "fileUrl": "/resources/GCC_Playbook_Part_III_v1_0.pdf",
@@ -65,8 +65,8 @@
       "subtitle": "Maturity Metrics, KPMG 8-Dimension Scoring, Operational Benchmarks & Case Studies",
       "dataFile": "/data/gcc-part4.json",
       "chapterRange": {
-        "start": 144,
-        "end": 151
+        "start": 145,
+        "end": 152
       },
       "totalChapters": 8,
       "pdfResource": {
@@ -80,12 +80,12 @@
   ],
   "stats": {
     "totalParts": 4,
-    "totalChapters": 151,
+    "totalChapters": 152,
     "totalPages": "500+"
   },
   "branding": {
     "portfolioUrl": "https://kalilurrahman.lovable.app",
-    "playbookUrl": "https://kr-gcc-playbook.lovable.app",
+    "playbookUrl": "https://gcc-playbook.kalilurrahman.com",
     "githubUrl": "https://github.com/kalilurrahman/kr-gcc-playbook-hub",
     "authorName": "Kalilur Rahman",
     "authorTitle": "Global IT Executive · AI Evangelist · Technologist · GCC Leader · CIO Awardee · Thinkers360 #3 · Kaggle Grandmaster"

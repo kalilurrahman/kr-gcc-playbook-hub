@@ -15,7 +15,7 @@ export default function PlaybookNavCard() {
         <div className="flex-1">
           <h3 className="text-lg font-bold text-white mb-1 group-hover:text-blue-300 transition">GCC Leadership Playbook</h3>
           <p className="text-sm text-gray-400 leading-relaxed mb-3">
-            Complete India GCC Reference — 3 Parts, chapters on landscape, maturity models, AI, deep tech, M&A and 2030 scenarios. Fully navigatable with search &amp; glossary.
+            Complete India GCC Reference — 4 Parts, 152 chapters on landscape, maturity models, AI, deep tech, M&A, regulation and 2030 scenarios. Fully navigable with search &amp; glossary.
           </p>
           <div className="flex gap-3">
             <span className="text-xs bg-blue-900/60 text-blue-300 px-2.5 py-1 rounded-full">📖 Chapters</span>

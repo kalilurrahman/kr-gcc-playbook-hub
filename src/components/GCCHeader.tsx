@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
-import { Search, Menu, X, Home, Target, Rocket, BarChart3, Building2, Globe, AlertTriangle, CheckCircle, BookOpen, DollarSign, Activity } from "lucide-react";
+import { Search, Menu, X, Home, Target, Rocket, BarChart3, Building2, Globe, AlertTriangle, CheckCircle, BookOpen, DollarSign, Activity, Scale } from "lucide-react";
 import { navItems } from "@/data/gccData";
 
 interface GCCHeaderProps {
@@ -14,6 +14,7 @@ interface GCCHeaderProps {
 const navIcons: Record<string, React.ReactNode> = {
   overview: <Home className="w-4 h-4" />,
   resources: <BookOpen className="w-4 h-4" />,
+  compare: <Scale className="w-4 h-4" />,
   purpose: <Target className="w-4 h-4" />,
   lifecycle: <Rocket className="w-4 h-4" />,
   maturity: <BarChart3 className="w-4 h-4" />,

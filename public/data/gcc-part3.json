@@ -4,7 +4,7 @@
   "partNumber": 3,
   "author": "Curated by Kalilur Rahman",
   "version": "1.0",
-  "lastUpdated": "May 2026",
+  "lastUpdated": "July 2026",
   "pdfResource": {
     "filename": "GCC_Playbook_Part_III_v1_0.pdf",
     "fileUrl": "/resources/GCC_Playbook_Part_III_v1_0.pdf",
@@ -1936,7 +1936,7 @@
             },
             {
               "type": "p",
-              "text": "In the Acceleration scenario, India's structural advantages compound faster than the headwinds. AI deployment in GCCs increases output per employee by 25-35%, allowing centers to deliver more without proportional headcount growth  -  making the GCC model more attractive to global enterprises, not less. The government's GCC National Framework, backed by the Union Budget 2025 allocation of INR 10,000 crore, successfully catalyses mid-market enterprise entry: 500-600 new GCCs open between 2026 and 2030, most of them in the USD 100M-5B revenue segment. Tier-2 cities  -  Ahmedabad, Coimbatore, Kochi, Jaipur, Indore  -  emerge as genuine alternatives to the four primary cities, absorbing 20-25% of new GCC formation and relieving Bengaluru's talent concentration pressure."
+              "text": "In the Acceleration scenario, India's structural advantages compound faster than the headwinds. AI deployment in GCCs increases output per employee by 25-35%, allowing centers to deliver more without proportional headcount growth  -  making the GCC model more attractive to global enterprises, not less. The government's GCC National Framework, announced in the Union Budget 2025 as national policy guidance (delivery led by the states, not a dedicated central funding line), successfully catalyses mid-market enterprise entry: 500-600 new GCCs open between 2026 and 2030, most of them in the USD 100M-5B revenue segment. Tier-2 cities  -  Ahmedabad, Coimbatore, Kochi, Jaipur, Indore  -  emerge as genuine alternatives to the four primary cities, absorbing 20-25% of new GCC formation and relieving Bengaluru's talent concentration pressure."
             },
             {
               "type": "p",
@@ -2521,10 +2521,156 @@
       ],
       "chapterNumber": 143,
       "displayTitle": "Chapter 143"
+    },
+    {
+      "id": "p3-ch-16",
+      "chapterNumber": 144,
+      "displayTitle": "Chapter 144",
+      "title": "The 2025-26 Regulatory Reset and State Policy Landscape",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Between November 2025 and February 2026, the compliance ground beneath every India GCC shifted three times. The Digital Personal Data Protection Rules were notified, all four Labour Codes came into force, and the Union Budget rewrote the transfer-pricing safe harbour that governs how GCCs are taxed. In parallel, ten states moved from generic IT incentives to dedicated GCC policies competing directly for the same mandates."
+        },
+        {
+          "type": "p",
+          "text": "This chapter is the working reference for that reset. Each date matters: several obligations are already live, while others carry deadlines in late 2026 and 2027 that determine what has to be designed now. Verify specifics with counsel — rules under the Labour Codes were still being finalised as of mid-2026."
+        }
+      ],
+      "sections": [
+        {
+          "title": "16.1  Data Protection: The DPDP Rules Clock",
+          "isKeyTakeaway": false,
+          "blocks": [
+            {
+              "type": "p",
+              "text": "India's Digital Personal Data Protection Act, 2023 finally became operational when the DPDP Rules, 2025 were notified on 13 November 2025 (gazetted 14 November 2025). The Rules adopt a phased schedule rather than a single switch-on date, which is what makes them manageable — and what makes it easy to miss a deadline."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "13 November 2025: Rules notified. Definitional and institutional provisions take effect immediately, including the framework for the Data Protection Board.",
+                "13 November 2026 (12 months): Provisions governing Consent Managers take effect — relevant to any GCC building or consuming consent infrastructure.",
+                "13 May 2027 (18 months): The substantive obligations bite — notice and consent mechanics, security safeguards, breach reporting, retention limits, and data-principal rights."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "For a GCC the practical exposure is rarely the parent's customer data alone. It is employee data: recruitment records, payroll, background checks, health and insurance data, and monitoring logs. A GCC is typically a Data Fiduciary in its own right for that processing, independent of whatever role it plays for the parent's data."
+            },
+            {
+              "type": "p",
+              "text": "What to do with the runway: map every personal-data flow crossing the GCC boundary, classify the GCC's role (Data Fiduciary or Data Processor) for each, rewrite consent notices and intra-group data-processing agreements, stand up a breach-detection and reporting path that can meet a regulatory clock, and decide who holds accountability in India. Treat the 2027 date as the deadline for evidence of compliance, not for beginning work."
+            }
+          ],
+          "subsections": []
+        },
+        {
+          "title": "16.2  Employment: The Four Labour Codes Are Live",
+          "isKeyTakeaway": false,
+          "blocks": [
+            {
+              "type": "p",
+              "text": "All four Labour Codes — the Code on Wages 2019, the Industrial Relations Code 2020, the Code on Social Security 2020, and the Occupational Safety, Health and Working Conditions Code 2020 — came into force on 21 November 2025, consolidating 29 central labour laws into a single architecture."
+            },
+            {
+              "type": "p",
+              "text": "Important nuance: the Codes are in force, but the central and several state-level rules that operationalise them were still being finalised through 2026. Expect the detailed obligations to settle as those rules are notified, and watch state variation closely — labour is a concurrent subject, so a multi-city GCC footprint means multiple rule sets."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Wage-definition reset: the statutory definition of 'wages' generally requires basic pay to be at least 50% of total remuneration, which recalculates provident fund, gratuity, and other contribution bases — a direct cost-to-company impact for allowance-heavy GCC pay structures.",
+                "Appointment letters: mandatory for all workers, formalising documentation practice.",
+                "Social security widened: coverage extends to gig and platform workers, relevant to GCCs using flexible or contractor-heavy staffing models.",
+                "Night work: women may work at night and across all categories of work, subject to consent and prescribed safety measures — expanding 24/7 operating flexibility if the safeguards are in place."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "The action for GCC HR and finance is a compensation-structure review before the rules fully settle. Firms with heavily allowance-weighted salary bands face the largest adjustments, and the change lands on employer contribution costs rather than headline salary."
+            }
+          ],
+          "subsections": []
+        },
+        {
+          "title": "16.3  Tax: The Budget 2026 Safe-Harbour Reset",
+          "isKeyTakeaway": false,
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The Union Budget 2026-27 delivered the most consequential tax-certainty change for GCCs in years. The transfer-pricing safe-harbour threshold for IT services was raised from INR 300 crore to INR 2,000 crore of transaction value, bringing the large majority of India GCCs within reach of a regime that had previously been too small to be useful."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Single category: software development, IT-enabled services, KPO, and contract R&D are consolidated into one 'Information Technology Services' category.",
+                "Common margin: a uniform safe-harbour margin of 15.5% applies across that category.",
+                "Automated approval: applications are approved through a rule-driven process without case-by-case officer examination.",
+                "Five-year election: once opted into, the safe harbour can be continued for five years at the taxpayer's choice.",
+                "Effective from 1 April 2026 (fiscal year 2026-27)."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Why this matters strategically: intercompany pricing disputes have historically been the single largest source of tax friction and management distraction for captive GCCs. Trading a benchmarking exercise and years of litigation risk for a known margin and an automated five-year election changes the calculus — particularly for mid-market parents without deep tax functions. The trade-off is accepting a prescribed margin that may exceed what a benchmarking study would support, so model both before electing."
+            }
+          ],
+          "subsections": []
+        },
+        {
+          "title": "16.4  The State Competition: From IT Incentives to GCC Policies",
+          "isKeyTakeaway": false,
+          "blocks": [
+            {
+              "type": "p",
+              "text": "The Union Budget 2025-26 named GCCs as a national priority and proposed a framework to guide states in attracting them. That framework carried no dedicated central funding line — delivery sits with the states, and between 2024 and early 2026 roughly ten states notified, drafted, or announced dedicated GCC policies. Incentives are now specific enough to change a site-selection outcome."
+            },
+            {
+              "type": "ul",
+              "items": [
+                "Karnataka — 'Beyond Bengaluru' (2024-2029): targets 500 new GCCs and about 3.5 lakh jobs; rental support up to 50% (capped around INR 2 crore for the first year), R&D infrastructure assistance up to 40% or INR 50 crore for two GCCs a year, EPF reimbursement of about INR 3,000 per employee per month for two years, and 25% telecom-cost reimbursement for three years.",
+                "Maharashtra — GCC Policy 2025: targets 200-400 additional GCCs and 3-4 lakh jobs by 2030; capital or rental subsidies, stamp-duty and property-tax relief, and interest subvention up to 5% on term loans.",
+                "Uttar Pradesh: land subsidies of 30-50%, capital subsidy up to about INR 250 million, payroll and EPF reimbursements, stamp-duty exemption, and 24/7 operational approvals.",
+                "Tamil Nadu: capital subsidies, payroll support, and R&D incentives, aiming to attract 50+ GCCs by 2030.",
+                "Odisha — GCC Policy 2025: effective for five years from 31 December 2025, positioning the state as eastern India's primary GCC destination.",
+                "Gujarat, Madhya Pradesh, Andhra Pradesh, Rajasthan: GCC-focused packages emphasising capital support and payroll incentives, with explicit encouragement toward Tier-2 cities."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Two cautions when reading state policy. First, headline numbers are ceilings, not entitlements — most are capped, tied to employment or investment milestones, and disbursed in arrears. Second, incentives should be the tie-breaker between shortlisted cities, never the primary criterion; talent depth, attrition, and leadership availability dominate the total cost of a GCC over five years. Model incentives as a reduction in early-year cash burn, not as a structural cost advantage."
+            }
+          ],
+          "subsections": []
+        },
+        {
+          "title": "16.5  Chapter Summary — What to Act On Now",
+          "isKeyTakeaway": true,
+          "blocks": [
+            {
+              "type": "ul",
+              "items": [
+                "Three dates anchor everything: DPDP Rules notified 13 November 2025 (substantive obligations 13 May 2027, consent managers 13 November 2026); Labour Codes in force 21 November 2025; safe-harbour changes effective 1 April 2026.",
+                "Treat employee data as the GCC's primary DPDP exposure, and confirm the GCC's own role as Data Fiduciary or Data Processor for each flow.",
+                "Review compensation structures against the 50%-of-wages definition — the cost impact falls on contributions, not headline pay.",
+                "Model the 15.5% safe-harbour margin against a benchmarking study before electing; the five-year automated election is valuable precisely where tax capacity is thin.",
+                "Use state incentives as a shortlist tie-breaker and an early-year cash-flow lever, not as a substitute for talent-driven location logic.",
+                "Expect continued movement: Labour Code rules were still being notified through 2026, and state policies are being added and revised. Re-verify dates before making commitments."
+              ]
+            },
+            {
+              "type": "p",
+              "text": "Primary sources: MeitY / PIB notification of the DPDP Rules 2025; Ministry of Labour and Employment notifications of the four Labour Codes; PIB and Budget 2026-27 documents on the enhanced safe-harbour threshold; and the respective state GCC policy documents. Verified July 2026."
+            }
+          ],
+          "subsections": []
+        }
+      ]
     }
   ],
   "chapterRange": {
     "start": 129,
-    "end": 143
+    "end": 144
   }
 }

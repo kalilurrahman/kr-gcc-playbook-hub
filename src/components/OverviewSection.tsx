@@ -40,7 +40,7 @@ const metricsHighlights = [
   { icon: <TrendingUp className="w-5 h-5" />, value: "64%", label: "Dual Mandates", desc: "Site leaders increasingly own global business units alongside India leadership" },
   { icon: <Cpu className="w-5 h-5" />, value: "#1", label: "AI Hiring Intensity", desc: "India leads global enterprise AI hiring intensity and ranks #2 for AI talent" },
   { icon: <Users className="w-5 h-5" />, value: "96%", label: "Portfolio Mandates", desc: "Post-FY2021 GCCs launched with product or portfolio ownership from day one" },
-  { icon: <Shield className="w-5 h-5" />, value: "5%", label: "Transformation Hubs", desc: "FY2026 Zinnov maturity mix shows a small AI-led CXO-sovereign frontier" },
+  { icon: <Shield className="w-5 h-5" />, value: "~46%", label: "Advanced Maturity", desc: "Nearly half of India GCCs now operate as Portfolio or Transformation Hubs" },
 ];
 
 const OverviewSection = () => {

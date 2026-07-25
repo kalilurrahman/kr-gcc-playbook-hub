@@ -1,34 +1,47 @@
-# GCCLeadership PWA Integration Guide
+# Playbook Viewer Integration (completed)
 
-This document tracks the integration of the GCCLeadership PWA playbook navigator into the kr-gcc-playbook-hub Lovable app.
+Historical record of how the GCCLeadership PWA playbook navigator was integrated into
+this app, plus the **current** data architecture. The migration described here is
+**complete** — nothing in this document is an outstanding task.
 
-## What Was Added (via GitHub push)
+> If you are looking for how to maintain the playbook content, see
+> [`MAINTENANCE.md`](MAINTENANCE.md) §5 (single source of truth).
+
+## What was added
 
 | File | Purpose |
 |------|---------|
-| `src/pages/PlaybookViewer.tsx` | Full React port of the GCCLeadership PWA SPA — home, TOC, chapter, glossary, search pages |
-| `src/components/PlaybookNavCard.tsx` | Entry card component to embed in any hub page |
-| `INTEGRATION_GUIDE.md` | This file |
+| `src/pages/PlaybookViewer.tsx` | React port of the playbook SPA — home, TOC, chapter, resources, and search pages |
+| `src/components/playbook/` | Supporting components (header, footer, TOC sidebar, content blocks, bookmarks, reading progress) |
+| `src/components/PlaybookNavCard.tsx` | Entry card embedded on the hub landing page |
 
-## What Lovable Needs to Do (use the Lovable Prompt below)
+All integration steps are done: the `/playbook/*` route is wired in `src/App.tsx`,
+`PlaybookNavCard` is embedded in `src/pages/Index.tsx`, PWA support is configured via
+`vite-plugin-pwa`, and the install prompt lives in `src/components/InstallPrompt.tsx`.
 
-1. Add `/playbook` route in `src/App.tsx` pointing to `PlaybookViewer`
-2. Embed `PlaybookNavCard` in the hub's main landing/index page
-3. Copy `gcc-content.json` from GCCLeadership into `public/data/gcc-content.json`
-4. Add PWA manifest + service worker support to `vite.config.ts`
-5. Add install prompt UI (optional)
+## Current data architecture
 
-## Data File
+The viewer **lazy-loads a master index and one file per part** at runtime — it does
+*not* read a single combined content file:
 
-The PlaybookViewer fetches `/data/gcc-content.json` at runtime.
-Source: `https://raw.githubusercontent.com/kalilurrahman/GCCLeadership/main/pwa/public/data/content.json`
+```
+public/data/gcc-master-index.json     ← parts, chapter ranges, stats, branding
+  ├── public/data/gcc-part1.json      ← Part I   (Ch 1–62)
+  ├── public/data/gcc-part2.json      ← Part II  (Ch 63–128)
+  ├── public/data/gcc-part3.json      ← Part III (Ch 129–144)
+  └── public/data/gcc-part4.json      ← Part IV  (Ch 145–152)
+```
 
-Copy this file to `public/data/gcc-content.json` in this repo.
+`PlaybookViewer` fetches `/data/gcc-master-index.json` first, then fetches each part's
+`dataFile` on demand (Part I eagerly, the rest when opened). Chapter counts and ranges
+in the master index must stay in sync with the part files.
+
+**Do not reintroduce a combined `gcc-content.json` / `content.json`.** Earlier copies of
+this repo carried aggregate duplicates that drifted out of sync with the part files
+(143 chapters vs. 151) and were removed. If a single full-text export is ever needed,
+**generate** it from the part files in a build step rather than hand-maintaining a
+second copy.
 
 ## Route
 
-`/playbook` → PlaybookViewer (full SPA with internal navigation)
-
-## Lovable Prompt
-
-See README or ask Perplexity for the ready-to-paste Lovable prompt.
+`/playbook/*` → `PlaybookViewer` (internal navigation for home, TOC, chapters, resources, search)

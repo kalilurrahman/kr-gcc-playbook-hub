@@ -23,6 +23,7 @@ interface PlaybookHeaderProps {
 const NAV_ITEMS: { page: Page; label: string; icon: typeof Home }[] = [
   { page: 'home', label: 'Home', icon: Home },
   { page: 'toc', label: 'Contents', icon: List },
+  { page: 'glossary', label: 'Glossary', icon: BookOpen },
   { page: 'resources', label: 'Downloads', icon: Download },
   { page: 'search', label: 'Search', icon: Search },
 ];

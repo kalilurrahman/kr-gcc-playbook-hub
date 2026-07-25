@@ -2,10 +2,14 @@ import type { Block } from './types';
 import { TableRenderer } from './TableRenderer';
 import { Info, AlertTriangle, CheckCircle, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
+import { GlossaryText } from './GlossaryText';
+import type { TermEntry } from './glossaryMatch';
 
 interface ContentBlockProps {
   blocks?: Block[];
   fontSize?: number;
+  /** When provided, the first mention of each glossary term gets a tooltip. */
+  glossaryEntries?: TermEntry[];
 }
 
 function CalloutBlock({ block }: { block: Block }) {
@@ -54,8 +58,11 @@ function CodeBlock({ block }: { block: Block }) {
   );
 }
 
-export function ContentBlocks({ blocks, fontSize = 14 }: ContentBlockProps) {
+export function ContentBlocks({ blocks, fontSize = 14, glossaryEntries }: ContentBlockProps) {
   if (!blocks?.length) return null;
+
+  // Prose-only helper: headings, code, and tables are left untouched.
+  const prose = (text?: string) => <GlossaryText text={text} entries={glossaryEntries} />;
 
   return (
     <>
@@ -74,12 +81,12 @@ export function ContentBlocks({ blocks, fontSize = 14 }: ContentBlockProps) {
             if (b.level === 3) return <h3 key={i} className="text-base font-semibold text-foreground mt-4 mb-2">{b.text}</h3>;
             return <h4 key={i} className="text-sm font-semibold text-muted-foreground mt-3 mb-1">{b.text}</h4>;
           case 'li':
-            return <li key={i} className="text-muted-foreground leading-relaxed ml-4 list-disc" style={textStyle}>{b.text}</li>;
+            return <li key={i} className="text-muted-foreground leading-relaxed ml-4 list-disc" style={textStyle}>{prose(b.text)}</li>;
           case 'ul':
             return (
               <ul key={i} className="list-disc ml-6 mb-3 space-y-1">
                 {(b.items || []).map((item, j) => (
-                  <li key={j} className="text-muted-foreground leading-relaxed" style={textStyle}>{item}</li>
+                  <li key={j} className="text-muted-foreground leading-relaxed" style={textStyle}>{prose(item)}</li>
                 ))}
               </ul>
             );
@@ -87,14 +94,14 @@ export function ContentBlocks({ blocks, fontSize = 14 }: ContentBlockProps) {
             return (
               <ol key={i} className="list-decimal ml-6 mb-3 space-y-1">
                 {(b.items || []).map((item, j) => (
-                  <li key={j} className="text-muted-foreground leading-relaxed" style={textStyle}>{item}</li>
+                  <li key={j} className="text-muted-foreground leading-relaxed" style={textStyle}>{prose(item)}</li>
                 ))}
               </ol>
             );
           case 'quote':
             return (
               <blockquote key={i} className="border-l-4 border-primary/40 pl-4 py-2 my-4 italic text-muted-foreground">
-                <p style={textStyle}>{b.text}</p>
+                <p style={textStyle}>{prose(b.text)}</p>
               </blockquote>
             );
           case 'table':
@@ -104,7 +111,7 @@ export function ContentBlocks({ blocks, fontSize = 14 }: ContentBlockProps) {
           case 'code':
             return <CodeBlock key={i} block={b} />;
           default:
-            return <p key={i} className="text-muted-foreground leading-relaxed mb-3" style={textStyle}>{b.text}</p>;
+            return <p key={i} className="text-muted-foreground leading-relaxed mb-3" style={textStyle}>{prose(b.text)}</p>;
         }
       })}
     </>

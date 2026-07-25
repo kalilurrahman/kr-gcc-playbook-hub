@@ -1,0 +1,185 @@
+{
+  "title": "Glossary",
+  "subtitle": "Key GCC terms, operating models, institutions, and regulatory concepts",
+  "author": "Curated by Kalilur Rahman",
+  "lastUpdated": "July 2026",
+  "totalTerms": 44,
+  "terms": [
+    {
+      "term": "AIM / Analytics India Magazine",
+      "definition": "India's leading technology and analytics media platform. Publishes the annual Top 25 GCC Heads India list (August) and Top Retail GCC Heads list (December), the most widely referenced recognition programs for GCC leadership."
+    },
+    {
+      "term": "BCT (Build-Co-Create-Transform)",
+      "definition": "An operating model in which the GCC and its partner share IP ownership during the build phase and jointly develop capability before the GCC transitions to independent operation. Innovation-first model suited to Nano and Micro centers where IP co-creation is the primary objective."
+    },
+    {
+      "term": "Beyond Bengaluru",
+      "definition": "Karnataka's GCC programme (2024-2029) to spread capability centres past Bengaluru into Tier-2 locations, targeting roughly 500 new GCCs and about 3.5 lakh jobs, with rental support, R&D infrastructure assistance, EPF reimbursement, and telecom-cost incentives."
+    },
+    {
+      "term": "BOOT (Build-Own-Operate-Transfer)",
+      "definition": "A GCC setup model where the partner builds, owns, and operates the center before transferring it to the client. Ownership sits with the partner during the Operate phase, reducing client balance-sheet exposure. Suited to mid-market enterprises (USD 100M-5B revenue) entering India for the first time."
+    },
+    {
+      "term": "BOT (Build-Operate-Transfer)",
+      "definition": "The most widely used GCC setup model in India. A specialist partner builds the team, establishes operations, and runs the center for an agreed period (typically 18-36 months) before transferring full ownership to the client. Reduces setup risk for first-time entrants."
+    },
+    {
+      "term": "BOT 2.0",
+      "definition": "An evolved version of the BOT model where the partner takes on expanded accountability beyond team build and operations, including governance design, technology platform selection, and employer brand development. First documented in Inductus GCC research, August 2025."
+    },
+    {
+      "term": "BOTT (Build-Operate-Transfer-Transform)",
+      "definition": "An extension of BOT that adds a formal transformation phase post-transfer. The partner supports the GCC through its first maturity stage transition after ownership change. Suited to centers targeting Stage 3 or 4 maturity within 36 months of transfer."
+    },
+    {
+      "term": "Captive GCC",
+      "definition": "A wholly-owned subsidiary of a global enterprise, established solely to serve the parent organization. All employees are direct hires of the parent or its Indian legal entity. Contrasted with BOT (partner-operated) and GCCaaS (fully managed service)."
+    },
+    {
+      "term": "CII (Confederation of Indian Industry)",
+      "definition": "Pan-industry body with sector-specific working groups for GCC leaders in BFSI, healthcare, and manufacturing. Key venue for policy engagement and cross-sector benchmarking."
+    },
+    {
+      "term": "COCO (Company-Owned, Company-Operated)",
+      "definition": "The captive GCC model post-BOT transfer or from first-day setup. The enterprise owns the legal entity and directly employs all staff. Contrasted with COPO (Company-Owned, Partner-Operated)."
+    },
+    {
+      "term": "CoE (Centre of Excellence)",
+      "definition": "A dedicated team or organizational unit with deep domain expertise, standardized methodologies, and a mandate to serve multiple functions or geographies. The CoE model typically emerges at the Small GCC stage (300-1,000 headcount) and becomes the primary value-delivery architecture at Large and Mega GCC scale."
+    },
+    {
+      "term": "Consent Manager",
+      "definition": "A DPDP-registered intermediary through which a data principal can give, manage, review, and withdraw consent. The relevant provisions take effect 13 November 2026, twelve months after the DPDP Rules were notified."
+    },
+    {
+      "term": "COPO (Company-Owned, Partner-Operated)",
+      "definition": "A transitional model where the enterprise owns the legal entity but a partner manages day-to-day operations. Common in the Operate phase of a BOT arrangement before full transfer."
+    },
+    {
+      "term": "Data Fiduciary",
+      "definition": "Under the DPDP Act, the entity that determines the purpose and means of processing personal data — broadly equivalent to a controller. A GCC is typically a Data Fiduciary in its own right for employee data (recruitment, payroll, health, monitoring), independent of whatever role it plays for the parent's data."
+    },
+    {
+      "term": "Data Processor",
+      "definition": "Under the DPDP Act, an entity that processes personal data on behalf of a Data Fiduciary. GCCs often act as Processor for the parent's customer data while simultaneously being a Fiduciary for their own employee data — the distinction must be mapped flow by flow."
+    },
+    {
+      "term": "DPDP Act, 2023",
+      "definition": "The Digital Personal Data Protection Act, 2023 — India's first comprehensive, principles-based statute governing the processing of digital personal data. It became operational through the DPDP Rules, 2025."
+    },
+    {
+      "term": "DPDP Rules, 2025",
+      "definition": "The rules operationalising the DPDP Act, notified on 13 November 2025 (gazetted 14 November 2025). They follow a phased schedule: Consent Manager provisions take effect 13 November 2026, and the substantive obligations — notice and consent, security safeguards, breach reporting, retention limits, and data-principal rights — from 13 May 2027."
+    },
+    {
+      "term": "Dual-HQ Model",
+      "definition": "An operating model in which India operations carry genuine co-headquarters status alongside the global HQ, with India leadership holding P&L authority, global functional mandates, and board-level representation. Distinct from the traditional 'delivery center' framing. JP Morgan India and Optum India are documented examples."
+    },
+    {
+      "term": "EOR (Employer of Record)",
+      "definition": "A third-party entity that employs workers on behalf of a company, handling payroll, benefits, and compliance. Used by Nano GCCs in their earliest stage to avoid incorporating an Indian legal entity before the business case is proven."
+    },
+    {
+      "term": "ER&D (Engineering Research and Development)",
+      "definition": "A GCC category focused on product engineering, R&D, and deep technical work rather than shared services or business process functions. India's ER&D GCC segment employs approximately 400,000 professionals and is growing at 18-22% annually."
+    },
+    {
+      "term": "EVP (Employee Value Proposition)",
+      "definition": "The totality of what a GCC offers employees in exchange for their skills and commitment. Encompasses compensation, career development, work quality, culture, and purpose. A validated EVP is the foundation of employer brand strategy. Distinct from employer branding, which is the external communication of the EVP."
+    },
+    {
+      "term": "FICCI (Federation of Indian Chambers of Commerce and Industry)",
+      "definition": "One of India's apex industry bodies. Relevant to GCC leaders in financial services, aerospace, defense, and international trade. Primary venue for regulatory engagement and government relations."
+    },
+    {
+      "term": "GCC (Global Capability Centre)",
+      "definition": "A captive or majority-owned India-based subsidiary of a global enterprise, staffed primarily by Indian talent, delivering technology, business process, analytics, R&D, or operational functions for the parent organization and its global clients. Preferred term since 2020, replacing GIC and GCDC. As of FY2026: 2,117 GCCs across 3,728 units, 2.36M professionals, USD 98.4B annual revenue."
+    },
+    {
+      "term": "GCCaaS (GCC as a Service)",
+      "definition": "A fully managed model in which a specialist provider delivers a complete GCC operation  -  talent, infrastructure, technology, governance  -  as a service, typically under a monthly fee structure. Suited to enterprises that require immediate capability without setup investment or entity risk. Evolving to GCCaaS 2.0 with outcome-based pricing."
+    },
+    {
+      "term": "GIC (Global In-house Centre)",
+      "definition": "An earlier term for what is now called a GCC, used primarily between 2005 and 2018. Still used by NASSCOM in some publications."
+    },
+    {
+      "term": "GPTW (Great Place to Work Institute)",
+      "definition": "The primary global employer recognition body. GPTW certification is the most widely cited external validation for GCC employer brand in India. Annual surveys across trust, pride, camaraderie, and management credibility dimensions."
+    },
+    {
+      "term": "HQ Translation",
+      "definition": "The operational skill of converting India team output into terms that global stakeholders act on, and translating global priorities into India-executable plans. Identified by AIM as the single most consequential operational skill for effective GCC leaders. Absent this skill, centers that are technically strong remain commercially invisible to global leadership."
+    },
+    {
+      "term": "ICR (Innovation Contribution Rate)",
+      "definition": "A KPI measuring the percentage of GCC work classified as innovation or value-creation activity, versus operational or maintenance work. Benchmark: 25-35% for Stage 3-4 GCCs; 40%+ for Mega GCCs with innovation mandates."
+    },
+    {
+      "term": "Karnataka GCC Policy 2024-2029",
+      "definition": "India's first state-level policy framework to formally codify all GCC size tiers from Nano to Mega. Key provisions: no minimum employment threshold for Nano GCCs, capital subsidy up to INR 5 crore, employment generation incentives, and dedicated single-window clearance. Six states followed with similar frameworks within 18 months."
+    },
+    {
+      "term": "Labour Codes (Four)",
+      "definition": "The Code on Wages 2019, Industrial Relations Code 2020, Code on Social Security 2020, and Occupational Safety, Health and Working Conditions Code 2020, which consolidate 29 central labour laws. All four came into force on 21 November 2025, though central and several state rules were still being notified through 2026."
+    },
+    {
+      "term": "Large GCC",
+      "definition": "A GCC with 3,000-10,000 employees. Parent company revenue typically USD 5B-100B. India revenue contribution USD 250M-1B. Operates as a strategic transformation hub with global mandate-bearing India leadership, multiple CoEs, and enterprise-grade governance."
+    },
+    {
+      "term": "Mega GCC",
+      "definition": "A GCC with 10,000+ employees. Typically parent company revenue USD 10B+. India revenue contribution USD 1B+. Functions as a second global headquarters rather than a delivery center. As of 2025, 88 Mega GCCs exist in India, employing approximately 50% of the total GCC workforce."
+    },
+    {
+      "term": "Micro GCC",
+      "definition": "A GCC with 100-300 employees. Parent revenue typically USD 100M-1B. The transition-risk tier: approximately 40% fail to successfully navigate to the Small GCC stage. Domain-focused, single-function or 2-3 related functions."
+    },
+    {
+      "term": "Nano GCC",
+      "definition": "A GCC with 5-100 employees, formally codified by Karnataka GCC Policy 2024. Characterized by high specialization, high speed, and high risk. Built for a specific thesis, not for scale. 200+ operating in India as of mid-2025, growing at 15-20% annually. Survival window: 18-24 months to scale to Micro or dissolve."
+    },
+    {
+      "term": "NASSCOM",
+      "definition": "The National Association of Software and Service Companies, India's apex body for the technology and GCC industry. Operates the GCC community platform, publishes the annual State of the GCC Industry report, hosts the GCC Conclave, and manages the GCC Awards program. Primary ecosystem directory for GCC leaders."
+    },
+    {
+      "term": "Plateau (GCC)",
+      "definition": "Stage 6 in the seven-stage GCC lifecycle  -  the most dangerous stage rarely discussed in practitioner literature. Signals include flattening headcount growth, declining CSAT, senior talent departure, and commoditization of the work portfolio. Requires deliberate intervention: portfolio repositioning, governance overhaul, or location diversification."
+    },
+    {
+      "term": "Private Limited Company (Pvt Ltd)",
+      "definition": "The most common legal entity structure for GCCs in India. Requires minimum two directors (one Indian resident), paid-up capital (no minimum), and annual ROC filings. Setup time: 4-8 weeks. Suited to GCCs of all sizes."
+    },
+    {
+      "term": "Safe Harbour (Transfer Pricing)",
+      "definition": "An elective transfer-pricing regime under which a taxpayer accepts a prescribed margin instead of a benchmarking study, reducing dispute risk. The Union Budget 2026-27 raised the threshold for IT services from INR 300 crore to INR 2,000 crore, consolidated software development, ITES, KPO, and contract R&D into one category at a uniform 15.5% margin, made approval automated, and allowed a five-year election — effective 1 April 2026."
+    },
+    {
+      "term": "Small GCC",
+      "definition": "A GCC with 300-1,000 employees. Parent revenue typically USD 500M-5B. India revenue contribution USD 20-80M. First dedicated GCC Head typically appointed at this stage. CoE model begins to crystallize. First real governance formalization."
+    },
+    {
+      "term": "STPI (Software Technology Parks of India)",
+      "definition": "Government of India body providing registration, infrastructure, and facilitation for IT and ITES companies including GCCs. STPI units enjoy export-related tax benefits and access to high-speed connectivity infrastructure."
+    },
+    {
+      "term": "Sunset (GCC)",
+      "definition": "Stage 7 in the seven-stage GCC lifecycle: the planned wind-down or consolidation of a GCC. A responsible sunset involves 12-18 months of talent transition, IP transfer, knowledge documentation, and statutory compliance. Not an admission of failure  -  approximately 8% of GCCs undergo planned sunset annually for strategic reasons including M&A, portfolio rationalization, or technology obsolescence."
+    },
+    {
+      "term": "Transfer Readiness Index",
+      "definition": "A governance framework developed by Plugscale that documents the readiness of a BOT-model GCC for ownership transfer. Key dimensions: IP documentation, leadership pipeline depth, governance independence, compliance posture, and employer brand stability."
+    },
+    {
+      "term": "Zinnov",
+      "definition": "India's leading GCC research and advisory firm. Publishes the annual GCC Landscape Report, the Mega GCC Analysis, and sector-specific studies. Zinnov's maturity framework (four waves) and size taxonomy (Nano to Mega) are the most widely cited classification systems in the ecosystem."
+    },
+    {
+      "term": "Zinnov-Nasscom GCC Value Orbit 2026 Report",
+      "definition": "The FY2026 GCC Landscape in India report, titled GCC Value Orbit: Delivery Engine to Enterprise Nerve Centre, co-published by Zinnov and Nasscom on May 6, 2026. It reports 2,117 GCCs across 3,728 units, USD 98.4B revenue, and 2.36M professionals."
+    }
+  ]
+}
