@@ -32,7 +32,7 @@ export const allResources: Resource[] = [
   { category: "Finance Operations", type: "Pdf Case Study", url: "https://hexaware.com/case-study/centralizing-and-transforming-finance-operations-building-a-global-capability-center-gcc/", name: "Hexaware - Transform Finance Operations with a GCC" },
   { category: "Finance Operations", type: "Web Article", url: "https://www.linkedin.com/pulse/how-indian-gccs-transforming-global-finance-2025-deepanya-gautam-qcrdc", name: "How Indian GCCs Are Transforming Global Finance in 2025" },
   // Finance Transformation
-  { category: "Finance Transformation", type: "Web Resource", url: "https://www.grantthornton.in/events/navigating-finance-transformation-in-gccs/", name: "Grant Thornton - Navigating Finance Transformation in GCCs" },
+  { category: "Finance Transformation", type: "Web Resource", url: "https://www.grantthornton.in/insights/blogs/gccs-and-the-tax-landscape-in-india-the-emerging-areas/", name: "Grant Thornton - GCCs and the Tax Landscape in India" },
   // Functions - HR
   { category: "Functions - HR", type: "Pdf Report", url: "https://www.mercer.com/our-thinking/career/gcc-hr-transformation.html", name: "Mercer - HR Transformation in GCCs" },
   // GCC Cybersecurity & Data Privacy
@@ -124,7 +124,7 @@ export const allResources: Resource[] = [
   { category: "GCC Legal & Regulatory", type: "Guide", url: "https://www.vjmglobal.com/blog/legal-compliance-checklist-gcc-setup-gcc", name: "VJM Global: Legal Compliance Checklist" },
   { category: "GCC Legal & Regulatory", type: "Guide", url: "https://www.esparkinfo.com/global-capability-center/legal-compliance", name: "eSparkBiz: Legal Compliance 2026 Guide" },
   { category: "GCC Legal & Regulatory", type: "Web Page", url: "https://kpmg.com/in/en/insights/2025/09/gccs-in-india-key-tax-insights.html", name: "KPMG: GCC Tax Insights (Web)" },
-  { category: "GCC Legal & Regulatory", type: "Article", url: "https://kpmg.com/us/en/taxnewsflash/news/2025/05/kpmg-article-cost-delivery-gccs-india.html", name: "KPMG: Cost of Delivery for GCCs – Transfer Pricing" },
+  { category: "GCC Legal & Regulatory", type: "Article", url: "https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/09/gccs-in-india-key-tax-insights.pdf", name: "KPMG India: GCC Tax Insights incl. Transfer Pricing" },
   { category: "GCC Legal & Regulatory", type: "Whitepaper", url: "https://www.indiasnews.net/news/278280880/india-based-gccs-emerge-as-global-hubs-for-complex-tax-operations-deloitte", name: "Deloitte: Transforming Global Tax Functions – GCC Advantage" },
   { category: "GCC Legal & Regulatory", type: "Article", url: "https://www.lexology.com/library/detail.aspx?g=0cccdf80-6534-4000-87ed-3fe4e532c665", name: "Lexology: Data Privacy and Cybersecurity for GCCs" },
   { category: "GCC Legal & Regulatory", type: "Guide", url: "https://practiceguides.chambers.com/practice-guides/cybersecurity-2025/india", name: "Chambers: Cybersecurity 2025 – India Practice Guide" },
@@ -236,9 +236,9 @@ export const allResources: Resource[] = [
   { category: "Geography", type: "Web Portal", url: "https://www.investpune.com/sectors/gcc-pune", name: "Invest Pune - GCC Sector" },
   { category: "Geography", type: "Web Report", url: "https://www.bpap.org/research-and-insights/", name: "BPAP - Philippines Research" },
   // HR Transformation
-  { category: "HR Transformation", type: "Web Article", url: "https://www.peoplematters.in/article/gcc/gcc-hr-transformation-strategies", name: "People Matters - GCC HR Transformation" },
+  { category: "HR Transformation", type: "Web Article", url: "https://www.peoplematters.in/", name: "People Matters - HR, Talent & GCC Coverage" },
   // Inception & Planning
-  { category: "Inception & Planning", type: "Web Article", url: "https://www.anlage.co.in/how-global-capability-centers-drive-cost-optimization/", name: "Anlage - GCCs Drive Cost Optimization" },
+  { category: "Inception & Planning", type: "Web Article", url: "https://www.anlage.co.in/build-operate-transfer-model/", name: "Anlage - BOT Model for GCC Cost Optimization" },
   { category: "Inception & Planning", type: "Web Article", url: "https://corridalegal.com/how-to-set-up-a-global-capability-centre-gcc-in-india-in-2026/", name: "Corrida Legal - GCC Setup India 2026" },
   { category: "Inception & Planning", type: "Web Article", url: "https://www.esparkinfo.com/global-capability-center/gcc-operating-models", name: "ESpark - GCC Operating Models" },
   { category: "Inception & Planning", type: "Web Article", url: "https://inorg.com/blog/cost-reduction-strategies-for-global-capability-centers", name: "InOrg - Cost Reduction Strategies" },
@@ -320,7 +320,7 @@ export const allResources: Resource[] = [
   // Technology Platforms
   { category: "Technology Platforms", type: "Web Guide", url: "https://www.microsoft.com/en-in/microsoft-365/gcc-collaboration-tools", name: "Microsoft 365 - Collaboration" },
   // Training
-  { category: "Training", type: "Web Resource", url: "https://www.coursera.org/courses?query=gcc%20management", name: "Coursera - GCC Management" },
+  { category: "Training", type: "Web Resource", url: "https://www.coursera.org/business", name: "Coursera for Business - Enterprise Upskilling" },
   // Landing Pages & Portals
   { category: "Landing Pages & Portals", type: "Landing", url: "https://www.everestgrp.com/sourcing-expertise/gbs-shared-services-gics/", name: "Everest Group GCC Research Portal" },
   { category: "Landing Pages & Portals", type: "Landing", url: "https://alcor.com/global-capability-center-setup/", name: "Alcor: GCC Setup Guide 2026" },

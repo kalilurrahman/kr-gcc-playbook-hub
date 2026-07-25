@@ -365,7 +365,7 @@ export const sections: GCCSection[] = [
         "Ministry of Corporate Affairs: https://www.mca.gov.in/",
         "Ministry of Labour & Employment: https://labour.gov.in/",
         "NASSCOM + GCC Community: https://nasscom.in/gcc/",
-        "NASSCOM Community Forums: https://community.nasscom.in/communities/global-capability-centers",
+        "NASSCOM GCC Community: https://community.nasscom.in/communities/gcc",
         "UP GCC Policy 2024: https://invest.up.gov.in/up-gcc-policy-2024/",
         "Company Registration (MCA): https://www.mca.gov.in/content/mca/global/en/home.html",
         "PAN/TAN Application: https://www.incometax.gov.in",
@@ -377,7 +377,7 @@ export const sections: GCCSection[] = [
         "Philippine Board of Investments (BOI, under DTI): https://boi.gov.ph/",
         "Poland PAIH: https://www.paih.gov.pl/",
         "ProColombia: https://www.procolombia.co",
-        "Mexico ProMexico: https://www.gob.mx/promexico",
+        "Mexico Secretaría de Economía (ProMéxico was dissolved in 2019): https://www.gob.mx/se",
         "Vietnam Briefing: https://www.vietnam-briefing.com/",
       ] },
       { icon: "🎓", title: "Training & Learning Platforms", description: "Upskilling, certifications, and development resources", tags: ["Learning", "Certification", "Upskilling"], details: [
@@ -423,7 +423,7 @@ export const sections: GCCSection[] = [
       ] },
       { icon: "📊", title: "Benchmarking & Market Data", description: "Salary surveys, real estate, and talent analytics", tags: ["Data", "Salary", "Intelligence"], details: [
         "Mercer Salary Surveys: https://www.mercer.com/solutions/talent/salary-surveys.html",
-        "Aon Salary Surveys: https://www.aon.com/human-capital-solutions/salary-surveys.jsp",
+        "Aon India Total Rewards & Salary Surveys: https://www.aon.com/india/human-resources/hrbpo/total_rewards",
         "ECA International (Expat comp): https://www.eca-international.com",
         "CBRE India (Office space): https://www.cbre.co.in",
         "JLL India (Real estate): https://www.jll.co.in",
@@ -434,9 +434,9 @@ export const sections: GCCSection[] = [
         "CB Insights (tech trends): https://www.cbinsights.com",
       ] },
       { icon: "🎯", title: "Assessment & Calculator Tools", description: "Maturity assessments, cost calculators, and ROI models", tags: ["Assessment", "Calculator"], details: [
-        "GCC Maturity Assessment (eSparkBiz): https://www.esparkinfo.com/gcc-maturity-assessment",
-        "GCC Setup Cost Calculator (TM Services): https://tmservices.co.in/gcc-cost-calculator",
-        "Location Scorecard Tool (Zinnov): https://zinnov.com/location-scorecard",
+        "GCC Advisory & Maturity Guidance (eSparkBiz): https://www.esparkinfo.com/global-capability-center",
+        "GCC Setup & Staffing Advisory (TM Services): https://tmservices.co.in/global-capability-centre-gcc/",
+        "Location Analysis & Scorecards (Zinnov): https://zinnov.com/centers-of-excellence/",
         "ANSR GCC Setup Calculator: Search ANSR GCC Calculator",
         "ROI Calculator: Spreadsheet-based NPV, IRR, payback models from consulting firms",
       ] },
@@ -533,7 +533,7 @@ export const sections: GCCSection[] = [
         icon: "📈", title: "GCC Efficiency & Success Metrics", description: "Measuring financial performance and value realization",
         tags: ["Metrics", "Performance", "KPIs"],
         details: [
-          "Inductus Framework: 8 pillars of GCC efficiency measurement (PDF) https://inductusgcc.com/wp-content/uploads/2025/05/A-Guide-to-Measuring-Global-Capability-Center-GCC-Efficiency-and-Success-Pillars.pdf",
+          "Inductus GCC: efficiency and maturity measurement frameworks https://inductusgcc.com/",
           "Financial KPIs: Cost per FTE, cost avoidance, revenue per employee",
           "Value Metrics: IP creation, product launches, innovation output",
           "Balanced Scorecard: Financial, operational, customer, and growth dimensions",
