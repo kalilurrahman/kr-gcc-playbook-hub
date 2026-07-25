@@ -50,7 +50,7 @@ export default function PlaybookViewer() {
   // Compute dynamic meta tags
 
   const meta = useMemo(() => {
-    const baseUrl = 'https://kr-gcc-playbook.lovable.app';
+    const baseUrl = 'https://gcc-playbook.kalilurrahman.com';
     const url = `${baseUrl}${location.pathname}`;
     switch (currentPage) {
       case 'home':

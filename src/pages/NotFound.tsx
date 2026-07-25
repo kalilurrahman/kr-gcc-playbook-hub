@@ -16,8 +16,8 @@ const NotFound = () => {
         <meta name="description" content="The page you are looking for does not exist. Return to the GCC Playbook dashboard." />
         <meta property="og:title" content="Page Not Found | GCC Playbook" />
         <meta property="og:description" content="The page you are looking for does not exist." />
-        <meta property="og:url" content={`https://kr-gcc-playbook.lovable.app${location.pathname}`} />
-        <link rel="canonical" href={`https://kr-gcc-playbook.lovable.app${location.pathname}`} />
+        <meta property="og:url" content={`https://gcc-playbook.kalilurrahman.com${location.pathname}`} />
+        <link rel="canonical" href={`https://gcc-playbook.kalilurrahman.com${location.pathname}`} />
         <meta name="robots" content="noindex" />
       </Helmet>
       <div className="flex min-h-screen items-center justify-center bg-muted">
