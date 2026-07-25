@@ -19,7 +19,7 @@ export const stats = [
   { value: "USD 98.4B", label: "Market Revenue" },
   { value: "2.36M", label: "Professionals" },
   { value: "506+", label: "Forbes Global 2000 GCCs" },
-  { value: "250K+", label: "AI/ML Professionals" },
+  { value: "1,200+", label: "GCCs with AI/ML Capabilities" },
   { value: "583", label: "Mid-market GCCs" },
   { value: "504", label: "PE-backed GCC Centers" },
 ];
@@ -45,9 +45,9 @@ export const sections: GCCSection[] = [
         icon: "🧠", title: "Capability & Talent Access", description: "Access to deep talent pools and specialized skills",
         tags: ["Talent", "Skills", "Expertise"],
         details: [
-          "India GCCs: 2.36M professionals, including 250,000+ AI/ML professionals",
-          "Poland: 430K+ IT professionals with EU-standard education",
-          "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 for AI hiring intensity",
+          "India GCCs: 2.36M professionals; 1,200+ centres now embed AI/ML capabilities backed by 250+ AI Centres of Excellence",
+          "Poland: ~650K IT professionals (~300K developers) with EU-standard education",
+          "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 for AI hiring intensity (Stanford HAI AI Index)",
           "Hire-Train-Deploy Models: Reduce time-to-productivity and attrition by 78%",
           "Global Talent Pool: Access to diverse perspectives, 24/7 development cycles",
         ],
@@ -152,7 +152,7 @@ export const sections: GCCSection[] = [
       {
         icon: "96%", title: "Collapsed Maturity Curve", description: "The crawl-walk-run model is obsolete",
         tags: ["Maturity", "Post-FY2021", "96%"],
-        details: ["96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one", "Maturity that historically took 10 years is now happening in under 5", "Implication: Founding governance, leadership, AI readiness, and portfolio scope must be designed at launch", "Operating Model: Structure, governance, decision rights, talent maturity, digital capabilities, business alignment, innovation output, and cultural integration"],
+        details: ["96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one (49% AI-first)", "Maturity that historically took 10 years is now happening in under 5", "Forward Outlook: nearly 3-in-4 India GCCs have the potential to reach Portfolio/Transformation-Hub maturity within five years; roughly half are projected to operate at high maturity by 2030", "Implication: Founding governance, leadership, AI readiness, and portfolio scope must be designed at launch", "Operating Model: Structure, governance, decision rights, talent maturity, digital capabilities, business alignment, innovation output, and cultural integration"],
       },
     ],
   },
@@ -216,7 +216,7 @@ export const sections: GCCSection[] = [
       {
         icon: "🇵🇱", title: "Poland - EU Engineering Hub", description: "Premium quality with EU regulatory access",
         tags: ["EU Access", "Quality"],
-        details: ["Tech Talent Pool: 430K+ IT professionals", "Cost Advantage: 40-50% lower senior salaries vs Western Europe", "Top Cities: Warsaw, Kraków, Wrocław, Poznań", "Advantages: EU regulations, strong skills, high English proficiency, innovation-friendly", "Education: Excellent STEM programs, tech university partnerships", "Time Zone: CET (aligned with Western Europe)"],
+        details: ["Tech Talent Pool: ~650K IT professionals (~300K developers)", "Cost Advantage: 40-50% lower senior salaries vs Western Europe", "Top Cities: Warsaw, Kraków, Wrocław, Poznań", "Advantages: EU regulations, strong skills, high English proficiency, innovation-friendly", "Education: Excellent STEM programs, tech university partnerships", "Time Zone: CET (aligned with Western Europe)"],
       },
       {
         icon: "🇷🇴", title: "Romania - Value & Quality", description: "Strong engineering with EU protections",
@@ -231,7 +231,18 @@ export const sections: GCCSection[] = [
       {
         icon: "🇵🇭", title: "Philippines - Service Excellence", description: "BPO leadership with English proficiency",
         tags: ["English", "BPO"],
-        details: ["Tech Talent Pool: 500K+ BPO/IT workforce", "Cost Advantage: 60-70% lower than US for support roles", "Top Cities: Manila, Cebu, Davao", "Advantages: Excellent English, cultural compatibility, customer service excellence", "Best For: Customer support, IT helpdesk, back-office operations"],
+        details: ["Tech Talent Pool: ~1.97M IT-BPM workforce (500K+ in IT/tech roles)", "Cost Advantage: 60-70% lower than US for support roles", "Top Cities: Manila, Cebu, Davao", "Advantages: Excellent English, cultural compatibility, customer service excellence", "Best For: Customer support, IT helpdesk, back-office operations"],
+      },
+      {
+        icon: "🌍", title: "Emerging & Strategic Destinations", description: "New alternatives beyond the established nearshore/EU hubs",
+        tags: ["Emerging", "2026"],
+        details: [
+          "Egypt (EMEA nearshore): ~USD 5.2B offshoring exports, 800K ICT-training target; Cairo a growing multilingual hub",
+          "Vietnam: ~500-530K developers; fast-growing, low-cost engineering base in SE Asia",
+          "Malaysia: semiconductor-led (National Semiconductor Strategy, 60K-engineer target); strong for deep-tech/ER&D",
+          "Gulf — UAE & Saudi Arabia: strategy-driven AI and data-centre plays (Vision 2030 / We The UAE) — high-cost, NOT cost arbitrage",
+          "Decision Lens: match destination to intent — arbitrage (India, Philippines, Vietnam) vs. EU access (Poland, Romania) vs. strategic AI/market presence (Gulf)",
+        ],
       },
       {
         icon: "🌎", title: "Location Selection Framework", description: "Multi-criteria decision framework",
@@ -253,7 +264,7 @@ export const sections: GCCSection[] = [
       {
         icon: "🎓", title: "AI Talent Lead & Operating Model Gap", description: "India is #1 globally in AI hiring intensity",
         tags: ["Skills", "Technology"],
-        details: ["FY2026 Data: 250,000+ AI/ML professionals work in India GCCs", "Global Position: India is the #2 market for enterprise AI talent and #1 in AI hiring intensity", "Operating Model Gap: No GCC has fully rebuilt its operating model around AI yet", "Solution - Learning Culture: Make L&D core to GCC DNA", "Solution - Partnerships: Ed-tech platforms, universities, and enterprise AI labs", "Technology Adoption: Move from pilots to production AI embedded in core workflows"],
+        details: ["AI Footprint: 1,200+ India GCCs embed AI/ML capabilities via 250+ AI Centres of Excellence; ~49% of post-FY2021 GCCs are AI-first from day one", "Global Position: India is the #2 market for enterprise AI talent and #1 in AI hiring intensity (~33% hiring rate, +59.5% YoY)", "GenAI Reality (EY GCC Pulse 2025): ~83% engaging GenAI, ~58% building agentic AI, but only ~24% deploying it in production", "Operating Model Gap: 70-90% of AI pilots still fail to reach production; few GCCs have rebuilt their operating model around AI", "Solution - Learning Culture: Make L&D core to GCC DNA; partner with ed-tech, universities, and enterprise AI labs", "Technology Adoption: Move from pilots to production AI embedded in core workflows"],
       },
       {
         icon: "🏛️", title: "Governance & Dual Mandates", description: "64% of GCC site leaders now hold dual mandates",
@@ -268,7 +279,7 @@ export const sections: GCCSection[] = [
       {
         icon: "⚖️", title: "Compliance & Regulatory Risk", description: "Navigating complex multi-jurisdiction requirements",
         tags: ["Compliance", "Risk"],
-        details: ["Key Areas: SEZ/STPI approvals, labor laws, tax compliance, data privacy", "India-Specific: GST, PF, ESI, contract labor regulations", "Solution - Expert Partners: Local legal and compliance advisors", "Solution - Governance: Strong internal controls, audit trails", "Solution - Data Security: GDPR, SOC2, ISO certifications", "Common Pitfall: Underestimating compliance causes deal failures in exits"],
+        details: ["Key Areas: SEZ/STPI approvals, labor laws, tax compliance, data privacy", "India-Specific: GST, PF, ESI, contract labor regulations", "2025-26 Regulatory Clock: DPDP Rules notified 13 Nov 2025 (full compliance by 13 May 2027); all four Labour Codes in force 21 Nov 2025 (basic pay ≥50% of wages)", "Budget 2026 Tax Certainty: transfer-pricing safe-harbour threshold raised ₹300cr → ₹2,000cr with a uniform 15.5% margin (from TY2026-27)", "Solution - Expert Partners: Local legal and compliance advisors; strong internal controls and audit trails", "Solution - Data Security: DPDP, GDPR, SOC2, ISO certifications", "Common Pitfall: Underestimating compliance causes deal failures in exits"],
       },
       {
         icon: "🏗️", title: "Infrastructure & Vendor Management", description: "Avoiding delays and quality issues",
@@ -292,8 +303,23 @@ export const sections: GCCSection[] = [
     label: "Best Practices",
     title: "GCC Best Practices",
     cards: [
-      { icon: "2026", title: "FY2026 Structural Shifts", description: "The operating assumptions for India GCCs have reset", tags: ["Trends", "FY2026"], details: ["Dual Mandates: 64% of GCC site leaders now hold global business unit ownership plus site leadership", "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 worldwide in AI hiring intensity", "Collapsed Maturity Curve: 96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one", "Strategic Frame: India's GCC ecosystem has moved from Delivery Engine to Enterprise Nerve Centre"] },
-      { icon: "NEW", title: "FY2026 Notable New Entrants", description: "Recent global companies joining India's GCC ecosystem", tags: ["Entrants", "FY2026"], details: ["Anthropic", "Vanguard", "T-Mobile", "Marriott International", "Lufthansa"] },
+      { icon: "2026", title: "FY2026 Structural Shifts", description: "The operating assumptions for India GCCs have reset", tags: ["Trends", "FY2026"], details: ["Flagship: Nasscom-Zinnov 'The GCC Value Orbit — From Delivery Engine to Enterprise Nerve Centre' (India GCC Landscape, FY2026 edition)", "Dual Mandates: ~64% of GCC site leaders reportedly hold global business unit ownership plus site leadership", "AI Talent Lead: India is #2 globally for enterprise AI talent and #1 worldwide in AI hiring intensity", "Collapsed Maturity Curve: 96% of GCCs established after FY2021 launched with a product or portfolio mandate from day one (49% AI-first)", "2030 Outlook: FICCI-ANAROCK (Feb 2026) projects 2,400+ GCCs and 2.8M+ professionals by 2030 — the older FY2030 revenue/count targets were already met at FY2026 actuals"] },
+      { icon: "NEW", title: "FY2026 Notable New Entrants", description: "Recent global companies joining India's GCC ecosystem", tags: ["Entrants", "FY2026"], details: [
+        "Anthropic — first India office, Bengaluru (opened Feb 2026); India is its #2 Claude market",
+        "Vanguard — first India GCC, Hyderabad (Nov 2025); scaling toward ~2,300 professionals by 2029",
+        "T-Mobile — first GCC outside the US, Hyderabad; targeting ~1,000 professionals by 2027",
+        "Marriott International — Tech Accelerator GCC, Hyderabad (Nov 2025)",
+        "Lufthansa — India GCC established via an Infosys Build-Operate-Transfer arrangement",
+        "M&A: Capgemini closed its USD 3.3B acquisition of WNS (Oct 2025)",
+      ] },
+      { icon: "🆕", title: "Mid-2026 Pulse", description: "The freshest signals as of mid-2026", tags: ["Update", "2026"], details: [
+        "Ecosystem count varies by method: Nasscom-Zinnov FY2026 flagship reports 2,117 GCCs / 2.36M professionals; ANSR's H1 2026 read is more conservative at 1,900+ GCCs / 2.1M+ (different counting definitions)",
+        "H1 2026 momentum: India added ~183 new GCC units; US-headquartered MNCs drove ~57% of new activity",
+        "AI at scale: ~49% of post-FY2021 GCCs launch AI-first; 1,200+ centres embed AI/ML via 250+ CoEs",
+        "Agentic AI (EY GCC Pulse 2025): ~83% engaging GenAI, ~58% building agentic capabilities, ~24% deploying in production",
+        "Pay & attrition (Aon 2026): GCC salary increases ~9.9%, AI/ML engineers ~21%; attrition normalizing to ~16.5% (AI/cloud roles run 18-30%)",
+        "Capital: 610+ PE-backed / emerging enterprises with India GCCs by Sep 2025; PE now a primary formation driver",
+      ] },
       { icon: "🎯", title: "Strategic Alignment", description: "Align GCC with parent company vision", tags: ["Strategy"], details: ["Define Clear Objectives: Beyond cost savings—strategic capabilities", "Business Outcome KPIs: Product launches, revenue impact, innovation delivered", "Regular Alignment: Quarterly strategy reviews with HQ leadership", "Stakeholder Engagement: Build trust through consistent value demonstration", "Long-term Vision: 3-5 year roadmap aligned with company goals"] },
       { icon: "🏃", title: "Start Small, Scale Gradually", description: "Validate before expanding", tags: ["Growth"], details: ["Pilot Team: Start with 50-100 focused team", "Validate Processes: Test workflows, governance, communication", "Build Local Leadership: Hire senior leaders early for credibility", "Success Metrics: Clear criteria for scaling decision", "Timeline: 12-18 months stabilization before major expansion"] },
       { icon: "👔", title: "Skills-First Hiring", description: "Competency over credentials", tags: ["Talent"], details: ["Competency-Based: Assess actual skills, not just resume brands", "Cultural Fit: Alignment with values, collaboration mindset", "Growth Potential: Hire for learning agility, not just current knowledge", "Diverse Pipelines: Partner with universities, bootcamps, non-traditional sources", "Candidate Experience: Treat as retention tool—first impression matters"] },
@@ -313,12 +339,14 @@ export const sections: GCCSection[] = [
     label: "Resources",
     title: "GCC Resources & Tools",
     cards: [
-      { icon: "📖", title: "Official Reports & Research", description: "Strategy documents from leading consulting firms", tags: ["Reports", "Research", "PDF"], details: [
-        "Zinnov-Nasscom GCC Landscape in India 2026: GCC Value Orbit: Delivery Engine to Enterprise Nerve Centre, published May 6, 2026",
-        "BCG Rewriting the GCC Playbook 2025: https://web-assets.bcg.com/66/c2/16f4539648f0a6a455ce5058f7f2/rewriting-the-global-capability-center-playbook.pdf",
-        "Everest Group GCC Transformation Landscape 2025: https://www.everestgrp.com/how-global-capability-centers-are-driving-transformation-the-evolving-landscape-blog/",
-        "Zinnov GCC Reports and Centers of Excellence: https://zinnov.com/centers-of-excellence/",
-        "KPMG GCC Tax Insights & Services 2025: https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/09/gccs-in-india-key-tax-insights.pdf",
+      { icon: "📖", title: "Official Reports & Research", description: "Flagship strategy documents and the freshest 2026 research", tags: ["Reports", "Research", "PDF"], details: [
+        "Nasscom-Zinnov India GCC Landscape 2026 — 'The GCC Value Orbit: From Delivery Engine to Enterprise Nerve Centre' (published May 6, 2026): https://zinnov.com/centers-of-excellence/zinnov-nasscom-india-gcc-landscape-2026-report/",
+        "ANSR — GCC Set-Up Activity in H1 2026 (1,900+ GCCs; emerging cities ~11% CAGR): https://ansr.com/ebooks/indias-most-gcc-ready-emerging-cities-for-2026",
+        "EY India GCC Pulse Survey 2025 (58% investing in agentic AI): https://www.ey.com/en_in/newsroom/2025/11/58-percent-gccs-in-india-investing-in-agentic-ai-two-third-creating-dedicated-innovation-teams-to-globalize-ideas-ey-gcc-pulse-survey-2025",
+        "Everest Group — Global Capability Centers Market Outlook 2026 (6,350+ GCCs globally): https://www.everestgrp.com/research/global-capability-centers/",
+        "BCG — Rewriting the Global Capability Center Playbook (AI-led maturity): https://www.bcg.com/publications/2025/india-rewriting-the-global-capability-center-playbook",
+        "FICCI-ANAROCK — India GCC count set to surpass 2,400 by 2030: https://www.business-standard.com/markets/capital-market-news/india-s-gcc-count-set-to-surpass-2-400-by-2030-as-commercial-real-estate-hits-record-highs-ficci-anarock-report-126020401038_1.html",
+        "KPMG India — GCCs in India: Key Tax Insights (2025): https://assets.kpmg.com/content/dam/kpmgsites/in/pdf/2025/09/gccs-in-india-key-tax-insights.pdf",
       ] },
       { icon: "🏢", title: "Consulting & Advisory Firms", description: "Expert partners for GCC setup, strategy and scaling", tags: ["Advisory", "Big 4", "Consulting"], details: [
         "Zinnov GCC Advisory & CoE Setup: https://zinnov.com/centers-of-excellence/",
@@ -420,14 +448,14 @@ export const sections: GCCSection[] = [
         "Vendor RFP Templates: Requirements, evaluation criteria for procurement",
         "BCG Playbook Templates: Strategy and planning templates",
       ] },
-      { icon: "🎤", title: "Events & Conferences 2026", description: "Major industry events and regional meetups", tags: ["Events", "Conferences"], details: [
-        "GCC Summit India 2026: Sep 15-17, Bengaluru — https://gccsummit.in",
-        "NASSCOM Technology & Leadership Forum: Feb 2026, Mumbai — https://nasscom.in/tlf",
-        "HR Tech Summit India: Jun 2026, Hyderabad — https://hrtechsummit.in",
-        "AWS re:Invent: Nov 2026, Las Vegas — https://reinvent.awsevents.com",
-        "Google Cloud Next: Apr 2026, San Francisco — https://cloud.withgoogle.com/next",
-        "Bengaluru GCC Leaders Meetup: Quarterly — Meetup.com / LinkedIn",
-        "Hyderabad GCC Forum: Bi-monthly focus on talent & ops excellence",
+      { icon: "🎤", title: "GCC Events & Conferences 2026", description: "Verified industry calendar — status as of mid-2026", tags: ["Events", "Conferences"], details: [
+        "UPCOMING — People Matters TechHR India 2026: Aug 6-7, Yashobhoomi (IICC), New Delhi",
+        "UPCOMING — Zinnov Confluence 2026: Aug 19-20, Sheraton Grand Bengaluru Whitefield",
+        "UPCOMING — ET Edge GCC Summit (Hyderabad edition): Sep 2026 — https://etedge.economictimes.indiatimes.com",
+        "CONCLUDED — Nasscom GCC Summit 2026 (16th ed., 'Strategic Leap'): May 6-7, Westin Mumbai Powai",
+        "CONCLUDED — NASSCOM Technology & Leadership Forum (NTLF, 34th ed.): Feb 24-25 2026, Mumbai; next edition ~Feb 2027",
+        "CONCLUDED — ANSR GCC NXT Summit 2026: Feb 17, Taj Bangalore · ET Edge GCC Summit Bengaluru (11th ed.): Jul 15 2026",
+        "Global tech: AWS re:Invent (Nov, Las Vegas) · Google Cloud Next (Apr, San Francisco)",
       ] },
       { icon: "📢", title: "News & Thought Leadership", description: "Stay updated with GCC news, blogs, and podcasts", tags: ["News", "Blogs", "Podcasts"], details: [
         "GCC Pulse: Dedicated GCC news — https://gcc-pulse.com/",
