@@ -57,7 +57,7 @@ A thorough breakdown of GCCs by size category, helping organizations optimize an
 ![GCC Sizes](public/images/sizes_light.png)
 
 ### 📊 Maturity Levels
-Understand the 5 stages of capability center growth, from a simple cost center to a global value creator. Toggle views in dark or light mode based on your preference.
+The FY2026 Zinnov maturity framework — **Outpost → Satellite → Portfolio Hub → Transformation Hub** — plus the collapsed maturity curve: 96% of GCCs founded after FY2021 launched with a product or portfolio mandate from day one, so the old crawl-walk-run progression no longer describes how centres actually scale. Toggle views in dark or light mode based on your preference.
 
 ![Maturity Levels Light](public/images/maturity_light.png)
 
