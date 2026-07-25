@@ -1,12 +1,25 @@
 # GCC Playbook 2026–2030
 
-> The complete open-access reference for Global Capability Centers (GCCs) in India — covering landscape data, lifecycle phases, maturity models, setup playbooks, talent frameworks, AI transformation, finance, governance, and 2030 scenarios. Curated by Kalilur Rahman. Updated with FY2026 Zinnov–Nasscom figures.
+> The complete open-access reference for Global Capability Centers (GCCs) in India — 152 chapters across four parts covering landscape data, lifecycle phases, maturity models, setup playbooks, talent frameworks, AI transformation, finance, governance, regulation, and 2030 scenarios. Curated by Kalilur Rahman. Built on the FY2026 Nasscom–Zinnov "GCC Value Orbit" landscape report; content verified July 2026.
+
+## Key FY2026 figures
+
+- 2,117 GCCs in India across 3,728 units; USD 98.4B ecosystem revenue; 2.36M professionals (Nasscom–Zinnov, FY2026).
+- GCC count up 32% since FY2021; 506 Forbes Global 2000 companies operate India GCCs.
+- 96% of GCCs founded after FY2021 launched with a product or portfolio mandate; ~49% are AI-first from day one.
+- 1,200+ GCCs embed AI/ML capabilities, supported by 250+ AI Centres of Excellence.
+- ANSR's H1 2026 read is more conservative at 1,900+ GCCs / 2.1M+ professionals — counts vary by methodology.
 
 ## Pages
 
-- [/](/): Dashboard — key GCC statistics (2,117 GCCs, 2.36M professionals, USD 98.4B revenue), hub sections, and playbook navigation.
-- [/playbook](/playbook): Playbook Viewer — browse the full GCC Playbook in four parts with interactive TOC, search, bookmarks, reading progress, and glossary.
-- [/playbook/part-1](/playbook/part-1): Part I — India GCC Landscape, maturity models, and structural shifts.
-- [/playbook/part-2](/playbook/part-2): Part II — GCC Setup Guide, legal entity formation, location selection, and vendor management.
-- [/playbook/part-3](/playbook/part-3): Part III — Operating a GCC, talent strategy, AI transformation, finance, governance, ESG, and M&A.
-- [/playbook/part-4](/playbook/part-4): Part IV — GCC Metrics Handbook, benchmarks, KPIs, and downloadable resources.
+- [/](/): Dashboard — key GCC statistics, nine topic sections (purpose, lifecycle, maturity, sizes, geography, challenges, best practices, finance, resources), and playbook navigation.
+- [/playbook](/playbook): Playbook Viewer — browse all 152 chapters in four parts with interactive TOC, search, bookmarks, reading progress, and glossary.
+- [/playbook/part-1](/playbook/part-1): Part I (Ch 1–62) — India GCC landscape, four eras of evolution, city ecosystems, maturity frameworks, operating models, KPI architecture, and communities.
+- [/playbook/part-2](/playbook/part-2): Part II (Ch 63–128) — GCC by scale and stage: size taxonomy, setup playbooks, the seven-stage lifecycle, BOT/BOOT/GCCaaS operating models, case studies, and leadership profiles.
+- [/playbook/part-3](/playbook/part-3): Part III (Ch 129–144) — the frontier: AI as operating infrastructure, global location competition, M&A, deep tech, finance, legal and compliance, innovation, ESG, 2030 scenarios, and the 2025–26 regulatory reset with state GCC policies.
+- [/playbook/part-4](/playbook/part-4): Part IV (Ch 145–152) — GCC Metrics Handbook: Zinnov four-wave maturity, KPMG eight-dimension scoring, 35+ strategic indices, 37+ operational metric groups, and benchmarks.
+
+## Reference tools
+
+- Location Comparator (dashboard "Compare" tab): 11 GCC destinations compared by strategic fit, tech-talent depth, cost saving, time-zone, and US/EU overlap.
+- Resource Library (dashboard "Resources" tab): 286 curated reports, playbooks, government portals, and tools across 47 categories.
