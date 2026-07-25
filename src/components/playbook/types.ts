@@ -84,6 +84,20 @@ export type MasterIndex = {
   };
 };
 
+export type GlossaryTerm = {
+  term: string;
+  definition: string;
+};
+
+export type GlossaryData = {
+  title: string;
+  subtitle: string;
+  author: string;
+  lastUpdated: string;
+  totalTerms: number;
+  terms: GlossaryTerm[];
+};
+
 export type Page = 'home' | 'toc' | 'chapter' | 'glossary' | 'search' | 'resources';
 
 export const PART_COLORS: Record<number, { bg: string; text: string; border: string; badge: string }> = {

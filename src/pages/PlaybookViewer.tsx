@@ -9,7 +9,7 @@ import { ReadingProgress } from '@/components/playbook/ReadingProgress';
 import { ResourcesTab } from '@/components/playbook/ResourcesTab';
 import { useBookmarks, useReadingPosition, useFontSize } from '@/components/playbook/useBookmarks';
 import { Bookmark, BookmarkCheck, ArrowUp } from 'lucide-react';
-import type { MasterIndex, PartData, Chapter, Page } from '@/components/playbook/types';
+import type { MasterIndex, PartData, Chapter, Page, GlossaryData } from '@/components/playbook/types';
 import { PART_COLORS } from '@/components/playbook/types';
 
 function escapeHtml(str: string): string {
@@ -35,6 +35,8 @@ export default function PlaybookViewer() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [currentChapterIdx, setCurrentChapterIdx] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [glossary, setGlossary] = useState<GlossaryData | null>(null);
+  const [glossaryQuery, setGlossaryQuery] = useState('');
   const [collapsedParts, setCollapsedParts] = useState<Record<number, boolean>>({});
   const [loading, setLoading] = useState(true);
   const [loadingPart, setLoadingPart] = useState<number | null>(null);
@@ -59,6 +61,8 @@ export default function PlaybookViewer() {
         return { title: 'GCC Playbook | Table of Contents', description: 'Browse all chapters across the four parts of the GCC Playbook.', url };
       case 'resources':
         return { title: 'GCC Playbook | Resources & Downloads', description: 'Download PDFs, reports, and reference materials from the GCC Playbook.', url };
+      case 'glossary':
+        return { title: 'GCC Playbook | Glossary', description: 'Definitions of key GCC terms, operating models, institutions, and 2025-26 regulatory concepts.', url };
       case 'search':
         return { title: 'GCC Playbook | Search', description: 'Search chapters, sections, and content across the GCC Playbook.', url };
       case 'chapter': {
@@ -106,6 +110,15 @@ export default function PlaybookViewer() {
   useEffect(() => {
     if (masterIndex) loadPart(1);
   }, [masterIndex]);
+
+  // Lazy-load the glossary the first time it is opened
+  useEffect(() => {
+    if (currentPage !== 'glossary' || glossary) return;
+    fetch('/data/gcc-glossary.json')
+      .then(r => r.json())
+      .then((data: GlossaryData) => setGlossary(data))
+      .catch(() => {});
+  }, [currentPage, glossary]);
 
   // Rebuild allChapters when loadedParts changes
   useEffect(() => {
@@ -490,6 +503,98 @@ export default function PlaybookViewer() {
           </main>
         </div>
 
+        {showScrollTop && (
+          <button onClick={scrollToTop}
+            className="fixed bottom-6 right-6 p-3 rounded-full gradient-bg text-white shadow-lg hover:shadow-primary/30 transition z-50 min-w-[44px] min-h-[44px]"
+            aria-label="Scroll to top">
+            <ArrowUp className="w-5 h-5" />
+          </button>
+        )}
+        <PlaybookFooter masterIndex={masterIndex} onNavigatePart={navigateToPartFirstChapter} />
+      </div>
+    );
+  }
+
+  // ---- Glossary Page ----
+  if (currentPage === 'glossary') {
+    const gq = glossaryQuery.toLowerCase().trim();
+    const terms = (glossary?.terms || []).filter(t =>
+      !gq || t.term.toLowerCase().includes(gq) || t.definition.toLowerCase().includes(gq)
+    );
+    const grouped = terms.reduce<Record<string, typeof terms>>((acc, t) => {
+      const letter = t.term.charAt(0).toUpperCase();
+      const key = /[A-Z]/.test(letter) ? letter : '#';
+      if (!acc[key]) acc[key] = [];
+      acc[key].push(t);
+      return acc;
+    }, {});
+    const letters = Object.keys(grouped).sort();
+
+    return (
+      <div className="min-h-screen bg-background text-foreground flex flex-col">
+        <Helmet>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
+          <meta property="og:url" content={meta.url} />
+          <link rel="canonical" href={meta.url} />
+        </Helmet>
+        <ReadingProgress />
+        <PlaybookHeader {...headerProps} />
+        <main className="max-w-3xl mx-auto px-4 py-10 flex-1 w-full">
+          <h1 className="text-2xl font-bold mb-2 text-foreground">Glossary</h1>
+          <p className="text-sm text-muted-foreground mb-6">
+            {glossary
+              ? `${glossary.totalTerms} terms — GCC operating models, institutions, and 2025-26 regulatory concepts.`
+              : 'Loading terms…'}
+          </p>
+
+          <div className="relative mb-6">
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+            <input
+              type="text"
+              value={glossaryQuery}
+              onChange={e => setGlossaryQuery(e.target.value)}
+              placeholder="Filter terms and definitions…"
+              autoComplete="off"
+              aria-label="Filter glossary terms"
+              className="search-input-gcc w-full pl-9"
+            />
+          </div>
+
+          {glossary && (
+            <>
+              {gq && (
+                <p className="text-xs text-muted-foreground mb-4">
+                  {terms.length} of {glossary.totalTerms} term{terms.length !== 1 ? 's' : ''}
+                </p>
+              )}
+              {letters.map(letter => (
+                <section key={letter} className="mb-8">
+                  <h2 className="text-xs font-bold uppercase tracking-widest text-primary mb-3 sticky top-14 bg-background/95 py-1">
+                    {letter}
+                  </h2>
+                  <dl className="space-y-3">
+                    {grouped[letter].map(t => (
+                      <div key={t.term} className="bg-card border border-border rounded-xl px-4 py-3">
+                        <dt className="text-sm font-semibold text-foreground mb-1">{t.term}</dt>
+                        <dd
+                          className="text-sm text-muted-foreground leading-relaxed"
+                          style={{ fontSize: `${fontSize}px` }}
+                          dangerouslySetInnerHTML={{ __html: highlightText(t.definition, glossaryQuery) }}
+                        />
+                      </div>
+                    ))}
+                  </dl>
+                </section>
+              ))}
+              {!terms.length && (
+                <p className="text-muted-foreground text-sm">No terms match “{glossaryQuery}”.</p>
+              )}
+            </>
+          )}
+        </main>
         {showScrollTop && (
           <button onClick={scrollToTop}
             className="fixed bottom-6 right-6 p-3 rounded-full gradient-bg text-white shadow-lg hover:shadow-primary/30 transition z-50 min-w-[44px] min-h-[44px]"
