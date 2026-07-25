@@ -558,5 +558,6 @@ export const sections: GCCSection[] = [
 export const navItems = [
   { id: "overview", label: "Overview" },
   { id: "resources", label: "Resources" },
+  { id: "compare", label: "Compare" },
   ...sections.filter((s) => s.id !== "resources").map((s) => ({ id: s.id, label: s.label })),
 ];

@@ -6,6 +6,7 @@ import GCCHeader from "@/components/GCCHeader";
 import OverviewSection from "@/components/OverviewSection";
 import ContentSection from "@/components/ContentSection";
 import ResourcesExplorer from "@/components/ResourcesExplorer";
+import LocationComparator from "@/components/LocationComparator";
 import GCCFooter from "@/components/GCCFooter";
 import InstallPrompt from "@/components/InstallPrompt";
 import PlaybookBanner from "@/components/PlaybookBanner";
@@ -43,12 +44,13 @@ const Index = () => {
         )
       );
     }
-    if (activeSection === "overview" || activeSection === "resources") return [];
+    if (activeSection === "overview" || activeSection === "resources" || activeSection === "compare") return [];
     return sections.filter((s) => s.id === activeSection);
   }, [activeSection, searchQuery, isSearching]);
 
   const showOverview = !isSearching && activeSection === "overview";
   const showResources = !isSearching && activeSection === "resources";
+  const showCompare = !isSearching && activeSection === "compare";
   const contentKey = isSearching ? `search-${searchQuery}` : activeSection;
 
   return (
@@ -82,6 +84,8 @@ const Index = () => {
             {showOverview && <OverviewSection />}
 
             {showResources && <ResourcesExplorer />}
+
+            {showCompare && <LocationComparator />}
 
             {visibleSections.length > 0 && (
               <div className="space-y-12">
