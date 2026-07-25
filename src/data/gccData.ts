@@ -374,7 +374,7 @@ export const sections: GCCSection[] = [
         "ESIC Registration: https://www.esic.gov.in",
       ] },
       { icon: "🌎", title: "Global Investment Agencies", description: "Alternative location investment promotion agencies", tags: ["International", "Locations"], details: [
-        "Invest Philippines: https://investphilippines.gov.ph/",
+        "Philippine Board of Investments (BOI, under DTI): https://boi.gov.ph/",
         "Poland PAIH: https://www.paih.gov.pl/",
         "ProColombia: https://www.procolombia.co",
         "Mexico ProMexico: https://www.gob.mx/promexico",
@@ -451,10 +451,10 @@ export const sections: GCCSection[] = [
       { icon: "🎤", title: "GCC Events & Conferences 2026", description: "Verified industry calendar — status as of mid-2026", tags: ["Events", "Conferences"], details: [
         "UPCOMING — People Matters TechHR India 2026: Aug 6-7, Yashobhoomi (IICC), New Delhi",
         "UPCOMING — Zinnov Confluence 2026: Aug 19-20, Sheraton Grand Bengaluru Whitefield",
-        "UPCOMING — ET Edge GCC Summit (Hyderabad edition): Sep 2026 — https://etedge.economictimes.indiatimes.com",
+        "UPCOMING — ET Edge GCC Summit Hyderabad (13th ed.): Sep 2026 — https://gcc.et-edge.com",
         "CONCLUDED — Nasscom GCC Summit 2026 (16th ed., 'Strategic Leap'): May 6-7, Westin Mumbai Powai",
         "CONCLUDED — NASSCOM Technology & Leadership Forum (NTLF, 34th ed.): Feb 24-25 2026, Mumbai; next edition ~Feb 2027",
-        "CONCLUDED — ANSR GCC NXT Summit 2026: Feb 17, Taj Bangalore · ET Edge GCC Summit Bengaluru (11th ed.): Jul 15 2026",
+        "CONCLUDED — ANSR GCC NXT Summit 2026: Feb 17, Taj Bangalore · ET Edge GCC Summit Bengaluru (12th ed.): Jul 2026 — https://gcc.et-edge.com/2026-bangalore/",
         "Global tech: AWS re:Invent (Nov, Las Vegas) · Google Cloud Next (Apr, San Francisco)",
       ] },
       { icon: "📢", title: "News & Thought Leadership", description: "Stay updated with GCC news, blogs, and podcasts", tags: ["News", "Blogs", "Podcasts"], details: [
