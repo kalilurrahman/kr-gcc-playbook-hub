@@ -20,10 +20,12 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        # Use `npm install` (not `npm ci`): this is a bun-managed (Lovable)
-        # project whose committed package-lock.json drifts from package.json,
-        # and `npm ci` hard-fails on any drift. `npm install` reconciles it.
-        run: npm install --no-audit --no-fund --legacy-peer-deps
+        # Back to strict, reproducible installs: the committed package-lock.json
+        # has been regenerated and is now in sync with package.json, so `npm ci`
+        # succeeds again. If this ever fails with "Missing … from lock file",
+        # the lockfile has drifted — regenerate it (see MAINTENANCE.md §2)
+        # rather than loosening this step.
+        run: npm ci --no-audit --no-fund
 
       - name: Lint
         run: npm run lint
