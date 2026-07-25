@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-25T13:19:07.248Z",
-  "scannedFiles": 97,
+  "generatedAt": "2026-07-25T13:40:31.941Z",
+  "scannedFiles": 95,
   "errorCount": 0,
-  "warningCount": 3,
+  "warningCount": 1,
   "status": "pass",
   "rules": {
     "flagship-year": "Flagship Zinnov-Nasscom citation must include 2026.",
@@ -12,22 +12,6 @@
     "legacy-1800-historical": "Legacy '1,800 GCC' kept with explicit historical framing."
   },
   "findings": [
-    {
-      "severity": "warning",
-      "rule": "legacy-1800-historical",
-      "file": "src/data/content.json",
-      "line": 272,
-      "message": "Legacy '1,800' kept (historical framing detected)",
-      "snippet": "\"text\": \"The practical implication: when earlier industry reports said 'there are 1,800 GCCs in India' (FY2024 figure; the FY2026 count is 2,117 across 3,728 units), they are using GCC as the umbrella term. That figure includes centers of all sizes, functions, and maturity stages"
-    },
-    {
-      "severity": "warning",
-      "rule": "legacy-1800-historical",
-      "file": "public/data/gcc-content.json",
-      "line": 272,
-      "message": "Legacy '1,800' kept (historical framing detected)",
-      "snippet": "\"text\": \"The practical implication: when earlier industry reports said 'there are 1,800 GCCs in India' (FY2024 figure; the FY2026 count is 2,117 across 3,728 units), they are using GCC as the umbrella term. That figure includes centers of all sizes, functions, and maturity stages"
-    },
     {
       "severity": "warning",
       "rule": "legacy-1800-historical",
