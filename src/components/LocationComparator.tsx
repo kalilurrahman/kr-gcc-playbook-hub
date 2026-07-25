@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Search, ChevronDown, ArrowUpDown, ArrowUp, ArrowDown, Info, RotateCcw } from "lucide-react";
-import { locations, overlapScore, type GCCLocation, type Overlap } from "@/data/locationsData";
+import { locations, sortVal, type Overlap, type SortKey } from "@/data/locationsData";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -9,7 +9,6 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 
-type SortKey = "name" | "talentNum" | "costPct" | "gmt" | "usOverlap" | "euOverlap";
 type SortDir = "asc" | "desc";
 
 const overlapClasses: Record<Overlap, string> = {
@@ -23,13 +22,6 @@ const OverlapPill = ({ level }: { level: Overlap }) => (
     {level}
   </span>
 );
-
-const sortVal = (l: GCCLocation, key: SortKey): number | string => {
-  if (key === "usOverlap") return overlapScore[l.usOverlap];
-  if (key === "euOverlap") return overlapScore[l.euOverlap];
-  if (key === "name") return l.name;
-  return l[key] as number;
-};
 
 const columns: { key: SortKey; label: string; align?: string }[] = [
   { key: "name", label: "Destination" },

@@ -139,3 +139,13 @@ export const locations: GCCLocation[] = [
 ];
 
 export const overlapScore: Record<Overlap, number> = { High: 3, Medium: 2, Low: 1 };
+
+export type SortKey = "name" | "talentNum" | "costPct" | "gmt" | "usOverlap" | "euOverlap";
+
+/** Pure sort-key extractor — the comparable value for a location on a given column. */
+export const sortVal = (l: GCCLocation, key: SortKey): number | string => {
+  if (key === "usOverlap") return overlapScore[l.usOverlap];
+  if (key === "euOverlap") return overlapScore[l.euOverlap];
+  if (key === "name") return l.name;
+  return l[key] as number;
+};
