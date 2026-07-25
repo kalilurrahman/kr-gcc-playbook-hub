@@ -92,4 +92,23 @@ describe("annotateText", () => {
     expect(annotateText("", entries)).toEqual([]);
     expect(annotateText("some text", [])).toEqual([{ kind: "text", value: "some text" }]);
   });
+
+  // The compiled pattern is cached against the entries array and the regex is
+  // global, so a stateful lastIndex would make later blocks silently lose
+  // matches. Annotating the same text repeatedly must be idempotent.
+  it("is idempotent across repeated calls with the same entries", () => {
+    const text = "Choosing BOT 2.0 over GCCaaS.";
+    const first = annotateText(text, entries);
+    for (let i = 0; i < 5; i++) {
+      expect(annotateText(text, entries)).toEqual(first);
+    }
+  });
+
+  it("annotates every block independently when reusing one entries array", () => {
+    const blocks = ["GCCaaS is one option.", "GCCaaS again in a new block.", "And GCCaaS here."];
+    for (const b of blocks) {
+      const marks = annotateText(b, entries).filter((s) => s.kind === "term");
+      expect(marks).toHaveLength(1);
+    }
+  });
 });
