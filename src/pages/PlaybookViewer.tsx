@@ -11,6 +11,7 @@ import { useBookmarks, useReadingPosition, useFontSize } from '@/components/play
 import { Bookmark, BookmarkCheck, ArrowUp } from 'lucide-react';
 import type { MasterIndex, PartData, Chapter, Page, GlossaryData } from '@/components/playbook/types';
 import { PART_COLORS } from '@/components/playbook/types';
+import { buildTermEntries } from '@/components/playbook/glossaryMatch';
 
 function escapeHtml(str: string): string {
   if (!str) return '';
@@ -111,14 +112,19 @@ export default function PlaybookViewer() {
     if (masterIndex) loadPart(1);
   }, [masterIndex]);
 
-  // Lazy-load the glossary the first time it is opened
+  // Load the glossary once — it powers both the glossary page and the
+  // inline term tooltips while reading chapters.
   useEffect(() => {
-    if (currentPage !== 'glossary' || glossary) return;
     fetch('/data/gcc-glossary.json')
       .then(r => r.json())
       .then((data: GlossaryData) => setGlossary(data))
       .catch(() => {});
-  }, [currentPage, glossary]);
+  }, []);
+
+  const glossaryEntries = useMemo(
+    () => (glossary?.terms ? buildTermEntries(glossary.terms) : []),
+    [glossary],
+  );
 
   // Rebuild allChapters when loadedParts changes
   useEffect(() => {
@@ -467,17 +473,17 @@ export default function PlaybookViewer() {
             </div>
             <p className="text-muted-foreground text-sm mb-8">{ch.partTitle} · {ch.sections?.length ?? 0} sections</p>
 
-            <ContentBlocks blocks={ch.blocks} fontSize={fontSize} />
+            <ContentBlocks blocks={ch.blocks} fontSize={fontSize} glossaryEntries={glossaryEntries} />
 
             {(ch.sections || []).map((section, si) => (
               <div key={si} id={`section-${si}`}
                 className={`mb-8 scroll-mt-20 ${section.isKeyTakeaway ? 'bg-primary/5 border border-primary/20 rounded-xl p-6' : ''}`}>
                 <h2 className="text-lg font-semibold text-foreground mb-4">{section.isKeyTakeaway ? '🎯 ' : ''}{section.title}</h2>
-                <ContentBlocks blocks={section.blocks} fontSize={fontSize} />
+                <ContentBlocks blocks={section.blocks} fontSize={fontSize} glossaryEntries={glossaryEntries} />
                 {(section.subsections || []).map((sub, ssi) => (
                   <div key={ssi} className="mt-5 pl-4 border-l-2 border-border">
                     <h3 className="text-base font-semibold text-muted-foreground mb-2">{sub.title}</h3>
-                    <ContentBlocks blocks={sub.blocks} fontSize={fontSize} />
+                    <ContentBlocks blocks={sub.blocks} fontSize={fontSize} glossaryEntries={glossaryEntries} />
                   </div>
                 ))}
               </div>
