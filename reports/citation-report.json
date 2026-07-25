@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-25T15:27:44.103Z",
-  "scannedFiles": 113,
+  "generatedAt": "2026-07-25T15:30:16.802Z",
+  "scannedFiles": 106,
   "errorCount": 0,
-  "warningCount": 5,
+  "warningCount": 1,
   "status": "pass",
   "rules": {
     "flagship-year": "Flagship Zinnov-Nasscom citation must include 2026.",
@@ -19,38 +19,6 @@
       "line": 281,
       "message": "Legacy '1,800' kept (historical framing detected)",
       "snippet": "\"text\": \"The practical implication: when earlier industry reports said 'there are 1,800 GCCs in India' (FY2024 figure; the FY2026 count is 2,117 across 3,728 units), they are using GCC as the umbrella term. That figure includes centers of all sizes, functions, and maturity stages"
-    },
-    {
-      "severity": "warning",
-      "rule": "legacy-1800-historical",
-      "file": "pwa/public/data/content.json",
-      "line": 272,
-      "message": "Legacy '1,800' kept (historical framing detected)",
-      "snippet": "\"text\": \"The practical implication: when industry reports say 'there are 1,800 GCCs in India,' they are using GCC as the umbrella term. That figure includes centers of all sizes, functions, and maturity stages — from a 50-person finance processing center to a 25,000-person engine"
-    },
-    {
-      "severity": "warning",
-      "rule": "legacy-1800-historical",
-      "file": "pwa/public/data/content.json",
-      "line": 2717,
-      "message": "Legacy '1,800' kept (historical framing detected)",
-      "snippet": "\"text\": \"This combination of qualities is genuinely rare. The market for proven GCC Head talent in India is competitive — there are approximately 1,800 GCCs and a smaller number of experienced, enterprise-credentialed leaders who have successfully led one at scale. Budget 12–16 w"
-    },
-    {
-      "severity": "warning",
-      "rule": "legacy-1800-historical",
-      "file": "pwa/public/data/content.json",
-      "line": 3767,
-      "message": "Legacy '1,800' kept (historical framing detected)",
-      "snippet": "\"text\": \"CHALLENGE 1: Employer Branding in a 1,800-Center Market\""
-    },
-    {
-      "severity": "warning",
-      "rule": "flagship-year",
-      "file": "pwa/public/data/content.json",
-      "line": 18896,
-      "message": "Flagship Zinnov-Nasscom citation missing 2026",
-      "snippet": "\"NASSCOM-Zinnov India GCC Landscape Report 2025  -  zinnov.com/centers-of-excellence/\","
     }
   ]
 }

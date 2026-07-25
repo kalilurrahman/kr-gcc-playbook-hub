@@ -12,19 +12,21 @@
  * Scope has two tiers:
  *   - GATED_ROOTS (src/, public/data/) — what ships to users. Findings are
  *     errors and exit non-zero so CI gates on them.
- *   - ADVISORY_ROOTS/FILES (pwa/, root docs) — not built or deployed. These were
- *     previously unscanned, which let stale figures accumulate unnoticed; they
- *     are reported as warnings so the risk is visible without failing the build.
+ *   - ADVISORY_ROOTS/FILES (root docs, plus any unbuilt app directories) — not
+ *     built or deployed. These used to be unscanned, which let stale figures sit
+ *     in the repo unnoticed; they are reported as warnings so the risk stays
+ *     visible without failing the build.
  */
 import { readdirSync, readFileSync, statSync, mkdirSync, writeFileSync } from "node:fs";
 import { join, extname } from "node:path";
 
 // Paths that ship to users. Findings here are errors and gate CI.
 const GATED_ROOTS = ["src", "public/data"];
-// Paths that are NOT built or deployed (legacy apps, docs). Previously these
-// were not scanned at all, so stale figures could sit in the repo unnoticed —
-// e.g. pwa/ still carries pre-refresh FY2024 content. They are scanned now, but
-// reported as warnings so visibility never breaks the build.
+// Paths that are NOT built or deployed (legacy apps, docs). These were not
+// scanned at all before, so stale figures could sit in the repo unnoticed — the
+// superseded pwa/ app had accumulated pre-refresh FY2024 content that this guard
+// could not see. Scanned now, but reported as warnings so visibility never
+// breaks the build. Entries that do not exist are skipped.
 const ADVISORY_ROOTS = ["pwa"];
 const ADVISORY_FILES = ["README.md", "INTEGRATION_GUIDE.md", "MAINTENANCE.md"];
 const EXTS = new Set([".ts", ".tsx", ".js", ".jsx", ".json", ".md"]);
