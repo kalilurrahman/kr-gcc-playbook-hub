@@ -48,9 +48,9 @@
       "dataFile": "/data/gcc-part3.json",
       "chapterRange": {
         "start": 129,
-        "end": 143
+        "end": 144
       },
-      "totalChapters": 15,
+      "totalChapters": 16,
       "pdfResource": {
         "filename": "GCC_Playbook_Part_III_v1_0.pdf",
         "fileUrl": "/resources/GCC_Playbook_Part_III_v1_0.pdf",
@@ -65,8 +65,8 @@
       "subtitle": "Maturity Metrics, KPMG 8-Dimension Scoring, Operational Benchmarks & Case Studies",
       "dataFile": "/data/gcc-part4.json",
       "chapterRange": {
-        "start": 144,
-        "end": 151
+        "start": 145,
+        "end": 152
       },
       "totalChapters": 8,
       "pdfResource": {
@@ -80,7 +80,7 @@
   ],
   "stats": {
     "totalParts": 4,
-    "totalChapters": 151,
+    "totalChapters": 152,
     "totalPages": "500+"
   },
   "branding": {

@@ -4,7 +4,7 @@
   "partNumber": 4,
   "author": "Curated by Kalilur Rahman",
   "version": "1.0",
-  "lastUpdated": "May 2026",
+  "lastUpdated": "July 2026",
   "pdfResource": {
     "filename": "GCC_Metrics_Handbook.html",
     "fileUrl": "/resources/GCC_Metrics_Handbook.html",
@@ -16,7 +16,7 @@
     {
       "id": "ch-metrics-overview",
       "title": "GCC Metrics & Benchmarking Overview",
-      "chapterNumber": 144,
+      "chapterNumber": 145,
       "sections": [
         {
           "title": "Executive Summary",
@@ -57,7 +57,7 @@
     {
       "id": "ch-zinnov-waves",
       "title": "Zinnov Four-Wave Maturity Framework",
-      "chapterNumber": 145,
+      "chapterNumber": 146,
       "sections": [
         {
           "title": "The Four Waves of GCC Evolution",
@@ -130,7 +130,7 @@
     {
       "id": "ch-critical-levers",
       "title": "Three Critical Strategic Levers",
-      "chapterNumber": 146,
+      "chapterNumber": 147,
       "sections": [
         {
           "title": "Lever 1: Governance Architecture (Highest Impact)",
@@ -209,7 +209,7 @@
     {
       "id": "ch-kpmg-8dim",
       "title": "KPMG Eight-Dimension Maturity Assessment",
-      "chapterNumber": 147,
+      "chapterNumber": 148,
       "sections": [
         {
           "title": "Scoring Framework",
@@ -294,7 +294,7 @@
     {
       "id": "ch-strategic-metrics",
       "title": "35+ Strategic Maturity Indices",
-      "chapterNumber": 148,
+      "chapterNumber": 149,
       "sections": [
         {
           "title": "Strategic Alignment to HQ",
@@ -581,7 +581,7 @@
     {
       "id": "ch-operational-metrics",
       "title": "37+ Operational Metric Groups",
-      "chapterNumber": 149,
+      "chapterNumber": 150,
       "sections": [
         {
           "title": "Talent & Headcount Metrics",
@@ -803,7 +803,7 @@
     {
       "id": "ch-case-studies",
       "title": "Wave 4 Case Studies & Illustrations",
-      "chapterNumber": 150,
+      "chapterNumber": 151,
       "sections": [
         {
           "title": "Novartis GCC (Hyderabad)",
@@ -918,7 +918,7 @@
     {
       "id": "ch-self-assessment",
       "title": "Self-Assessment & Roadmap Guide",
-      "chapterNumber": 151,
+      "chapterNumber": 152,
       "sections": [
         {
           "title": "How to Use This Framework",
