@@ -6,81 +6,76 @@ Written July 2026 during the content-refresh audit (see PR #36).
 
 ---
 
-## 1. Why CI was red — and the applied fix
+## 1. Why CI was red — and the fix (resolved)
 
 **Symptom:** every CI run failed at *Install dependencies* with dozens of
 `npm error Missing: … from lock file` / `Invalid: … does not satisfy …`.
 
-**Cause:** this is a **bun-managed (Lovable) project** — `bun.lockb` / `bun.lock`
-are the maintained lockfiles. The committed `package-lock.json` has **drifted**
-from `package.json`, and `npm ci` requires an *exact* match, so it hard-fails on
-any drift. This was pre-existing and unrelated to content changes.
+**Root cause:** the committed `package-lock.json` was out of sync with
+`package.json`. The mismatch centred on the `@testing-library/dom` subtree —
+`@testing-library/react@16` requires it as a **peer** dependency and it was never
+declared, so different resolutions produced different trees. `npm ci` requires an
+exact match and hard-fails on any drift.
 
-**Applied fix (`.github/workflows/ci.yml`):** the install step now uses a
-reconciling install instead of the strict one:
+**Resolved.** The lockfile has been regenerated from `package.json`, verified with
+`npm ci` (exit 0), and CI is back on strict `npm ci`. An interim band-aid that ran
+`npm install --legacy-peer-deps` has been removed.
 
-```yaml
-- name: Install dependencies
-  run: npm install --no-audit --no-fund --legacy-peer-deps
-```
+If `npm ci` ever fails this way again, regenerate the lockfile (§2) rather than
+loosening the install step — the loose install hides drift instead of fixing it.
 
-This unblocks lint / citations / build. It is a pragmatic band-aid — the proper
-fix is to regenerate the lockfile (§2) or move CI to bun (§3).
+## 2. Dependency health — regenerating the lockfile
 
-> **Note on the approval gate:** GitHub does not auto-run Actions on commits
-> authored by a non-collaborator bot. Approve the pending run on the PR's
-> **Checks / Actions** tab to see CI execute. `workflow_dispatch` is now enabled,
-> so a maintainer can also trigger CI manually from the Actions tab.
-
----
-
-## 2. Dependency health — regenerate the lockfile & clear the alerts
-
-**Finding (from the audit):** the committed `package-lock.json` is *already
-mostly patched*. A scan against a curated advisory table found only **three
-still-vulnerable (moderate)** packages and **no critical**:
-
-| Package | In lockfile | Fix | Advisory |
-| --- | --- | --- | --- |
-| `esbuild` | 0.21.5 (via `vite` 5.4.19) | ≥ 0.25.0 | GHSA-67mh-4wv8-2f99 (dev-server) |
-| `vite` | 5.4.19 | ≥ 5.4.20 / 6 / 7 | fs / file-serving advisories |
-| `jsdom` | 20.0.3 (dev, tests) | ≥ 25 | old transitive surface |
-
-**Implication:** most of the 37 Dependabot alerts are very likely **stale** —
-GitHub is scoring an older dependency-graph snapshot. Pushing a freshly
-regenerated, in-sync lockfile lets Dependabot re-scan and auto-close the stale
-ones. Do this in a **networked checkout** (the CI sandbox has no outbound network):
+Regenerate whenever `npm ci` reports drift, or after changing `package.json`:
 
 ```bash
-# 1) Regenerate a clean, in-sync npm lockfile
 rm -rf node_modules package-lock.json
-npm install                       # resolves current, mostly-patched versions
-npm audit                         # ← the authoritative list of remaining alerts
-npm audit fix                     # safe, in-range fixes
-# npm audit fix --force           # only if needed; re-test afterwards
-
-# 2) Targeted upgrades for the three concrete items above
-npm i -D vite@^7 @vitejs/plugin-react-swc@latest   # brings esbuild ≥0.25
-npm i -D jsdom@^25
-
-# 3) Verify, then commit
-npm run lint && npm run build && npm test
-git add package-lock.json package.json && \
-  git commit -m "chore(deps): regenerate lockfile and patch advisories"
+npm install                 # resolves from package.json alone
+npm ci                      # MUST exit 0 — this is the gate CI uses
+npm run lint && npm test && npm run build
+git add package-lock.json && git commit -m "chore(deps): regenerate lockfile"
 ```
 
-> `vite` 6→7 is a major bump — re-check `vite.config.ts`, `vite-plugin-pwa`, and
-> `@vitejs/plugin-react-swc` compatibility after upgrading. If anything breaks,
-> `vite@^6` still clears the esbuild advisory.
+### Current vulnerability status (measured, not estimated)
 
-**Keep the bun lockfile in sync too** (it is the primary one for this project):
+`npm audit` on the regenerated tree reports **15 vulnerabilities — 12 high,
+3 moderate, 0 critical**. `npm audit fix` resolves **none** of them: every
+remaining fix requires a major upgrade. The chains are:
+
+| Chain | Severity | Fix requires |
+| --- | --- | --- |
+| `vite`, `esbuild` | high / moderate | `vite@8` (from 5.x — three majors) |
+| `eslint`, `@eslint/config-array`, `@eslint/eslintrc`, `brace-expansion`, `minimatch` | high | `eslint@10` (from 9.x) |
+| `vite-plugin-pwa`, `workbox-build`, `ejs`, `jake`, `filelist`, `rollup-plugin-off-main-thread` | high | `vite-plugin-pwa` major |
+| `react-router`, `react-router-dom` | moderate | `react-router@7` (real CVEs: open redirect via backslash in `<Link>`; constructor injection in `deserializeErrors()`) |
+
+Note the exposure is mostly **build-time and dev-time** (bundler, linter, PWA
+generator) rather than shipped runtime code — with the exception of
+`react-router`, which does ship. That does not make them ignorable, but it does
+mean they are lower risk than the raw "12 high" count suggests.
+
+These are deliberately **not** applied here: each is a major upgrade that can
+change build output or lint behaviour, and they should land as their own reviewed
+change with the full check suite plus a browser pass (§6). Suggested order,
+smallest blast radius first:
 
 ```bash
-bun install          # updates bun.lock / bun.lockb
+npm i react-router-dom@latest          # ships to users; do this one first
+npm i -D eslint@latest typescript-eslint@latest
+npm i -D vite@latest @vitejs/plugin-react-swc@latest vite-plugin-pwa@latest
+# after each: npm ci && npm run lint && npm test && npm run build
+```
+
+`vite@8` will likely need `vite.config.ts` review and a PWA-plugin bump in the
+same step; expect that one to need real work rather than a version bump.
+
+**Keep the bun lockfile in sync too** (bun is the primary package manager for
+this Lovable project):
+
+```bash
+bun install
 git add bun.lock bun.lockb && git commit -m "chore(deps): sync bun lockfile"
 ```
-
----
 
 ## 3. Recommended: align CI with bun
 
@@ -115,26 +110,35 @@ Swap this in once you can run it locally to confirm green.
 
 ---
 
-## 4. Keep the content fresh (quarterly)
+## 4. Keep the content fresh (quarterly) — partly automated
 
 The site is anchored to the annual Nasscom-Zinnov **GCC Value Orbit** benchmark
-(FY2026). Between annual reports, run a light quarterly refresh:
+(FY2026), so the risk between releases is quiet rot.
+
+**Automated.** `.github/workflows/freshness.yml` runs quarterly (and on manual
+dispatch) and does the machine-checkable half: the full link sweep via
+`npm run check:links` plus the citation check. It publishes both reports as
+artifacts and in the run summary, and comments on a single rolling `link-health`
+issue when links genuinely break. Trigger it any time from
+**Actions → Content freshness → Run workflow**.
+
+`scripts/check-links.mjs` classifies rather than reporting raw status codes —
+`ok` / `blocked` (401/403/429 bot walls, not actionable) / `broken` (404/410) /
+`error` (DNS, TLS, timeout). That distinction matters: many authoritative sources
+(BCG, Zinnov, NASSCOM, Invest India, MCA) refuse automated clients while being
+perfectly healthy in a browser, and several Indian government sites fail TLS
+verification from GitHub runners specifically. Only `broken` and `error` warrant
+action. It can be run locally too, but only from an environment with outbound
+network — the authoring sandbox has none.
+
+**Still manual** — the judgement half:
 
 1. **Verify headline stats** against the newest Nasscom-Zinnov / ANSR release and
    update `src/data/gccData.ts` (dashboard) + `public/data/gcc-part*.json`.
-2. **Refresh time-sensitive items:** the events card in `gccData.ts` (mark
-   past/upcoming), new entrants, and the resource library.
-3. **Link-health sweep** of `src/data/resourcesData.ts` — must run somewhere with
-   network (CI or local); the offline sandbox cannot reach external hosts.
-4. **Run the validators:** `npm run check:citations` and `node scripts/validate-jsonld.mjs`.
-
-Optional automation — a scheduled CI job that opens a delta PR:
-
-```yaml
-on:
-  schedule:
-    - cron: '0 6 1 */3 *'   # 06:00 UTC, 1st of every 3rd month
-```
+2. **Refresh time-sensitive items:** the events card in `gccData.ts` (each entry is
+   tagged UPCOMING/CONCLUDED — re-tag them), new entrants, and new reports.
+3. **Re-verify anything marked indicative**, especially the comparator's banded
+   English/IP ratings and office-cost figures.
 
 ---
 
@@ -157,18 +161,27 @@ Headline stats are duplicated in a few display spots that must be updated togeth
 
 ---
 
-## 6. Content-expansion backlog (from the audit)
+## 6. Content-expansion backlog
 
-Higher-effort items worth commissioning, in rough priority order:
+**Delivered since the audit:**
 
-- **Dedicated 2025–26 regulatory chapter** — DPDP Rules (compliance 13 May 2027),
-  the four Labour Codes (in force 21 Nov 2025), Budget-2026 transfer-pricing safe
-  harbour (₹2,000 cr / 15.5%), SEZ Amendment Rules 2025.
-- **State GCC-policy matrix** — Karnataka, Tamil Nadu (scheme, not policy), UP,
-  Andhra Pradesh, Telangana, Gujarat, Madhya Pradesh, Rajasthan, Odisha, with dates
-  and headline incentives.
-- **Confirm the flagged report figures** against the gated PDF: exact maturity-band
-  split, and any revenue-CAGR figure (currently omitted as unverifiable).
-- **Extend the Location Comparator** — add saved comparisons, more metrics
-  (real-estate cost, English proficiency, IP-protection score), and export.
+- ~~Dedicated 2025-26 regulatory chapter~~ — shipped as Part III Ch 16 (DPDP Rules,
+  four Labour Codes, Budget-2026 safe harbour, ten-state policy matrix).
+- ~~State GCC-policy matrix~~ — included in that chapter.
+- ~~Extend the Location Comparator~~ — office cost, English band, IP posture and
+  setup time added behind a "More metrics" toggle, plus CSV export.
+- ~~Glossary~~ — built as a real page (44 terms) with inline prose tooltips.
+- ~~Sector playbooks~~ — shipped as Part III Ch 17 (BFSI, healthcare & life
+  sciences, retail & FMCG).
+
+**Remaining:**
+
+- **Confirm the flagged report figures** against the gated Nasscom-Zinnov PDF: the
+  exact four-way maturity-band split (only the ~46% aggregate is publicly
+  verifiable) and any revenue-CAGR figure (currently omitted as unverifiable).
+  These are the only numbers on the site not independently corroborated.
+- **Dependency majors** — see §2; `react-router` first since it ships to users.
+- **Comparator depth** — saved/side-by-side comparisons; more Tier-2 India city
+  granularity rather than country-level only.
 - **Trim remaining bloat** — superseded PDF/DOCX versions under `resources/docs`.
+- **Consider bun-native CI** (§3) now that the npm lockfile is healthy — optional.
