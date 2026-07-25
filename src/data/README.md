@@ -24,6 +24,20 @@ This file is responsible for powering the entire interactive `ResourcesExplorer`
 - `resourceCategories`: A dynamically extracted, sorted array of all unique categories present within `allResources`.
 - `resourcesByCategory`: A heavily optimized mapping grouping the resources array by their category keys for near-instant rendering and searchability.
 
+## `locationsData.ts`
+
+Powers the interactive `LocationComparator` component (the dashboard's "Compare" tab). It exports:
+
+- `locations`: a typed array of GCC destinations (`GCCLocation`), each with strategic `fit`, `tier`, tech-talent depth, cost saving, time-zone, US/EU collaboration overlap, top cities, strengths, and an optional `note` for caveats (e.g. the Gulf is a strategy-driven, high-cost play rather than cost arbitrage).
+- `overlapScore`: maps `High`/`Medium`/`Low` overlap to a numeric ordering for sorting.
+- `sortVal(location, key)`: the pure sort-key extractor shared by the comparator's sortable columns. Kept here (not in the component) so it is unit-testable — see `locationsData.test.ts`.
+
+Display fields (`talentLabel`, `costLabel`, `tzLabel`) carry the human-readable values; the
+paired numeric fields (`talentNum`, `costPct`, `gmt`) exist only for sorting.
+
+> Note: the long-form playbook content is **not** in this directory. It is served as JSON from
+> `public/data/` and fetched at runtime — see [`INTEGRATION_GUIDE.md`](../../INTEGRATION_GUIDE.md).
+
 ### Updating Data
 
 Any modification to these arrays will automatically hot-reload and reflect in the application's components. They are structured intentionally so that non-technical contributors can easily edit text strings, add new items, or restructure existing content directly within the TypeScript files.

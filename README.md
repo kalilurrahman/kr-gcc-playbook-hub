@@ -1,6 +1,6 @@
 # GCC Playbook
 
-**Live URL**: [https://gcc-playbook-hub.lovable.app](https://gcc-playbook-hub.lovable.app)
+**Live URL**: [https://gcc-playbook.kalilurrahman.com](https://gcc-playbook.kalilurrahman.com)
 
 Welcome to the **GCC Playbook**, a comprehensive guide to building, scaling, and optimizing Global Capability Centers from inception to excellence.
 
@@ -94,6 +94,18 @@ Whether exploring the library or reviewing strategies, you can transition betwee
 *Library Filtering (Light Mode)*
 
 All screenshots and UI examples have been freshly generated to reflect the latest state of the GCC Playbook Hub, specifically highlighting our robust and interactive Resource Library.
+
+---
+
+## 🧭 Location Comparator
+
+An interactive decision tool (the **Compare** tab on the dashboard) for evaluating GCC destinations
+side by side — because location choice should follow *intent*, not cost alone.
+
+- **11 destinations**: India, Poland, Mexico, Colombia, Romania, Philippines, Vietnam, Egypt, Malaysia, Ukraine, and the UAE/Gulf.
+- **Filter** by region and strategic fit — cost arbitrage vs. EU access vs. US nearshore vs. deep-tech vs. strategic AI presence.
+- **Sort** by tech-talent depth, cost saving, time-zone, or US/EU collaboration overlap.
+- **Caveats surfaced inline**, e.g. the Gulf is flagged as a high-cost, strategy-driven play rather than an arbitrage destination.
 
 ---
 
